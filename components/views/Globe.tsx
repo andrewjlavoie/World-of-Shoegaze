@@ -201,9 +201,9 @@ export function Globe() {
       const dx = e.clientX - dragRef.current.x;
       const dy = e.clientY - dragRef.current.y;
       setRotLng(dragRef.current.startLng + dx * 0.5);
-      // Drag down → tilt forward (north pole rotates toward viewer).
+      // Drag down → north pole rotates toward viewer (the surface follows your finger).
       // Clamp to ±88° so the pole doesn't flip past the camera.
-      const nextLat = dragRef.current.startLat - dy * 0.5;
+      const nextLat = dragRef.current.startLat + dy * 0.5;
       setRotLat(Math.max(-88, Math.min(88, nextLat)));
     }
   };
