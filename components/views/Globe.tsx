@@ -104,7 +104,7 @@ const ZOOM_MAX = 3;
 export function Globe() {
   const router = useRouter();
   const [rotLng, setRotLng] = useState(20);
-  const rotLat = -8;
+  const [rotLat, setRotLat] = useState(-8);
   const [activeEra, setActiveEra] = useState<EraKey | null>(null);
   const [hoverBand, setHoverBand] = useState<HoverData | null>(null);
   const [selectedScene, setSelectedScene] = useState<Scene>(SCENES[0]);
@@ -115,7 +115,7 @@ export function Globe() {
 
   // Active pointers — used to distinguish single-finger drag from two-finger pinch
   const pointersRef = useRef<Map<number, { x: number; y: number }>>(new Map());
-  const dragRef = useRef<{ x: number; startLng: number } | null>(null);
+  const dragRef = useRef<{ x: number; y: number; startLng: number; startLat: number } | null>(null);
   const pinchRef = useRef<{ startDist: number; startZoom: number } | null>(null);
   const lastTimeRef = useRef(0);
 
@@ -177,7 +177,7 @@ export function Globe() {
     pointersRef.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
 
     if (pointersRef.current.size === 1) {
-      dragRef.current = { x: e.clientX, startLng: rotLng };
+      dragRef.current = { x: e.clientX, y: e.clientY, startLng: rotLng, startLat: rotLat };
       pinchRef.current = null;
     } else if (pointersRef.current.size === 2) {
       const [a, b] = Array.from(pointersRef.current.values());
@@ -199,7 +199,12 @@ export function Globe() {
       setZoom(next);
     } else if (dragRef.current && pointersRef.current.size === 1) {
       const dx = e.clientX - dragRef.current.x;
+      const dy = e.clientY - dragRef.current.y;
       setRotLng(dragRef.current.startLng + dx * 0.5);
+      // Drag down → tilt forward (north pole rotates toward viewer).
+      // Clamp to ±88° so the pole doesn't flip past the camera.
+      const nextLat = dragRef.current.startLat - dy * 0.5;
+      setRotLat(Math.max(-88, Math.min(88, nextLat)));
     }
   };
 
@@ -210,7 +215,7 @@ export function Globe() {
     else if (pointersRef.current.size === 1 && !dragRef.current) {
       // resume drag with remaining finger
       const remaining = Array.from(pointersRef.current.values())[0];
-      dragRef.current = { x: remaining.x, startLng: rotLng };
+      dragRef.current = { x: remaining.x, y: remaining.y, startLng: rotLng, startLat: rotLat };
     }
   };
 
