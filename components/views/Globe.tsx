@@ -19,23 +19,68 @@ function project(lat: number, lng: number, rotLng: number, rotLat: number) {
   return { x, y, z, visible: z > -0.05 };
 }
 
+// Hand-tuned continent sub-regions: 35 patches building up recognizable
+// continents (Alaska, Greenland, Iberia, Japan, Indonesia, Madagascar all
+// distinct). Each entry is [centerLat, centerLng, latSpread, lngSpread, density].
 function generateLandPoints(): [number, number][] {
-  const continents: [number, number, number, number, number][] = [
-    [50, -100, 18, 35, 80],
-    [0, -60, 22, 12, 70],
-    [54, 10, 12, 25, 90],
-    [10, 22, 22, 28, 130],
-    [30, 80, 22, 35, 140],
-    [38, 130, 8, 6, 24],
-    [-25, 134, 12, 18, 50],
-    [-80, 0, 4, 180, 30],
+  const regions: [number, number, number, number, number][] = [
+    // North America
+    [65, -150, 7, 18, 60],   // Alaska
+    [60, -118, 8, 22, 110],  // Canada west
+    [55, -90,  9, 22, 130],  // Canada central
+    [50, -65,  7, 22, 90],   // Eastern Canada
+    [42, -100, 8, 22, 150],  // USA central
+    [35, -86,  7, 18, 110],  // USA south
+    [25, -100, 6, 12, 70],   // Mexico
+    [12, -85,  4, 7,  40],   // Central America
+    [73, -40,  7, 18, 60],   // Greenland
+
+    // South America
+    [3,  -65,  8, 12, 80],   // North S.A.
+    [-8, -55, 12, 15, 130],  // Brazil
+    [-25,-62,  9, 9,  90],   // Argentina north
+    [-45,-68, 12, 6,  60],   // Patagonia
+
+    // Europe
+    [55, 25,   8, 18, 100],  // Eastern Europe
+    [48, 10,   5, 15, 90],   // Central Europe
+    [42, 13,   4, 9,  45],   // Italy
+    [40, -2,   4, 6,  45],   // Iberia
+    [55, -2,   5, 4,  50],   // UK / Ireland
+    [65, 20,   5, 17, 70],   // Scandinavia
+
+    // Africa
+    [25, 18,   10, 22, 180],  // North Africa
+    [5,  18,   12, 18, 170],  // Central Africa
+    [-15,25,   10, 18, 150],  // S. Africa
+    [-20,47,   6, 3,  40],    // Madagascar
+
+    // Asia
+    [60, 95,   10, 45, 200],  // Siberia
+    [45, 85,   7, 28, 140],   // Central Asia
+    [35, 65,   6, 15, 80],    // West Asia / Iran
+    [25, 47,   7, 11, 70],    // Middle East / Arabia
+    [35, 105,  10, 18, 180],  // China
+    [22, 78,   9, 9,  130],   // India
+    [16, 102,  5, 8,  70],    // SE Asia mainland
+    [-3, 115,  6, 16, 110],   // Indonesia / Borneo
+    [13, 122,  7, 3,  35],    // Philippines
+    [37, 138,  7, 3,  45],    // Japan
+
+    // Australia & NZ
+    [-25,134,  9, 14, 130],   // Australia
+    [-42,172,  6, 3,  35],    // NZ
+
+    // Antarctica
+    [-80,0,    4, 170, 70],
   ];
+
   let s = 17;
   const rnd = () => { s = (s * 1103515245 + 12345) & 0x7fffffff; return s / 0x7fffffff; };
   const pts: [number, number][] = [];
-  continents.forEach(([latC, lngC, latS, lngS, n]) => {
+  regions.forEach(([lat, lng, latS, lngS, n]) => {
     for (let i = 0; i < n; i++) {
-      pts.push([latC + (rnd() - 0.5) * 2 * latS, lngC + (rnd() - 0.5) * 2 * lngS]);
+      pts.push([lat + (rnd() - 0.5) * 2 * latS, lng + (rnd() - 0.5) * 2 * lngS]);
     }
   });
   return pts;
@@ -53,6 +98,9 @@ const ERA_COLORS: Record<EraKey, string> = {
 
 interface HoverData { x: number; y: number; bands: Band[]; }
 
+const ZOOM_MIN = 0.8;
+const ZOOM_MAX = 3;
+
 export function Globe() {
   const router = useRouter();
   const [rotLng, setRotLng] = useState(20);
@@ -62,8 +110,13 @@ export function Globe() {
   const [selectedScene, setSelectedScene] = useState<Scene>(SCENES[0]);
   const [paused, setPaused] = useState(false);
   const [sheetOpen, setSheetOpen] = useState(false);
+  const [zoom, setZoom] = useState(1);
   const [viewport, setViewport] = useState({ w: 1200, h: 800 });
-  const draggingRef = useRef<{ x: number; startLng: number } | null>(null);
+
+  // Active pointers — used to distinguish single-finger drag from two-finger pinch
+  const pointersRef = useRef<Map<number, { x: number; y: number }>>(new Map());
+  const dragRef = useRef<{ x: number; startLng: number } | null>(null);
+  const pinchRef = useRef<{ startDist: number; startZoom: number } | null>(null);
   const lastTimeRef = useRef(0);
 
   useEffect(() => {
@@ -81,7 +134,7 @@ export function Globe() {
       if (lastTimeRef.current === 0) lastTimeRef.current = t;
       const dt = t - lastTimeRef.current;
       lastTimeRef.current = t;
-      if (!paused && !draggingRef.current) {
+      if (!paused && !dragRef.current && !pinchRef.current) {
         setRotLng((r) => r + dt * 0.006);
       }
       raf = requestAnimationFrame(tick);
@@ -89,21 +142,6 @@ export function Globe() {
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
   }, [paused]);
-
-  useEffect(() => {
-    const onMove = (e: PointerEvent) => {
-      if (!draggingRef.current) return;
-      const dx = e.clientX - draggingRef.current.x;
-      setRotLng(draggingRef.current.startLng + dx * 0.5);
-    };
-    const onUp = () => { draggingRef.current = null; };
-    window.addEventListener("pointermove", onMove);
-    window.addEventListener("pointerup", onUp);
-    return () => {
-      window.removeEventListener("pointermove", onMove);
-      window.removeEventListener("pointerup", onUp);
-    };
-  }, []);
 
   const bandsToShow = useMemo(() => BANDS.filter((b) => !activeEra || b.era === activeEra), [activeEra]);
 
@@ -119,10 +157,9 @@ export function Globe() {
     return Object.values(result);
   }, [bandsToShow, rotLng]);
 
-  // Globe scales with viewport on mobile so the planet truly dominates.
-  const SIZE = isMobile
-    ? Math.min(viewport.w - 24, viewport.h - 200)
-    : 520;
+  // Planet scales with viewport on mobile; zoom multiplies on top.
+  const BASE = isMobile ? Math.min(viewport.w - 24, viewport.h - 220) : 520;
+  const SIZE = Math.round(BASE * zoom);
   const R = SIZE / 2 - 14;
   const CX = SIZE / 2;
   const CY = SIZE / 2;
@@ -134,6 +171,52 @@ export function Globe() {
 
   const open = (b: Band) => router.push(`/band/${slugify(b.name)}`);
 
+  // Pointer handlers driving drag (1 finger / mouse) and pinch (2 fingers)
+  const onPointerDown = (e: React.PointerEvent<SVGSVGElement>) => {
+    (e.currentTarget as Element).setPointerCapture?.(e.pointerId);
+    pointersRef.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+
+    if (pointersRef.current.size === 1) {
+      dragRef.current = { x: e.clientX, startLng: rotLng };
+      pinchRef.current = null;
+    } else if (pointersRef.current.size === 2) {
+      const [a, b] = Array.from(pointersRef.current.values());
+      const dist = Math.hypot(b.x - a.x, b.y - a.y);
+      pinchRef.current = { startDist: dist, startZoom: zoom };
+      dragRef.current = null;
+    }
+  };
+
+  const onPointerMove = (e: React.PointerEvent<SVGSVGElement>) => {
+    if (!pointersRef.current.has(e.pointerId)) return;
+    pointersRef.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+
+    if (pinchRef.current && pointersRef.current.size >= 2) {
+      const [a, b] = Array.from(pointersRef.current.values());
+      const dist = Math.hypot(b.x - a.x, b.y - a.y);
+      const ratio = dist / pinchRef.current.startDist;
+      const next = Math.max(ZOOM_MIN, Math.min(ZOOM_MAX, pinchRef.current.startZoom * ratio));
+      setZoom(next);
+    } else if (dragRef.current && pointersRef.current.size === 1) {
+      const dx = e.clientX - dragRef.current.x;
+      setRotLng(dragRef.current.startLng + dx * 0.5);
+    }
+  };
+
+  const onPointerUp = (e: React.PointerEvent<SVGSVGElement>) => {
+    pointersRef.current.delete(e.pointerId);
+    if (pointersRef.current.size < 2) pinchRef.current = null;
+    if (pointersRef.current.size === 0) dragRef.current = null;
+    else if (pointersRef.current.size === 1 && !dragRef.current) {
+      // resume drag with remaining finger
+      const remaining = Array.from(pointersRef.current.values())[0];
+      dragRef.current = { x: remaining.x, startLng: rotLng };
+    }
+  };
+
+  const zoomBy = (factor: number) =>
+    setZoom((z) => Math.max(ZOOM_MIN, Math.min(ZOOM_MAX, z * factor)));
+
   return (
     <div className="wos" style={{ width: "100%", height: "calc(100vh - 50px)", overflow: "hidden", background: "linear-gradient(180deg, #07060c 0%, #0c0a18 100%)", color: "#d6d0c0", position: "relative" }}>
       <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.4), transparent), radial-gradient(1px 1px at 80% 70%, rgba(255,255,255,0.3), transparent), radial-gradient(1px 1px at 50% 10%, rgba(255,255,255,0.35), transparent), radial-gradient(1px 1px at 10% 80%, rgba(255,255,255,0.3), transparent), radial-gradient(1px 1px at 90% 20%, rgba(255,255,255,0.25), transparent), radial-gradient(1px 1px at 65% 45%, rgba(255,255,255,0.2), transparent), radial-gradient(1px 1px at 35% 55%, rgba(255,255,255,0.25), transparent)" }} />
@@ -144,10 +227,9 @@ export function Globe() {
           <span>/</span>
           <span style={{ color: "#fff" }}>globe</span>
         </div>
-        <div className="micro wos-globe-header-meta" style={{ color: "rgba(255,255,255,0.4)" }}>view 03 / globe · drag to spin</div>
+        <div className="micro wos-globe-header-meta" style={{ color: "rgba(255,255,255,0.4)" }}>view 03 / globe · drag to spin · pinch to zoom</div>
       </header>
 
-      {/* mobile-only: floating button to open the scene-report sheet */}
       <button
         className="wos-globe-sidebar-btn"
         onClick={() => setSheetOpen(true)}
@@ -155,6 +237,15 @@ export function Globe() {
       >
         ◐ scene report
       </button>
+
+      {/* zoom + pause cluster — vertical stack, bottom-right */}
+      <div className="globe-fab-stack">
+        <button className="globe-fab" onClick={() => zoomBy(1.3)} aria-label="zoom in" title="zoom in">＋</button>
+        <button className="globe-fab" onClick={() => zoomBy(1 / 1.3)} aria-label="zoom out" title="zoom out">－</button>
+        <button className="globe-fab globe-fab-pause" onClick={() => setPaused((p) => !p)} aria-label={paused ? "play" : "pause"} title={paused ? "play" : "pause"}>
+          {paused ? "▶" : "❚❚"}
+        </button>
+      </div>
 
       <div className="wos-globe-layout">
         <div className="wos-globe-stage">
@@ -167,8 +258,15 @@ export function Globe() {
 
           <svg
             width={SIZE} height={SIZE}
-            onPointerDown={(e) => { draggingRef.current = { x: e.clientX, startLng: rotLng }; }}
-            style={{ cursor: draggingRef.current ? "grabbing" : "grab", touchAction: "none" }}
+            onPointerDown={onPointerDown}
+            onPointerMove={onPointerMove}
+            onPointerUp={onPointerUp}
+            onPointerCancel={onPointerUp}
+            style={{
+              cursor: dragRef.current ? "grabbing" : "grab",
+              touchAction: "none",
+              userSelect: "none",
+            }}
           >
             <defs>
               <radialGradient id="sphere-fill" cx="35%" cy="30%">
@@ -211,12 +309,24 @@ export function Globe() {
               })}
             </g>
 
-            <g fill="rgba(255,255,255,0.22)">
+            {/* Land — two layers: a soft warm wash for continent silhouette,
+                plus brighter cream dots on top for texture and definition. */}
+            <g fill="rgba(220, 195, 145, 0.18)">
               {LAND_POINTS.map((pt, i) => {
                 const p = projectLand(pt[0], pt[1]);
                 if (!p.visible) return null;
-                const fade = Math.max(0.18, p.z) * 0.5;
-                return <circle key={i} cx={p.sx} cy={p.sy} r={1.1} opacity={fade} />;
+                const fade = Math.max(0.35, p.z);
+                const haloR = 3.2 + (zoom - 1) * 0.6;
+                return <circle key={"halo" + i} cx={p.sx} cy={p.sy} r={haloR} opacity={fade * 0.6} />;
+              })}
+            </g>
+            <g fill="rgba(245, 230, 200, 0.85)">
+              {LAND_POINTS.map((pt, i) => {
+                const p = projectLand(pt[0], pt[1]);
+                if (!p.visible) return null;
+                const fade = Math.max(0.45, p.z);
+                const dotR = 1.4 + (zoom - 1) * 0.5;
+                return <circle key={i} cx={p.sx} cy={p.sy} r={dotR} opacity={fade * 0.75} />;
               })}
             </g>
 
@@ -228,7 +338,7 @@ export function Globe() {
                 const eraSet = new Set(g.bands.map((b) => b.era));
                 const dom = [...eraSet].sort((a, b) => g.bands.filter((x) => x.era === b).length - g.bands.filter((x) => x.era === a).length)[0];
                 const color = ERA_COLORS[dom];
-                const r = 1.6 + Math.min(g.bands.length, 8) * 0.7;
+                const r = (1.6 + Math.min(g.bands.length, 8) * 0.7) * Math.max(1, zoom * 0.85);
                 return (
                   <g key={i}>
                     <circle cx={sx} cy={sy} r={r * 2.2} fill={color} opacity={0.18 * fade} />
@@ -237,7 +347,7 @@ export function Globe() {
                       opacity={0.6 + 0.4 * fade}
                       onMouseEnter={() => setHoverBand({ x: sx, y: sy, bands: g.bands })}
                       onMouseLeave={() => setHoverBand(null)}
-                      onClick={() => g.bands.length === 1 && open(g.bands[0])}
+                      onClick={() => g.bands.length === 1 ? open(g.bands[0]) : setHoverBand({ x: sx, y: sy, bands: g.bands })}
                       style={{ cursor: "pointer" }}
                     />
                   </g>
@@ -245,7 +355,7 @@ export function Globe() {
               })}
             </g>
 
-            <g fill="rgba(255,255,255,0.85)" fontFamily="var(--font-jetbrains-mono), monospace" fontSize="9" letterSpacing="0.1em">
+            <g fill="rgba(255,255,255,0.85)" fontFamily="var(--font-jetbrains-mono), monospace" fontSize={Math.max(9, 9 * zoom * 0.7)} letterSpacing="0.1em">
               {SCENES.map((s, i) => {
                 const p = project(s.lat, s.lng, rotLng, rotLat);
                 if (!p.visible || p.z < 0.4) return null;
@@ -285,16 +395,15 @@ export function Globe() {
             </div>
           )}
 
-          <div className="wos-globe-controls" style={{ position: "absolute", bottom: 32, left: "50%", transform: "translateX(-50%)", display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 4, padding: 6, background: "rgba(8,6,12,0.6)", border: "1px solid rgba(255,255,255,0.1)", backdropFilter: "blur(8px)", maxWidth: "calc(100% - 64px)" }}>
-            <button onClick={() => setActiveEra(null)} style={{ background: !activeEra ? "rgba(255,255,255,0.15)" : "transparent", border: "1px solid rgba(255,255,255,0.1)", color: "#f4ede4", padding: "6px 12px", fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "inherit", cursor: "pointer" }}>all eras</button>
+          {/* era filter cluster — bottom-center */}
+          <div className="wos-globe-controls" style={{ position: "absolute", bottom: 28, left: "50%", transform: "translateX(-50%)", display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 4, padding: 6, background: "rgba(8,6,12,0.65)", border: "1px solid rgba(255,255,255,0.1)", backdropFilter: "blur(8px)", maxWidth: "calc(100% - 120px)", zIndex: 4 }}>
+            <button onClick={() => setActiveEra(null)} style={{ background: !activeEra ? "rgba(255,255,255,0.15)" : "transparent", border: "1px solid rgba(255,255,255,0.1)", color: "#f4ede4", padding: "8px 12px", fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "inherit", cursor: "pointer" }}>all</button>
             {ERAS.map((e) => (
-              <button key={e.key} onClick={() => setActiveEra(activeEra === e.key ? null : e.key)} style={{ background: activeEra === e.key ? ERA_COLORS[e.key] : "transparent", color: activeEra === e.key ? "#0a0612" : "#f4ede4", border: `1px solid ${activeEra === e.key ? ERA_COLORS[e.key] : "rgba(255,255,255,0.1)"}`, padding: "6px 12px", fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "inherit", cursor: "pointer", display: "flex", gap: 6, alignItems: "baseline" }}>
+              <button key={e.key} onClick={() => setActiveEra(activeEra === e.key ? null : e.key)} style={{ background: activeEra === e.key ? ERA_COLORS[e.key] : "transparent", color: activeEra === e.key ? "#0a0612" : "#f4ede4", border: `1px solid ${activeEra === e.key ? ERA_COLORS[e.key] : "rgba(255,255,255,0.1)"}`, padding: "8px 12px", fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "inherit", cursor: "pointer", display: "flex", gap: 6, alignItems: "center" }}>
                 <span style={{ background: ERA_COLORS[e.key], width: 6, height: 6, display: "inline-block" }} />
                 <span>{e.label}</span>
               </button>
             ))}
-            <span style={{ width: 1, background: "rgba(255,255,255,0.12)", margin: "0 4px" }} />
-            <button onClick={() => setPaused((p) => !p)} style={{ background: "transparent", color: "rgba(255,255,255,0.7)", border: "1px solid rgba(255,255,255,0.1)", padding: "6px 10px", fontSize: 10, fontFamily: "inherit", letterSpacing: "0.18em", textTransform: "uppercase", cursor: "pointer" }}>{paused ? "▶ spin" : "❚❚ pause"}</button>
           </div>
         </div>
 
@@ -315,7 +424,7 @@ export function Globe() {
           <div className="micro" style={{ color: "rgba(255,255,255,0.4)", letterSpacing: "0.12em", marginBottom: 12 }}>[ bands from here ]</div>
           <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
             {BANDS.filter((b) => Math.abs(b.lat - selectedScene.lat) < 1.5 && Math.abs(b.lng - selectedScene.lng) < 1.5).map((b) => (
-              <div key={b.name} onClick={() => open(b)} style={{ display: "flex", justifyContent: "space-between", padding: "8px 0", borderBottom: "1px solid rgba(255,255,255,0.05)", cursor: "pointer", fontSize: 12 }}>
+              <div key={b.name} onClick={() => open(b)} style={{ display: "flex", justifyContent: "space-between", padding: "10px 0", borderBottom: "1px solid rgba(255,255,255,0.05)", cursor: "pointer", fontSize: 13 }}>
                 <span style={{ color: "#f4ede4" }}>{b.name}</span>
                 <span style={{ color: "rgba(255,255,255,0.45)" }}>{b.year}</span>
               </div>
@@ -326,7 +435,7 @@ export function Globe() {
             <div className="micro" style={{ color: "rgba(255,255,255,0.4)", letterSpacing: "0.12em", marginBottom: 12 }}>[ other scenes ]</div>
             <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
               {SCENES.filter((s) => s.city !== selectedScene.city).map((s) => (
-                <button key={s.city} onClick={() => setSelectedScene(s)} style={{ background: "transparent", border: "none", borderBottom: "1px solid rgba(255,255,255,0.05)", padding: "10px 0", textAlign: "left", color: "#d6d0c0", fontFamily: "inherit", fontSize: 12, cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <button key={s.city} onClick={() => setSelectedScene(s)} style={{ background: "transparent", border: "none", borderBottom: "1px solid rgba(255,255,255,0.05)", padding: "12px 0", textAlign: "left", color: "#d6d0c0", fontFamily: "inherit", fontSize: 13, cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                   <span>{s.city}, <span style={{ color: "rgba(255,255,255,0.45)" }}>{s.country}</span></span>
                   <span style={{ background: ERA_COLORS[s.era], width: 6, height: 6 }} />
                 </button>
