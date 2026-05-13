@@ -300,6 +300,7 @@ button, a, [role="button"] { -webkit-tap-highlight-color: transparent; touch-act
 .feed-menu:hover { color: var(--ink); }
 
 .feed-art { display: block; line-height: 0; }
+.feed-art-img { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; background: var(--paper-2); }
 
 .feed-actions {
   display: flex; align-items: center; gap: 14px;
