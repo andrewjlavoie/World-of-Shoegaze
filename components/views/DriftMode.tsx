@@ -2,8 +2,23 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { bandPalette } from "@/lib/helpers";
-import type { Band } from "@/lib/types";
+import { MOOD_COLORS } from "@/lib/data";
+import type { AtlasArtist, AtlasAlbum } from "@/lib/atlas-types";
+import type { CSSProperties } from "react";
+
+function refAlbum(artist: AtlasArtist): AtlasAlbum {
+  return artist.discography.find((d) => d.isReference) || artist.discography[0];
+}
+
+function paletteFor(moods: string[]) {
+  const h = moods.length && MOOD_COLORS[moods[0]] ? MOOD_COLORS[moods[0]].hue : 260;
+  return {
+    bg: `linear-gradient(135deg, hsl(${h}, 55%, 35%), hsl(${(h + 35) % 360}, 60%, 22%))`,
+    accent: `hsl(${h}, 75%, 65%)`,
+    fg: "#fff8e8",
+    hue: h,
+  };
+}
 
 const LYRIC_LINES = [
   "the room is bigger now —",
@@ -18,9 +33,10 @@ const LYRIC_LINES = [
   "we said we'd sleep when this was over —",
 ];
 
-export function DriftMode({ band }: { band: Band }) {
+export function DriftMode({ artist }: { artist: AtlasArtist }) {
   const router = useRouter();
-  const palette = bandPalette(band.name);
+  const palette = paletteFor(artist.moods);
+  const album = refAlbum(artist);
   const [playing, setPlaying] = useState(true);
   const [t, setT] = useState(0);
   const [lineIdx, setLineIdx] = useState(0);
@@ -54,6 +70,13 @@ export function DriftMode({ band }: { band: Band }) {
   const trackTitle = ["Sing", "Alison", "When the Sun Hits", "Souvlaki Space Station"][Math.floor(t * 4) % 4];
   const trackNo = String(Math.floor(t * 4) + 1).padStart(2, "0");
 
+  const albumArtStyle: CSSProperties = {
+    ["--art-bg" as string]: palette.bg,
+    ["--art-fg" as string]: "#fff8e8",
+    width: "100%",
+    height: "100%",
+  };
+
   return (
     <div
       onMouseMove={onMove}
@@ -83,10 +106,19 @@ export function DriftMode({ band }: { band: Band }) {
         aspectRatio: "1/1",
         boxShadow: `0 30px 120px rgba(0,0,0,0.65), 0 0 200px ${palette.accent}55`,
       }}>
-        <div className="album-art" style={{ ["--art-bg" as string]: palette.bg, ["--art-fg" as string]: "#fff8e8", width: "100%", height: "100%" } as React.CSSProperties}>
-          <span className="aa-marker">[{band.year}]</span>
-          <div className="aa-title" style={{ fontSize: "min(4vh, 38px)" }}>{band.album}</div>
-        </div>
+        {album.art?.url ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={album.art.url}
+            alt={`${album.title} cover`}
+            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+          />
+        ) : (
+          <div className="album-art" style={albumArtStyle as React.CSSProperties}>
+            <span className="aa-marker">[{album.year}]</span>
+            <div className="aa-title" style={{ fontSize: "min(4vh, 38px)" }}>{album.title}</div>
+          </div>
+        )}
       </div>
 
       <div key={lineIdx} style={{
@@ -147,7 +179,7 @@ export function DriftMode({ band }: { band: Band }) {
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
             <div>
               <span className="serif italic" style={{ fontSize: 22 }}>{trackTitle}</span>
-              <span style={{ marginLeft: 12, fontSize: 11, color: "rgba(255,255,255,0.5)" }}>{band.name} — {band.album}</span>
+              <span style={{ marginLeft: 12, fontSize: 11, color: "rgba(255,255,255,0.5)" }}>{artist.name} — {album.title}</span>
             </div>
             <div style={{ fontSize: 11, color: "rgba(255,255,255,0.5)", fontVariantNumeric: "tabular-nums" }}>{trackNo} / 09</div>
           </div>

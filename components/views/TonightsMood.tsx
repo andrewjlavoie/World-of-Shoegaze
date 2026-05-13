@@ -2,9 +2,22 @@
 
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
-import { BANDS } from "@/lib/data";
-import { bandPalette, slugify } from "@/lib/helpers";
-import type { Band } from "@/lib/types";
+import { MOOD_COLORS } from "@/lib/data";
+import type { AtlasArtist, AtlasAlbum } from "@/lib/atlas-types";
+import type { CSSProperties } from "react";
+
+function refAlbum(artist: AtlasArtist): AtlasAlbum {
+  return artist.discography.find((d) => d.isReference) || artist.discography[0];
+}
+
+function paletteFor(moods: string[]) {
+  const h = moods.length && MOOD_COLORS[moods[0]] ? MOOD_COLORS[moods[0]].hue : 260;
+  return {
+    bg: `linear-gradient(135deg, hsl(${h}, 55%, 35%), hsl(${(h + 35) % 360}, 60%, 22%))`,
+    fg: "#fff8e8",
+    hue: h,
+  };
+}
 
 const MOODS = [
   { key: "weightless", label: "weightless", blurb: "drift. nothing too sharp.",          picks: ["Cocteau Twins", "Slowdive", "Mojave 3"] },
@@ -15,19 +28,19 @@ const MOODS = [
   { key: "first-snow", label: "first snow", blurb: "everything quiet and white.",        picks: ["Auburn Lull", "Cocteau Twins", "Mojave 3"] },
 ] as const;
 
-export function TonightsMood() {
+export function TonightsMood({ artists }: { artists: AtlasArtist[] }) {
   const router = useRouter();
   const [picked, setPicked] = useState<string | null>(null);
   const [hover, setHover] = useState<string | null>(null);
 
   const active = picked || hover;
   const mood = MOODS.find((m) => m.key === active);
-  const picks = useMemo<Band[]>(() => {
+  const picks = useMemo<AtlasArtist[]>(() => {
     if (!mood) return [];
     return mood.picks
-      .map((name) => BANDS.find((b) => b.name === name))
-      .filter((x): x is Band => Boolean(x));
-  }, [mood]);
+      .map((name) => artists.find((a) => a.name === name))
+      .filter((x): x is AtlasArtist => Boolean(x));
+  }, [mood, artists]);
 
   return (
     <div className="wos paper wos-paper-pad" style={{ width: "100%", minHeight: "100%" }}>
@@ -100,11 +113,17 @@ export function TonightsMood() {
               <div className="micro">{picks.length} of three</div>
             </div>
             <div className="wos-picks-grid">
-              {picks.map((b, i) => {
-                const p = bandPalette(b.name);
+              {picks.map((a, i) => {
+                const album = refAlbum(a);
+                const palette = paletteFor(a.moods);
+                const albumArtStyle: CSSProperties = {
+                  ["--art-bg" as string]: palette.bg,
+                  ["--art-fg" as string]: "#fff8e8",
+                  aspectRatio: "1/1",
+                };
                 return (
-                  <div key={b.name}
-                    onClick={() => router.push(`/band/${slugify(b.name)}`)}
+                  <div key={a.slug}
+                    onClick={() => router.push(`/band/${a.slug}`)}
                     style={{
                       border: "1px solid var(--ink)",
                       background: "var(--paper-2)",
@@ -114,20 +133,25 @@ export function TonightsMood() {
                     onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-3px)"; e.currentTarget.style.boxShadow = "6px 6px 0 var(--ink)"; }}
                     onMouseLeave={(e) => { e.currentTarget.style.transform = ""; e.currentTarget.style.boxShadow = ""; }}
                   >
-                    <div className="album-art" style={{ ["--art-bg" as string]: p.bg, ["--art-fg" as string]: "#fff8e8", aspectRatio: "1/1" } as React.CSSProperties}>
-                      <span className="aa-marker">[#{i + 1} · {b.year}]</span>
-                      <div className="aa-title">{b.album}</div>
-                    </div>
+                    {album.art?.url ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={album.art.url} alt={`${album.title} cover`} style={{ width: "100%", aspectRatio: "1/1", objectFit: "cover", display: "block" }} />
+                    ) : (
+                      <div className="album-art" style={albumArtStyle as React.CSSProperties}>
+                        <span className="aa-marker">[#{i + 1} · {album.year}]</span>
+                        <div className="aa-title">{album.title}</div>
+                      </div>
+                    )}
                     <div style={{ padding: "14px 16px 16px", borderTop: "1px solid var(--ink)" }}>
                       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 6 }}>
-                        <div style={{ fontSize: 18, fontWeight: 500 }}>{b.name}</div>
-                        <div className="micro">{b.country}</div>
+                        <div style={{ fontSize: 18, fontWeight: 500 }}>{a.name}</div>
+                        <div className="micro">{a.country}</div>
                       </div>
-                      <div className="serif italic" style={{ fontSize: 16, color: "var(--ink-soft)" }}>{b.album}</div>
-                      <p className="small" style={{ marginTop: 10, color: "var(--ink-soft)", lineHeight: 1.5 }}>&ldquo;{b.desc}&rdquo;</p>
+                      <div className="serif italic" style={{ fontSize: 16, color: "var(--ink-soft)" }}>{album.title}</div>
+                      <p className="small" style={{ marginTop: 10, color: "var(--ink-soft)", lineHeight: 1.5 }}>&ldquo;{a.desc}&rdquo;</p>
                       <div className="micro" style={{ marginTop: 12, display: "flex", justifyContent: "space-between", color: "var(--ink-faint)" }}>
                         <span>start here →</span>
-                        <span>intensity {b.intensity}/10</span>
+                        <span>intensity {a.intensity}/10</span>
                       </div>
                     </div>
                   </div>
@@ -143,7 +167,7 @@ export function TonightsMood() {
                 <button className="btn" onClick={() => setPicked(null)}>[ start over ]</button>
                 <button className="btn"
                   disabled={!picks.length}
-                  onClick={() => picks[0] && router.push(`/drift/${slugify(picks[0].name)}`)}>
+                  onClick={() => picks[0] && router.push(`/drift/${picks[0].slug}`)}>
                   [ enter drift mode → ]
                 </button>
               </div>

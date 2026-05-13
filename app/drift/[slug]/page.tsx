@@ -1,15 +1,17 @@
 import { notFound } from "next/navigation";
 import { DriftMode } from "@/components/views/DriftMode";
-import { BANDS } from "@/lib/data";
-import { findBand, slugify } from "@/lib/helpers";
+import { getAllSlugs, getArtistBySlug } from "@/lib/atlas-queries";
 
-export function generateStaticParams() {
-  return BANDS.map((b) => ({ slug: slugify(b.name) }));
+export const revalidate = 300;
+
+export async function generateStaticParams() {
+  const slugs = await getAllSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const band = findBand(slug);
-  if (!band) notFound();
-  return <DriftMode band={band} />;
+  const artist = await getArtistBySlug(slug);
+  if (!artist) notFound();
+  return <DriftMode artist={artist} />;
 }

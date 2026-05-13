@@ -2,13 +2,27 @@
 
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
-import { BANDS, ERAS } from "@/lib/data";
-import { bandHue, slugify } from "@/lib/helpers";
-import type { Band, EraKey } from "@/lib/types";
+import { ERAS, MOOD_COLORS } from "@/lib/data";
+import type { AtlasArtist, AtlasAlbum } from "@/lib/atlas-types";
+import type { EraKey } from "@/lib/types";
 
-export function Timeline() {
+function refAlbum(artist: AtlasArtist): AtlasAlbum {
+  return artist.discography.find((d) => d.isReference) || artist.discography[0];
+}
+
+function refAlbumYear(artist: AtlasArtist): number {
+  return refAlbum(artist).year;
+}
+
+function artistHue(artist: AtlasArtist): number {
+  if (!artist.moods.length) return 260;
+  const mc = MOOD_COLORS[artist.moods[0]];
+  return mc ? mc.hue : 260;
+}
+
+export function Timeline({ artists }: { artists: AtlasArtist[] }) {
   const router = useRouter();
-  const [hover, setHover] = useState<Band | null>(null);
+  const [hover, setHover] = useState<AtlasArtist | null>(null);
   const [activeEra, setActiveEra] = useState<EraKey | null>(null);
   const [scrubYear, setScrubYear] = useState<number | null>(null);
 
@@ -18,19 +32,20 @@ export function Timeline() {
     return out;
   }, []);
 
-  const bandsByYear = useMemo(() => {
-    const map: Record<number, Band[]> = {};
-    BANDS.forEach((b) => {
-      if (activeEra && b.era !== activeEra) return;
-      (map[b.year] ||= []).push(b);
+  const artistsByYear = useMemo(() => {
+    const map: Record<number, AtlasArtist[]> = {};
+    artists.forEach((a) => {
+      if (activeEra && a.era !== activeEra) return;
+      const y = refAlbumYear(a);
+      (map[y] ||= []).push(a);
     });
     return map;
-  }, [activeEra]);
+  }, [artists, activeEra]);
 
-  const wave = useMemo(() => years.map((y) => (bandsByYear[y] || []).length), [years, bandsByYear]);
+  const wave = useMemo(() => years.map((y) => (artistsByYear[y] || []).length), [years, artistsByYear]);
   const maxCount = Math.max(1, ...wave);
 
-  const open = (b: Band) => router.push(`/band/${slugify(b.name)}`);
+  const open = (a: AtlasArtist) => router.push(`/band/${a.slug}`);
 
   return (
     <div className="wos paper wos-paper-pad" style={{ width: "100%", minHeight: "100%" }}>
@@ -98,19 +113,19 @@ export function Timeline() {
 
           <div style={{ position: "relative" }}>
             {years.map((y) => {
-              const list = bandsByYear[y] || [];
+              const list = artistsByYear[y] || [];
               return (
                 <div key={y} style={{ height: 26, display: "flex", alignItems: "center", gap: 6, flexWrap: "wrap" }}>
-                  {list.map((b) => {
-                    const h = bandHue(b.name);
-                    const size = 6 + b.intensity * 1.6;
-                    const isHover = hover && hover.name === b.name;
+                  {list.map((a) => {
+                    const h = artistHue(a);
+                    const size = 6 + a.intensity * 1.6;
+                    const isHover = hover && hover.slug === a.slug;
                     return (
                       <div
-                        key={b.name}
-                        onMouseEnter={() => { setHover(b); setScrubYear(y); }}
-                        onMouseLeave={() => setHover((cur) => (cur && cur.name === b.name ? null : cur))}
-                        onClick={() => open(b)}
+                        key={a.slug}
+                        onMouseEnter={() => { setHover(a); setScrubYear(y); }}
+                        onMouseLeave={() => setHover((cur) => (cur && cur.slug === a.slug ? null : cur))}
+                        onClick={() => open(a)}
                         style={{
                           width: size, height: size,
                           background: `hsl(${h}, 55%, 42%)`,
@@ -143,11 +158,11 @@ export function Timeline() {
             boxShadow: "0 8px 24px rgba(0,0,0,0.15)",
           }}>
             <div className="micro" style={{ display: "flex", justifyContent: "space-between", marginBottom: 6 }}>
-              <span>[ {hover.year} · {hover.country} ]</span>
+              <span>[ {refAlbumYear(hover)} · {hover.country} ]</span>
               <span>intensity {hover.intensity}/10</span>
             </div>
             <div style={{ fontSize: 18, fontWeight: 500 }}>{hover.name}</div>
-            <div className="serif italic" style={{ fontSize: 18, marginTop: 2, color: "var(--ink-soft)" }}>{hover.album}</div>
+            <div className="serif italic" style={{ fontSize: 18, marginTop: 2, color: "var(--ink-soft)" }}>{refAlbum(hover).title}</div>
             <p className="small" style={{ marginTop: 10, lineHeight: 1.5, color: "var(--ink-soft)" }}>&ldquo;{hover.desc}&rdquo;</p>
             <div className="micro" style={{ marginTop: 10, color: "var(--ink-faint)" }}>click → open band file →</div>
           </div>

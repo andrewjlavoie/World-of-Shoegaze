@@ -2,9 +2,14 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { BANDS, ERAS, SCENES } from "@/lib/data";
-import { eraLabel, slugify } from "@/lib/helpers";
-import type { Band, EraKey, Scene } from "@/lib/types";
+import { ERAS, SCENES } from "@/lib/data";
+import { eraLabel } from "@/lib/helpers";
+import type { AtlasArtist, AtlasAlbum } from "@/lib/atlas-types";
+import type { EraKey, Scene } from "@/lib/types";
+
+function refAlbum(artist: AtlasArtist): AtlasAlbum {
+  return artist.discography.find((d) => d.isReference) || artist.discography[0];
+}
 
 function project(lat: number, lng: number, rotLng: number, rotLat: number) {
   const φ = (lat * Math.PI) / 180;
@@ -96,17 +101,17 @@ const ERA_COLORS: Record<EraKey, string> = {
   current: "#6fe0c8",
 };
 
-interface HoverData { x: number; y: number; bands: Band[]; }
+interface HoverData { x: number; y: number; artists: AtlasArtist[]; }
 
 const ZOOM_MIN = 0.8;
 const ZOOM_MAX = 3;
 
-export function Globe() {
+export function Globe({ artists }: { artists: AtlasArtist[] }) {
   const router = useRouter();
   const [rotLng, setRotLng] = useState(20);
   const [rotLat, setRotLat] = useState(-8);
   const [activeEra, setActiveEra] = useState<EraKey | null>(null);
-  const [hoverBand, setHoverBand] = useState<HoverData | null>(null);
+  const [hoverData, setHoverData] = useState<HoverData | null>(null);
   const [selectedScene, setSelectedScene] = useState<Scene>(SCENES[0]);
   const [paused, setPaused] = useState(false);
   const [sheetOpen, setSheetOpen] = useState(false);
@@ -143,19 +148,19 @@ export function Globe() {
     return () => cancelAnimationFrame(raf);
   }, [paused]);
 
-  const bandsToShow = useMemo(() => BANDS.filter((b) => !activeEra || b.era === activeEra), [activeEra]);
+  const artistsToShow = useMemo(() => artists.filter((a) => !activeEra || a.era === activeEra), [artists, activeEra]);
 
   const projected = useMemo(() => {
-    const result: Record<string, { p: ReturnType<typeof project>; bands: Band[] }> = {};
-    bandsToShow.forEach((b) => {
-      const p = project(b.lat, b.lng, rotLng, rotLat);
+    const result: Record<string, { p: ReturnType<typeof project>; artists: AtlasArtist[] }> = {};
+    artistsToShow.forEach((a) => {
+      const p = project(a.lat, a.lng, rotLng, rotLat);
       if (!p.visible) return;
-      const key = `${Math.round(b.lat / 3)}_${Math.round(b.lng / 3)}`;
-      if (!result[key]) result[key] = { p, bands: [] };
-      result[key].bands.push(b);
+      const key = `${Math.round(a.lat / 3)}_${Math.round(a.lng / 3)}`;
+      if (!result[key]) result[key] = { p, artists: [] };
+      result[key].artists.push(a);
     });
     return Object.values(result);
-  }, [bandsToShow, rotLng]);
+  }, [artistsToShow, rotLng]);
 
   // Planet scales with viewport on mobile; zoom multiplies on top.
   const BASE = isMobile ? Math.min(viewport.w - 24, viewport.h - 220) : 520;
@@ -169,7 +174,7 @@ export function Globe() {
     return { ...p, sx: CX + p.x * R, sy: CY - p.y * R };
   };
 
-  const open = (b: Band) => router.push(`/band/${slugify(b.name)}`);
+  const open = (a: AtlasArtist) => router.push(`/band/${a.slug}`);
 
   // Pointer handlers driving drag (1 finger / mouse) and pinch (2 fingers)
   const onPointerDown = (e: React.PointerEvent<SVGSVGElement>) => {
@@ -340,19 +345,19 @@ export function Globe() {
                 const sx = CX + g.p.x * R;
                 const sy = CY - g.p.y * R;
                 const fade = Math.max(0, g.p.z);
-                const eraSet = new Set(g.bands.map((b) => b.era));
-                const dom = [...eraSet].sort((a, b) => g.bands.filter((x) => x.era === b).length - g.bands.filter((x) => x.era === a).length)[0];
+                const eraSet = new Set(g.artists.map((a) => a.era));
+                const dom = [...eraSet].sort((a, b) => g.artists.filter((x) => x.era === b).length - g.artists.filter((x) => x.era === a).length)[0];
                 const color = ERA_COLORS[dom];
-                const r = (1.6 + Math.min(g.bands.length, 8) * 0.7) * Math.max(1, zoom * 0.85);
+                const r = (1.6 + Math.min(g.artists.length, 8) * 0.7) * Math.max(1, zoom * 0.85);
                 return (
                   <g key={i}>
                     <circle cx={sx} cy={sy} r={r * 2.2} fill={color} opacity={0.18 * fade} />
                     <circle
                       cx={sx} cy={sy} r={r} fill={color}
                       opacity={0.6 + 0.4 * fade}
-                      onMouseEnter={() => setHoverBand({ x: sx, y: sy, bands: g.bands })}
-                      onMouseLeave={() => setHoverBand(null)}
-                      onClick={() => g.bands.length === 1 ? open(g.bands[0]) : setHoverBand({ x: sx, y: sy, bands: g.bands })}
+                      onMouseEnter={() => setHoverData({ x: sx, y: sy, artists: g.artists })}
+                      onMouseLeave={() => setHoverData(null)}
+                      onClick={() => g.artists.length === 1 ? open(g.artists[0]) : setHoverData({ x: sx, y: sy, artists: g.artists })}
                       style={{ cursor: "pointer" }}
                     />
                   </g>
@@ -376,11 +381,11 @@ export function Globe() {
             </g>
           </svg>
 
-          {hoverBand && (
+          {hoverData && (
             <div style={{
               position: "absolute",
-              left: `calc(50% + ${hoverBand.x - SIZE / 2 + 14}px)`,
-              top: `calc(50% + ${hoverBand.y - SIZE / 2 - 60}px)`,
+              left: `calc(50% + ${hoverData.x - SIZE / 2 + 14}px)`,
+              top: `calc(50% + ${hoverData.y - SIZE / 2 - 60}px)`,
               background: "rgba(8,6,12,0.92)",
               border: "1px solid rgba(255,255,255,0.15)",
               padding: "10px 12px",
@@ -390,13 +395,16 @@ export function Globe() {
               pointerEvents: "none",
               zIndex: 4,
             }}>
-              <div className="micro" style={{ color: "rgba(255,255,255,0.5)", marginBottom: 6 }}>{hoverBand.bands[0].country} · {hoverBand.bands.length} {hoverBand.bands.length === 1 ? "band" : "bands"}</div>
-              {hoverBand.bands.slice(0, 4).map((b) => (
-                <div key={b.name} style={{ marginBottom: 2 }}>
-                  <span style={{ color: ERA_COLORS[b.era] }}>● </span>{b.name} <span style={{ opacity: 0.5 }}>· {b.year}</span>
-                </div>
-              ))}
-              {hoverBand.bands.length > 4 && <div className="micro" style={{ color: "rgba(255,255,255,0.5)" }}>+{hoverBand.bands.length - 4} more</div>}
+              <div className="micro" style={{ color: "rgba(255,255,255,0.5)", marginBottom: 6 }}>{hoverData.artists[0].country} · {hoverData.artists.length} {hoverData.artists.length === 1 ? "band" : "bands"}</div>
+              {hoverData.artists.slice(0, 4).map((a) => {
+                const album = refAlbum(a);
+                return (
+                  <div key={a.name} style={{ marginBottom: 2 }}>
+                    <span style={{ color: ERA_COLORS[a.era] }}>● </span>{a.name} <span style={{ opacity: 0.5 }}>· {album.year}</span>
+                  </div>
+                );
+              })}
+              {hoverData.artists.length > 4 && <div className="micro" style={{ color: "rgba(255,255,255,0.5)" }}>+{hoverData.artists.length - 4} more</div>}
             </div>
           )}
 
@@ -428,12 +436,15 @@ export function Globe() {
 
           <div className="micro" style={{ color: "rgba(255,255,255,0.4)", letterSpacing: "0.12em", marginBottom: 12 }}>[ bands from here ]</div>
           <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
-            {BANDS.filter((b) => Math.abs(b.lat - selectedScene.lat) < 1.5 && Math.abs(b.lng - selectedScene.lng) < 1.5).map((b) => (
-              <div key={b.name} onClick={() => open(b)} style={{ display: "flex", justifyContent: "space-between", padding: "10px 0", borderBottom: "1px solid rgba(255,255,255,0.05)", cursor: "pointer", fontSize: 13 }}>
-                <span style={{ color: "#f4ede4" }}>{b.name}</span>
-                <span style={{ color: "rgba(255,255,255,0.45)" }}>{b.year}</span>
-              </div>
-            ))}
+            {artists.filter((a) => Math.abs(a.lat - selectedScene.lat) < 1.5 && Math.abs(a.lng - selectedScene.lng) < 1.5).map((a) => {
+              const album = refAlbum(a);
+              return (
+                <div key={a.name} onClick={() => open(a)} style={{ display: "flex", justifyContent: "space-between", padding: "10px 0", borderBottom: "1px solid rgba(255,255,255,0.05)", cursor: "pointer", fontSize: 13 }}>
+                  <span style={{ color: "#f4ede4" }}>{a.name}</span>
+                  <span style={{ color: "rgba(255,255,255,0.45)" }}>{album.year}</span>
+                </div>
+              );
+            })}
           </div>
 
           <div style={{ marginTop: 32 }}>
