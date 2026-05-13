@@ -1,15 +1,23 @@
 import { notFound } from "next/navigation";
 import { BandDetail } from "@/components/views/BandDetail";
-import { BANDS } from "@/lib/data";
-import { findBand, slugify } from "@/lib/helpers";
+import { getAllSlugs, getArtistBySlug, getArtists } from "@/lib/atlas-queries";
+import { similarArtists } from "@/lib/atlas-similarity";
 
-export function generateStaticParams() {
-  return BANDS.map((b) => ({ slug: slugify(b.name) }));
+// Match the homepage: re-fetch from Atlas every 5 minutes.
+export const revalidate = 300;
+
+export async function generateStaticParams() {
+  const slugs = await getAllSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const band = findBand(slug);
-  if (!band) notFound();
-  return <BandDetail band={band} />;
+  const [artist, all] = await Promise.all([
+    getArtistBySlug(slug),
+    getArtists(),
+  ]);
+  if (!artist) notFound();
+  const similar = similarArtists(artist, all, 6);
+  return <BandDetail artist={artist} similar={similar} />;
 }

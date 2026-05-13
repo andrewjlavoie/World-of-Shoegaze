@@ -1,26 +1,45 @@
 #!/usr/bin/env python3
 """Find album-art URLs for every album in every artist's discography.
 
-Iterates `artists` in Atlas. For each album where `art.url` is unset, searches
-Discogs for `{artist name} {album title}` (master release) and writes the
-top hit's `cover_image` URL into the document.
+Primary source: iTunes Search API (free, no auth, returns Apple Music CDN URLs).
+Fallback: Discogs (requires DISCOGS_TOKEN in .env; without one, Discogs returns
+empty `cover_image` fields and we skip it).
 
-Idempotent: skips albums that already have art. Safe to re-run.
+Idempotent: skips albums that already have `art.url`. Safe to re-run.
 
 Usage:
     cd scripts/python
-    python -m venv .venv && source .venv/bin/activate
-    pip install -r requirements.txt
-    cp .env.example .env   # then fill MONGODB_URI + DISCOGS_TOKEN
-    python enrich_album_art.py [--limit N] [--force]
+    source .venv/bin/activate
+    python enrich_album_art.py [--limit N] [--force] [--artist <slug>]
 """
 
 import argparse
+import os
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from lib import db, discogs  # noqa: E402
+from lib import db, discogs, itunes  # noqa: E402
+
+
+def fetch_cover(artist: str, album: str):
+    """Try iTunes first; fall back to Discogs only if a token is configured."""
+    try:
+        url, source = itunes.find_album_cover(artist, album)
+        if url:
+            return url, source, "via iTunes"
+    except Exception as e:
+        print(f"    ! itunes error: {e}", flush=True)
+
+    if os.environ.get("DISCOGS_TOKEN"):
+        try:
+            url, source = discogs.find_album_cover(artist, album)
+            if url:
+                return url, source, "via Discogs"
+        except Exception as e:
+            print(f"    ! discogs error: {e}", flush=True)
+
+    return None, None, None
 
 
 def main() -> int:
@@ -42,36 +61,29 @@ def main() -> int:
             if not args.force and (album.get("art") or {}).get("url"):
                 continue
 
-            label = f"  {artist['name']} — {album['title']} ({album['year']})"
-            print(label, flush=True)
+            print(f"  {artist['name']} — {album['title']} ({album['year']})", flush=True)
 
-            try:
-                cover, source = discogs.find_album_cover(artist["name"], album["title"])
-            except Exception as e:
-                print(f"    ! discogs error: {e}", flush=True)
-                discogs.sleep(extra=2)
-                continue
-
-            if not cover:
+            url, source, credit = fetch_cover(artist["name"], album["title"])
+            if not url:
                 print("    · no match", flush=True)
                 misses += 1
-                discogs.sleep()
+                itunes.sleep()
                 continue
 
             coll.update_one(
                 {"_id": artist["_id"]},
                 {"$set": {f"discography.{i}.art": {
-                    "url": cover,
-                    "credit": "via Discogs",
+                    "url": url,
+                    "credit": credit,
                     **({"source": source} if source else {}),
                 }}},
             )
-            print(f"    ✓ {cover}", flush=True)
+            print(f"    ✓ {url}", flush=True)
             updates += 1
-            discogs.sleep()
+            itunes.sleep()
 
             if args.limit and updates >= args.limit:
-                print(f"\nLimit reached ({args.limit}). Stopping.")
+                print(f"\nLimit reached ({args.limit}). Stopping.", flush=True)
                 _summary(updates, misses)
                 return 0
 
@@ -80,7 +92,7 @@ def main() -> int:
 
 
 def _summary(updates: int, misses: int) -> None:
-    print(f"\nDone. updated={updates}  no_match={misses}")
+    print(f"\nDone. updated={updates}  no_match={misses}", flush=True)
 
 
 if __name__ == "__main__":
