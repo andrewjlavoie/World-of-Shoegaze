@@ -19,17 +19,24 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from lib import db, discogs, itunes  # noqa: E402
+from lib import db, discogs, itunes, musicbrainz  # noqa: E402
 
 
 def fetch_cover(artist: str, album: str):
-    """Try iTunes first; fall back to Discogs only if a token is configured."""
+    """iTunes → MusicBrainz/CAA → Discogs (if DISCOGS_TOKEN). First hit wins."""
     try:
         url, source = itunes.find_album_cover(artist, album)
         if url:
             return url, source, "via iTunes"
     except Exception as e:
         print(f"    ! itunes error: {e}", flush=True)
+
+    try:
+        url, source = musicbrainz.find_album_cover(artist, album)
+        if url:
+            return url, source, "via Cover Art Archive"
+    except Exception as e:
+        print(f"    ! musicbrainz error: {e}", flush=True)
 
     if os.environ.get("DISCOGS_TOKEN"):
         try:
