@@ -1,0 +1,3095 @@
+[
+  {
+    "schemaVersion": 1,
+    "slug": "my-bloody-valentine",
+    "name": "My Bloody Valentine",
+    "country": "Ireland/UK",
+    "era": "first_wave",
+    "lat": 53.35,
+    "lng": -6.26,
+    "intensity": 6,
+    "subgenre": "shoegaze",
+    "desc": "The genre's center of gravity. Kevin Shields' guitar manipulations on Loveless became the template for everything after.",
+    "moods": [
+      "euphoric_bliss"
+    ],
+    "discography": [
+      {
+        "slug": "loveless",
+        "title": "Loveless",
+        "year": 1991,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "slowdive",
+    "name": "Slowdive",
+    "country": "UK",
+    "era": "first_wave",
+    "lat": 51.46,
+    "lng": -1.07,
+    "intensity": 4,
+    "subgenre": "shoegaze",
+    "desc": "The most emotionally resonant of the originals — ethereal, melancholy, patient.",
+    "moods": [
+      "euphoric_bliss"
+    ],
+    "discography": [
+      {
+        "slug": "souvlaki",
+        "title": "Souvlaki",
+        "year": 1993,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "ride",
+    "name": "Ride",
+    "country": "UK",
+    "era": "first_wave",
+    "lat": 51.75,
+    "lng": -1.26,
+    "intensity": 5,
+    "subgenre": "shoegaze",
+    "desc": "Oxford four-piece whose Nowhere is a foundational text — propulsive, melodic, kinetic.",
+    "moods": [
+      "euphoric_bliss"
+    ],
+    "discography": [
+      {
+        "slug": "nowhere",
+        "title": "Nowhere",
+        "year": 1990,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "cocteau-twins",
+    "name": "Cocteau Twins",
+    "country": "UK",
+    "era": "proto",
+    "lat": 55.95,
+    "lng": -3.19,
+    "intensity": 3,
+    "subgenre": "dream pop / proto-shoegaze",
+    "desc": "Liz Fraser's glossolalia and Robin Guthrie's effects-drenched guitars laid the entire blueprint.",
+    "moods": [
+      "ethereal_celestial"
+    ],
+    "discography": [
+      {
+        "slug": "heaven-or-las-vegas",
+        "title": "Heaven or Las Vegas",
+        "year": 1990,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "the-jesus-and-mary-chain",
+    "name": "The Jesus and Mary Chain",
+    "country": "UK",
+    "era": "proto",
+    "lat": 55.86,
+    "lng": -4.25,
+    "intensity": 6,
+    "subgenre": "noise pop",
+    "desc": "Psychocandy invented the feedback-pop hybrid that shoegaze would refine.",
+    "moods": [
+      "noisy_chaotic"
+    ],
+    "discography": [
+      {
+        "slug": "psychocandy",
+        "title": "Psychocandy",
+        "year": 1985,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "lush",
+    "name": "Lush",
+    "country": "UK",
+    "era": "first_wave",
+    "lat": 51.5,
+    "lng": -0.12,
+    "intensity": 4,
+    "subgenre": "shoegaze / dream pop",
+    "desc": "Sharper, more pop-forward songwriting than most of their scene peers.",
+    "moods": [
+      "euphoric_bliss"
+    ],
+    "discography": [
+      {
+        "slug": "spooky",
+        "title": "Spooky",
+        "year": 1992,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "swervedriver",
+    "name": "Swervedriver",
+    "country": "UK",
+    "era": "first_wave",
+    "lat": 51.75,
+    "lng": -1.26,
+    "intensity": 6,
+    "subgenre": "shoegaze",
+    "desc": "The muscular, motorik, road-tripping end of the scene.",
+    "moods": [
+      "hypnotic_heavy"
+    ],
+    "discography": [
+      {
+        "slug": "mezcal-head",
+        "title": "Mezcal Head",
+        "year": 1993,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "hum",
+    "name": "Hum",
+    "country": "USA",
+    "era": "transitional",
+    "lat": 40.11,
+    "lng": -88.21,
+    "intensity": 6,
+    "subgenre": "alt-rock / heavy gaze",
+    "desc": "Illinois band whose 90s records and 2020 reunion defined the heavy-melodic blueprint everyone is now copying.",
+    "moods": [
+      "hypnotic_heavy"
+    ],
+    "discography": [
+      {
+        "slug": "youd-prefer-an-astronaut",
+        "title": "You'd Prefer an Astronaut",
+        "year": 1995,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "chapterhouse",
+    "name": "Chapterhouse",
+    "country": "UK",
+    "era": "first_wave",
+    "lat": 51.46,
+    "lng": -0.97,
+    "intensity": 4,
+    "subgenre": "shoegaze",
+    "desc": "Whirlpool is criminally underrated — dance-leaning, sparkling shoegaze.",
+    "moods": [
+      "euphoric_bliss"
+    ],
+    "discography": [
+      {
+        "slug": "whirlpool",
+        "title": "Whirlpool",
+        "year": 1991,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "catherine-wheel",
+    "name": "Catherine Wheel",
+    "country": "UK",
+    "era": "first_wave",
+    "lat": 52.63,
+    "lng": 1.29,
+    "intensity": 6,
+    "subgenre": "shoegaze",
+    "desc": "Heavier and more rock-leaning — guitar muscle with a gaze veneer.",
+    "moods": [
+      "hypnotic_heavy"
+    ],
+    "discography": [
+      {
+        "slug": "ferment",
+        "title": "Ferment",
+        "year": 1992,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "pale-saints",
+    "name": "Pale Saints",
+    "country": "UK",
+    "era": "first_wave",
+    "lat": 53.8,
+    "lng": -1.55,
+    "intensity": 4,
+    "subgenre": "shoegaze / dream pop",
+    "desc": "Leeds band that was beautifully strange — fractured pop with a 4AD sensibility.",
+    "moods": [
+      "euphoric_bliss"
+    ],
+    "discography": [
+      {
+        "slug": "the-comforts-of-madness",
+        "title": "The Comforts of Madness",
+        "year": 1990,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "curve",
+    "name": "Curve",
+    "country": "UK",
+    "era": "first_wave",
+    "lat": 51.5,
+    "lng": -0.12,
+    "intensity": 6,
+    "subgenre": "shoegaze / industrial",
+    "desc": "Darker, more electronic and gothic than most of the scene.",
+    "moods": [
+      "dark_gothic"
+    ],
+    "discography": [
+      {
+        "slug": "doppelg-nger",
+        "title": "Doppelgänger",
+        "year": 1992,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "medicine",
+    "name": "Medicine",
+    "country": "USA",
+    "era": "first_wave",
+    "lat": 34.05,
+    "lng": -118.24,
+    "intensity": 7,
+    "subgenre": "shoegaze",
+    "desc": "The great American answer to MBV — noisier, brattier, more deranged.",
+    "moods": [
+      "noisy_chaotic"
+    ],
+    "discography": [
+      {
+        "slug": "shot-forth-self-living",
+        "title": "Shot Forth Self Living",
+        "year": 1992,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "drop-nineteens",
+    "name": "Drop Nineteens",
+    "country": "USA",
+    "era": "first_wave",
+    "lat": 42.36,
+    "lng": -71.06,
+    "intensity": 5,
+    "subgenre": "shoegaze",
+    "desc": "Boston band whose Delaware is a cult classic — slacker-y, dreamy, deceptively heavy.",
+    "moods": [
+      "dream_pop_warmth"
+    ],
+    "discography": [
+      {
+        "slug": "delaware",
+        "title": "Delaware",
+        "year": 1992,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "mazzy-star",
+    "name": "Mazzy Star",
+    "country": "USA",
+    "era": "first_wave",
+    "lat": 34.05,
+    "lng": -118.24,
+    "intensity": 3,
+    "subgenre": "dream pop",
+    "desc": "Hope Sandoval's voice over David Roback's haunted Americana — desert dream pop.",
+    "moods": [
+      "dark_gothic"
+    ],
+    "discography": [
+      {
+        "slug": "so-tonight-that-i-might-see",
+        "title": "So Tonight That I Might See",
+        "year": 1993,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "mojave-3",
+    "name": "Mojave 3",
+    "country": "UK",
+    "era": "transitional",
+    "lat": 51.46,
+    "lng": -1.07,
+    "intensity": 2,
+    "subgenre": "dream folk",
+    "desc": "Slowdive members going pastoral after the gaze imploded.",
+    "moods": [
+      "ethereal_celestial"
+    ],
+    "discography": [
+      {
+        "slug": "ask-me-tomorrow",
+        "title": "Ask Me Tomorrow",
+        "year": 1995,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "spacemen-3",
+    "name": "Spacemen 3",
+    "country": "UK",
+    "era": "proto",
+    "lat": 52.51,
+    "lng": -1.46,
+    "intensity": 4,
+    "subgenre": "psych / proto-gaze",
+    "desc": "Drugs, drone, repetition — the spiritual ancestor of shoegaze's hypnotic side.",
+    "moods": [
+      "psychedelic_hypnotic"
+    ],
+    "discography": [
+      {
+        "slug": "playing-with-fire",
+        "title": "Playing with Fire",
+        "year": 1989,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "the-telescopes",
+    "name": "The Telescopes",
+    "country": "UK",
+    "era": "proto",
+    "lat": 53.38,
+    "lng": -1.47,
+    "intensity": 7,
+    "subgenre": "noise-gaze / psych",
+    "desc": "noise-gaze / psych — UK, 1989.",
+    "moods": [
+      "psychedelic_hypnotic"
+    ],
+    "discography": [
+      {
+        "slug": "taste",
+        "title": "Taste",
+        "year": 1989,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "galaxie-500",
+    "name": "Galaxie 500",
+    "country": "USA",
+    "era": "proto",
+    "lat": 42.36,
+    "lng": -71.06,
+    "intensity": 2,
+    "subgenre": "dream pop / slowcore",
+    "desc": "Boston trio whose slow, fragile records were proto-everything-good.",
+    "moods": [
+      "dream_pop_warmth"
+    ],
+    "discography": [
+      {
+        "slug": "on-fire",
+        "title": "On Fire",
+        "year": 1989,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "spiritualized",
+    "name": "Spiritualized",
+    "country": "UK",
+    "era": "transitional",
+    "lat": 51.5,
+    "lng": -0.12,
+    "intensity": 5,
+    "subgenre": "space rock / gospel",
+    "desc": "Jason Pierce's post-Spacemen 3 vehicle — symphonic, addictive, ecstatic.",
+    "moods": [
+      "psychedelic_hypnotic"
+    ],
+    "discography": [
+      {
+        "slug": "ladies-and-gentlemen-we-are-floating-in-space",
+        "title": "Ladies and Gentlemen We Are Floating in Space",
+        "year": 1997,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "loop",
+    "name": "Loop",
+    "country": "UK",
+    "era": "proto",
+    "lat": 51.5,
+    "lng": -0.12,
+    "intensity": 6,
+    "subgenre": "drone / psych",
+    "desc": "drone / psych — UK, 1987.",
+    "moods": [
+      "psychedelic_hypnotic"
+    ],
+    "discography": [
+      {
+        "slug": "heavens-end",
+        "title": "Heaven's End",
+        "year": 1987,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "the-verve",
+    "name": "The Verve",
+    "country": "UK",
+    "era": "first_wave",
+    "lat": 53.55,
+    "lng": -2.27,
+    "intensity": 5,
+    "subgenre": "shoegaze / space rock",
+    "desc": "shoegaze / space rock — UK, 1993.",
+    "moods": [
+      "sun_bleached_sludge"
+    ],
+    "discography": [
+      {
+        "slug": "a-storm-in-heaven",
+        "title": "A Storm in Heaven",
+        "year": 1993,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "moose",
+    "name": "Moose",
+    "country": "UK",
+    "era": "first_wave",
+    "lat": 51.5,
+    "lng": -0.12,
+    "intensity": 5,
+    "subgenre": "shoegaze",
+    "desc": "shoegaze — UK, 1992.",
+    "moods": [
+      "muscular_brooding"
+    ],
+    "discography": [
+      {
+        "slug": "xyz",
+        "title": "...XYZ",
+        "year": 1992,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "adorable",
+    "name": "Adorable",
+    "country": "UK",
+    "era": "first_wave",
+    "lat": 52.41,
+    "lng": -1.51,
+    "intensity": 5,
+    "subgenre": "shoegaze / indie rock",
+    "desc": "shoegaze / indie rock — UK, 1993.",
+    "moods": [
+      "yearning_anthemic"
+    ],
+    "discography": [
+      {
+        "slug": "against-perfection",
+        "title": "Against Perfection",
+        "year": 1993,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "the-boo-radleys",
+    "name": "The Boo Radleys",
+    "country": "UK",
+    "era": "first_wave",
+    "lat": 53.4,
+    "lng": -2.99,
+    "intensity": 5,
+    "subgenre": "shoegaze / indie pop",
+    "desc": "shoegaze / indie pop — UK, 1993.",
+    "moods": [
+      "muscular_brooding"
+    ],
+    "discography": [
+      {
+        "slug": "giant-steps",
+        "title": "Giant Steps",
+        "year": 1993,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "m83",
+    "name": "M83",
+    "country": "France",
+    "era": "second_wave",
+    "lat": 43.71,
+    "lng": 7.26,
+    "intensity": 5,
+    "subgenre": "dream pop / electronic gaze",
+    "desc": "Anthony Gonzalez's early albums were pure cathedral-of-sound shoegaze.",
+    "moods": [
+      "dream_pop_warmth"
+    ],
+    "discography": [
+      {
+        "slug": "dead-cities-red-seas-lost-ghosts",
+        "title": "Dead Cities, Red Seas & Lost Ghosts",
+        "year": 2003,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "asobi-seksu",
+    "name": "Asobi Seksu",
+    "country": "USA",
+    "era": "second_wave",
+    "lat": 40.71,
+    "lng": -74,
+    "intensity": 5,
+    "subgenre": "shoegaze / dream pop",
+    "desc": "NYC band whose Citrus defined the 2000s revival — bilingual, sugary, propulsive.",
+    "moods": [
+      "dream_pop_warmth"
+    ],
+    "discography": [
+      {
+        "slug": "citrus",
+        "title": "Citrus",
+        "year": 2006,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "a-place-to-bury-strangers",
+    "name": "A Place to Bury Strangers",
+    "country": "USA",
+    "era": "second_wave",
+    "lat": 40.71,
+    "lng": -74,
+    "intensity": 8,
+    "subgenre": "noise-gaze",
+    "desc": "Marketed as the loudest band in NYC — abrasive, industrial, relentless.",
+    "moods": [
+      "noisy_chaotic"
+    ],
+    "discography": [
+      {
+        "slug": "a-place-to-bury-strangers",
+        "title": "A Place to Bury Strangers",
+        "year": 2007,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "diiv",
+    "name": "DIIV",
+    "country": "USA",
+    "era": "second_wave",
+    "lat": 40.71,
+    "lng": -74,
+    "intensity": 4,
+    "subgenre": "indie / dream pop",
+    "desc": "The flagship indie-gaze band of the 2010s, evolving toward heavier post-shoegaze.",
+    "moods": [
+      "dream_pop_warmth"
+    ],
+    "discography": [
+      {
+        "slug": "oshin",
+        "title": "Oshin",
+        "year": 2012,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "beach-house",
+    "name": "Beach House",
+    "country": "USA",
+    "era": "second_wave",
+    "lat": 39.29,
+    "lng": -76.61,
+    "intensity": 3,
+    "subgenre": "dream pop",
+    "desc": "Baltimore duo perfecting the slow-build, organ-and-guitar dream pop format.",
+    "moods": [
+      "dream_pop_warmth"
+    ],
+    "discography": [
+      {
+        "slug": "teen-dream",
+        "title": "Teen Dream",
+        "year": 2010,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "whirr",
+    "name": "Whirr",
+    "country": "USA",
+    "era": "second_wave",
+    "lat": 37.77,
+    "lng": -122.41,
+    "intensity": 7,
+    "subgenre": "noise-gaze",
+    "desc": "noise-gaze — USA, 2014.",
+    "moods": [
+      "noisy_chaotic"
+    ],
+    "discography": [
+      {
+        "slug": "sway",
+        "title": "Sway",
+        "year": 2014,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "nothing",
+    "name": "Nothing",
+    "country": "USA",
+    "era": "second_wave",
+    "lat": 39.95,
+    "lng": -75.16,
+    "intensity": 6,
+    "subgenre": "shoegaze (hardcore lineage)",
+    "desc": "Philadelphia band founded by ex-hardcore members; lush, beautiful, often harrowing.",
+    "moods": [
+      "depressive_beauty"
+    ],
+    "discography": [
+      {
+        "slug": "guilty-of-everything",
+        "title": "Guilty of Everything",
+        "year": 2014,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "deafheaven",
+    "name": "Deafheaven",
+    "country": "USA",
+    "era": "second_wave",
+    "lat": 37.77,
+    "lng": -122.41,
+    "intensity": 9,
+    "subgenre": "blackgaze",
+    "desc": "Bay Area band whose 2013 album fused black metal blast beats with shoegaze euphoria.",
+    "moods": [
+      "ecstatic_catharsis"
+    ],
+    "discography": [
+      {
+        "slug": "sunbather",
+        "title": "Sunbather",
+        "year": 2013,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "alcest",
+    "name": "Alcest",
+    "country": "France",
+    "era": "second_wave",
+    "lat": 48.85,
+    "lng": 2.35,
+    "intensity": 5,
+    "subgenre": "blackgaze / post-metal",
+    "desc": "Neige's project — foundational blackgaze, leaning more dreamy than aggressive.",
+    "moods": [
+      "depressive_beauty"
+    ],
+    "discography": [
+      {
+        "slug": "souvenirs-dun-autre-monde",
+        "title": "Souvenirs d'un autre monde",
+        "year": 2007,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "wisp",
+    "name": "Wisp",
+    "country": "USA",
+    "era": "current",
+    "lat": 37.77,
+    "lng": -122.41,
+    "intensity": 4,
+    "subgenre": "modern shoegaze",
+    "desc": "The TikTok-era breakthrough — gauzy, intimate gaze for a new generation.",
+    "moods": [
+      "modern_anguish"
+    ],
+    "discography": [
+      {
+        "slug": "pandora",
+        "title": "Pandora",
+        "year": 2024,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "lilys",
+    "name": "Lilys",
+    "country": "USA",
+    "era": "first_wave",
+    "lat": 38.9,
+    "lng": -77.04,
+    "intensity": 5,
+    "subgenre": "shoegaze / indie pop",
+    "desc": "shoegaze / indie pop — USA, 1992.",
+    "moods": [
+      "nostalgic_jangly"
+    ],
+    "discography": [
+      {
+        "slug": "in-the-presence-of-nothing",
+        "title": "In the Presence of Nothing",
+        "year": 1992,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "velocity-girl",
+    "name": "Velocity Girl",
+    "country": "USA",
+    "era": "first_wave",
+    "lat": 38.9,
+    "lng": -77.04,
+    "intensity": 5,
+    "subgenre": "noise pop / shoegaze",
+    "desc": "noise pop / shoegaze — USA, 1993.",
+    "moods": [
+      "nostalgic_jangly"
+    ],
+    "discography": [
+      {
+        "slug": "copacetic",
+        "title": "Copacetic",
+        "year": 1993,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "bowery-electric",
+    "name": "Bowery Electric",
+    "country": "USA",
+    "era": "transitional",
+    "lat": 40.71,
+    "lng": -74,
+    "intensity": 4,
+    "subgenre": "dream pop / trip-hop gaze",
+    "desc": "dream pop / trip-hop gaze — USA, 1996.",
+    "moods": [
+      "ambient_drift"
+    ],
+    "discography": [
+      {
+        "slug": "beat",
+        "title": "Beat",
+        "year": 1996,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "flying-saucer-attack",
+    "name": "Flying Saucer Attack",
+    "country": "UK",
+    "era": "transitional",
+    "lat": 51.45,
+    "lng": -2.58,
+    "intensity": 4,
+    "subgenre": "lo-fi space gaze",
+    "desc": "lo-fi space gaze — UK, 1995.",
+    "moods": [
+      "psychedelic_hypnotic"
+    ],
+    "discography": [
+      {
+        "slug": "further",
+        "title": "Further",
+        "year": 1995,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "sweet-trip",
+    "name": "Sweet Trip",
+    "country": "USA",
+    "era": "transitional",
+    "lat": 37.77,
+    "lng": -122.41,
+    "intensity": 5,
+    "subgenre": "electronic gaze / glitch pop",
+    "desc": "electronic gaze / glitch pop — USA, 2003.",
+    "moods": [
+      "experimental_strange"
+    ],
+    "discography": [
+      {
+        "slug": "velocity-design-comfort",
+        "title": "Velocity:Design:Comfort",
+        "year": 2003,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "lovesliescrushing",
+    "name": "Lovesliescrushing",
+    "country": "USA",
+    "era": "first_wave",
+    "lat": 41.49,
+    "lng": -81.69,
+    "intensity": 5,
+    "subgenre": "drone / noise gaze",
+    "desc": "drone / noise gaze — USA, 1993.",
+    "moods": [
+      "noisy_chaotic"
+    ],
+    "discography": [
+      {
+        "slug": "bloweyelashwish",
+        "title": "Bloweyelashwish",
+        "year": 1993,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "auburn-lull",
+    "name": "Auburn Lull",
+    "country": "USA",
+    "era": "transitional",
+    "lat": 42.73,
+    "lng": -84.55,
+    "intensity": 3,
+    "subgenre": "ambient gaze",
+    "desc": "ambient gaze — USA, 1999.",
+    "moods": [
+      "ambient_drift"
+    ],
+    "discography": [
+      {
+        "slug": "alone-i-admire",
+        "title": "Alone I Admire",
+        "year": 1999,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "half-string",
+    "name": "Half String",
+    "country": "USA",
+    "era": "transitional",
+    "lat": 33.44,
+    "lng": -112.07,
+    "intensity": 4,
+    "subgenre": "shoegaze",
+    "desc": "shoegaze — USA, 1996.",
+    "moods": [
+      "ambient_drift"
+    ],
+    "discography": [
+      {
+        "slug": "a-fascination-with-heights",
+        "title": "A Fascination with Heights",
+        "year": 1996,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "failure",
+    "name": "Failure",
+    "country": "USA",
+    "era": "transitional",
+    "lat": 34.05,
+    "lng": -118.24,
+    "intensity": 5,
+    "subgenre": "space rock / alt-gaze",
+    "desc": "space rock / alt-gaze — USA, 1996.",
+    "moods": [
+      "hypnotic_heavy"
+    ],
+    "discography": [
+      {
+        "slug": "fantastic-planet",
+        "title": "Fantastic Planet",
+        "year": 1996,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "jesu",
+    "name": "Jesu",
+    "country": "UK",
+    "era": "second_wave",
+    "lat": 52.48,
+    "lng": -1.9,
+    "intensity": 8,
+    "subgenre": "shoegaze metal",
+    "desc": "shoegaze metal — UK, 2007.",
+    "moods": [
+      "apocalyptic_doom"
+    ],
+    "discography": [
+      {
+        "slug": "conqueror",
+        "title": "Conqueror",
+        "year": 2007,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "the-pains-of-being-pure-at-heart",
+    "name": "The Pains of Being Pure at Heart",
+    "country": "USA",
+    "era": "second_wave",
+    "lat": 40.71,
+    "lng": -74,
+    "intensity": 4,
+    "subgenre": "indie pop / gaze",
+    "desc": "indie pop / gaze — USA, 2009.",
+    "moods": [
+      "nostalgic_jangly"
+    ],
+    "discography": [
+      {
+        "slug": "the-pains-of-being-pure-at-heart",
+        "title": "The Pains of Being Pure at Heart",
+        "year": 2009,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "the-radio-dept",
+    "name": "The Radio Dept.",
+    "country": "Sweden",
+    "era": "second_wave",
+    "lat": 55.6,
+    "lng": 13,
+    "intensity": 3,
+    "subgenre": "indie pop / dream pop",
+    "desc": "indie pop / dream pop — Sweden, 2003.",
+    "moods": [
+      "nostalgic_jangly"
+    ],
+    "discography": [
+      {
+        "slug": "lesser-matters",
+        "title": "Lesser Matters",
+        "year": 2003,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "engineers",
+    "name": "Engineers",
+    "country": "UK",
+    "era": "second_wave",
+    "lat": 51.5,
+    "lng": -0.12,
+    "intensity": 4,
+    "subgenre": "dreamy gaze / post-rock",
+    "desc": "dreamy gaze / post-rock — UK, 2005.",
+    "moods": [
+      "dream_pop_warmth"
+    ],
+    "discography": [
+      {
+        "slug": "engineers",
+        "title": "Engineers",
+        "year": 2005,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "serena-maneesh",
+    "name": "Serena-Maneesh",
+    "country": "Norway",
+    "era": "second_wave",
+    "lat": 59.91,
+    "lng": 10.75,
+    "intensity": 6,
+    "subgenre": "noise-gaze / psych",
+    "desc": "noise-gaze / psych — Norway, 2005.",
+    "moods": [
+      "noisy_chaotic"
+    ],
+    "discography": [
+      {
+        "slug": "serena-maneesh",
+        "title": "Serena-Maneesh",
+        "year": 2005,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "ulrich-schnauss",
+    "name": "Ulrich Schnauss",
+    "country": "Germany",
+    "era": "second_wave",
+    "lat": 52.52,
+    "lng": 13.4,
+    "intensity": 3,
+    "subgenre": "electronic / ambient gaze",
+    "desc": "electronic / ambient gaze — Germany, 2003.",
+    "moods": [
+      "ambient_drift"
+    ],
+    "discography": [
+      {
+        "slug": "a-strangely-isolated-place",
+        "title": "A Strangely Isolated Place",
+        "year": 2003,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "amusement-parks-on-fire",
+    "name": "Amusement Parks on Fire",
+    "country": "UK",
+    "era": "second_wave",
+    "lat": 52.95,
+    "lng": -1.15,
+    "intensity": 5,
+    "subgenre": "shoegaze",
+    "desc": "shoegaze — UK, 2004.",
+    "moods": [
+      "euphoric_bliss"
+    ],
+    "discography": [
+      {
+        "slug": "amusement-parks-on-fire",
+        "title": "Amusement Parks on Fire",
+        "year": 2004,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "wild-nothing",
+    "name": "Wild Nothing",
+    "country": "USA",
+    "era": "second_wave",
+    "lat": 37.23,
+    "lng": -80.41,
+    "intensity": 3,
+    "subgenre": "dream pop",
+    "desc": "dream pop — USA, 2010.",
+    "moods": [
+      "wistful_dreamers"
+    ],
+    "discography": [
+      {
+        "slug": "gemini",
+        "title": "Gemini",
+        "year": 2010,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "no-joy",
+    "name": "No Joy",
+    "country": "Canada",
+    "era": "second_wave",
+    "lat": 45.5,
+    "lng": -73.56,
+    "intensity": 6,
+    "subgenre": "noise-gaze",
+    "desc": "noise-gaze — Canada, 2015.",
+    "moods": [
+      "noisy_chaotic"
+    ],
+    "discography": [
+      {
+        "slug": "more-faithful",
+        "title": "More Faithful",
+        "year": 2015,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "ringo-deathstarr",
+    "name": "Ringo Deathstarr",
+    "country": "USA",
+    "era": "second_wave",
+    "lat": 30.26,
+    "lng": -97.74,
+    "intensity": 6,
+    "subgenre": "shoegaze",
+    "desc": "shoegaze — USA, 2011.",
+    "moods": [
+      "euphoric_bliss"
+    ],
+    "discography": [
+      {
+        "slug": "colour-trip",
+        "title": "Colour Trip",
+        "year": 2011,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "cloakroom",
+    "name": "Cloakroom",
+    "country": "USA",
+    "era": "current",
+    "lat": 41.46,
+    "lng": -87.06,
+    "intensity": 6,
+    "subgenre": "stonegaze / heavy gaze",
+    "desc": "stonegaze / heavy gaze — USA, 2017.",
+    "moods": [
+      "hypnotic_heavy"
+    ],
+    "discography": [
+      {
+        "slug": "time-well",
+        "title": "Time Well",
+        "year": 2017,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "have-a-nice-life",
+    "name": "Have a Nice Life",
+    "country": "USA",
+    "era": "second_wave",
+    "lat": 41.76,
+    "lng": -72.67,
+    "intensity": 7,
+    "subgenre": "post-punk / drone gaze",
+    "desc": "Bedroom-recorded double album that became a cult phenomenon — bleak, vast, devastating.",
+    "moods": [
+      "depressive_beauty"
+    ],
+    "discography": [
+      {
+        "slug": "deathconsciousness",
+        "title": "Deathconsciousness",
+        "year": 2008,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "tamaryn",
+    "name": "Tamaryn",
+    "country": "New Zealand/USA",
+    "era": "second_wave",
+    "lat": 37.77,
+    "lng": -122.41,
+    "intensity": 5,
+    "subgenre": "dark gaze / dream pop",
+    "desc": "dark gaze / dream pop — New Zealand/USA, 2010.",
+    "moods": [
+      "dark_gothic"
+    ],
+    "discography": [
+      {
+        "slug": "the-waves",
+        "title": "The Waves",
+        "year": 2010,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "beach-fossils",
+    "name": "Beach Fossils",
+    "country": "USA",
+    "era": "second_wave",
+    "lat": 40.71,
+    "lng": -74,
+    "intensity": 3,
+    "subgenre": "indie / dream pop",
+    "desc": "indie / dream pop — USA, 2013.",
+    "moods": [
+      "wistful_dreamers"
+    ],
+    "discography": [
+      {
+        "slug": "clash-the-truth",
+        "title": "Clash the Truth",
+        "year": 2013,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "cheatahs",
+    "name": "Cheatahs",
+    "country": "UK",
+    "era": "second_wave",
+    "lat": 51.5,
+    "lng": -0.12,
+    "intensity": 5,
+    "subgenre": "shoegaze / krautgaze",
+    "desc": "shoegaze / krautgaze — UK, 2014.",
+    "moods": [
+      "dream_pop_warmth"
+    ],
+    "discography": [
+      {
+        "slug": "cheatahs",
+        "title": "Cheatahs",
+        "year": 2014,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "yuck",
+    "name": "Yuck",
+    "country": "UK",
+    "era": "second_wave",
+    "lat": 51.5,
+    "lng": -0.12,
+    "intensity": 5,
+    "subgenre": "indie rock / 90s revival",
+    "desc": "indie rock / 90s revival — UK, 2011.",
+    "moods": [
+      "nostalgic_jangly"
+    ],
+    "discography": [
+      {
+        "slug": "yuck",
+        "title": "Yuck",
+        "year": 2011,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "crystal-stilts",
+    "name": "Crystal Stilts",
+    "country": "USA",
+    "era": "second_wave",
+    "lat": 40.71,
+    "lng": -74,
+    "intensity": 4,
+    "subgenre": "post-punk / dream pop",
+    "desc": "post-punk / dream pop — USA, 2008.",
+    "moods": [
+      "dark_gothic"
+    ],
+    "discography": [
+      {
+        "slug": "alight-of-night",
+        "title": "Alight of Night",
+        "year": 2008,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "black-tambourine",
+    "name": "Black Tambourine",
+    "country": "USA",
+    "era": "proto",
+    "lat": 38.9,
+    "lng": -77.04,
+    "intensity": 5,
+    "subgenre": "noise pop / twee",
+    "desc": "noise pop / twee — USA, 2010.",
+    "moods": [
+      "nostalgic_jangly"
+    ],
+    "discography": [
+      {
+        "slug": "black-tambourine",
+        "title": "Black Tambourine",
+        "year": 2010,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "kinoko-teikoku",
+    "name": "Kinoko Teikoku",
+    "country": "Japan",
+    "era": "second_wave",
+    "lat": 35.68,
+    "lng": 139.69,
+    "intensity": 5,
+    "subgenre": "Japanese shoegaze",
+    "desc": "Tokyo band moving from heavy gaze to dreamy J-pop across their run.",
+    "moods": [
+      "japanese_gaze"
+    ],
+    "discography": [
+      {
+        "slug": "eureka",
+        "title": "eureka",
+        "year": 2013,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "for-tracy-hyde",
+    "name": "For Tracy Hyde",
+    "country": "Japan",
+    "era": "current",
+    "lat": 35.68,
+    "lng": 139.69,
+    "intensity": 4,
+    "subgenre": "Japanese dream pop / gaze",
+    "desc": "Bittersweet, hyper-melodic J-gaze named after a British actress.",
+    "moods": [
+      "nostalgic_jangly",
+      "japanese_gaze"
+    ],
+    "discography": [
+      {
+        "slug": "ethernity",
+        "title": "ethernity",
+        "year": 2017,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "my-dead-girlfriend",
+    "name": "My Dead Girlfriend",
+    "country": "Japan",
+    "era": "second_wave",
+    "lat": 35.68,
+    "lng": 139.69,
+    "intensity": 4,
+    "subgenre": "Japanese shoegaze",
+    "desc": "Japanese shoegaze — Japan, 2010.",
+    "moods": [
+      "lo_fi_bedroom",
+      "japanese_gaze"
+    ],
+    "discography": [
+      {
+        "slug": "hatsukoi",
+        "title": "Hatsukoi",
+        "year": 2010,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "coaltar-of-the-deepers",
+    "name": "Coaltar of the Deepers",
+    "country": "Japan",
+    "era": "transitional",
+    "lat": 35.68,
+    "lng": 139.69,
+    "intensity": 7,
+    "subgenre": "Japanese eclectic gaze",
+    "desc": "Genre-omnivorous Japanese project — gaze, metal, anime themes, drum 'n' bass.",
+    "moods": [
+      "experimental_strange",
+      "japanese_gaze"
+    ],
+    "discography": [
+      {
+        "slug": "no-thank-you",
+        "title": "No Thank You",
+        "year": 2002,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "cruyff-in-the-bedroom",
+    "name": "Cruyff in the Bedroom",
+    "country": "Japan",
+    "era": "transitional",
+    "lat": 35.68,
+    "lng": 139.69,
+    "intensity": 5,
+    "subgenre": "Japanese shoegaze",
+    "desc": "Japanese shoegaze — Japan, 2003.",
+    "moods": [
+      "japanese_gaze"
+    ],
+    "discography": [
+      {
+        "slug": "hello",
+        "title": "Hello",
+        "year": 2003,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "plastic-girl-in-closet",
+    "name": "Plastic Girl in Closet",
+    "country": "Japan",
+    "era": "second_wave",
+    "lat": 35.68,
+    "lng": 139.69,
+    "intensity": 4,
+    "subgenre": "Japanese shoegaze",
+    "desc": "Japanese shoegaze — Japan, 2010.",
+    "moods": [
+      "japanese_gaze"
+    ],
+    "discography": [
+      {
+        "slug": "this-is-my-shoegazer",
+        "title": "This is My Shoegazer",
+        "year": 2010,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "tokyo-shoegazer",
+    "name": "Tokyo Shoegazer",
+    "country": "Japan",
+    "era": "second_wave",
+    "lat": 35.68,
+    "lng": 139.69,
+    "intensity": 5,
+    "subgenre": "Japanese shoegaze",
+    "desc": "Japanese shoegaze — Japan, 2011.",
+    "moods": [
+      "japanese_gaze"
+    ],
+    "discography": [
+      {
+        "slug": "crystallize",
+        "title": "Crystallize",
+        "year": 2011,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "julie",
+    "name": "Julie",
+    "country": "USA",
+    "era": "current",
+    "lat": 34.05,
+    "lng": -118.24,
+    "intensity": 7,
+    "subgenre": "heavy shoegaze",
+    "desc": "LA band channeling Nothing/Deftones heaviness with magnetic vocal interplay.",
+    "moods": [
+      "modern_anguish"
+    ],
+    "discography": [
+      {
+        "slug": "my-anti-aircraft-friend",
+        "title": "my anti-aircraft friend",
+        "year": 2024,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "they-are-gutting-a-body-of-water",
+    "name": "They Are Gutting a Body of Water",
+    "country": "USA",
+    "era": "current",
+    "lat": 39.95,
+    "lng": -75.16,
+    "intensity": 6,
+    "subgenre": "experimental shoegaze",
+    "desc": "experimental shoegaze — USA, 2022.",
+    "moods": [
+      "experimental_strange"
+    ],
+    "discography": [
+      {
+        "slug": "lucky-styles",
+        "title": "Lucky Styles",
+        "year": 2022,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "parannoul",
+    "name": "Parannoul",
+    "country": "South Korea",
+    "era": "current",
+    "lat": 37.57,
+    "lng": 126.98,
+    "intensity": 5,
+    "subgenre": "lo-fi shoegaze",
+    "desc": "Anonymous Korean bedroom artist whose 2021 album became an internet phenomenon.",
+    "moods": [
+      "lo_fi_bedroom"
+    ],
+    "discography": [
+      {
+        "slug": "to-see-the-next-part-of-the-dream",
+        "title": "To See the Next Part of the Dream",
+        "year": 2021,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "asian-glow",
+    "name": "Asian Glow",
+    "country": "South Korea",
+    "era": "current",
+    "lat": 37.57,
+    "lng": 126.98,
+    "intensity": 6,
+    "subgenre": "lo-fi shoegaze / emo",
+    "desc": "lo-fi shoegaze / emo — South Korea, 2021.",
+    "moods": [
+      "lo_fi_bedroom"
+    ],
+    "discography": [
+      {
+        "slug": "cull-ficle",
+        "title": "Cull Ficle",
+        "year": 2021,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "sonhos-tomam-conta",
+    "name": "Sonhos Tomam Conta",
+    "country": "Brazil",
+    "era": "current",
+    "lat": -23.55,
+    "lng": -46.63,
+    "intensity": 4,
+    "subgenre": "lo-fi shoegaze",
+    "desc": "lo-fi shoegaze — Brazil, 2022.",
+    "moods": [
+      "lo_fi_bedroom"
+    ],
+    "discography": [
+      {
+        "slug": "sonhos-tomam-conta",
+        "title": "Sonhos Tomam Conta",
+        "year": 2022,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "knifeplay",
+    "name": "Knifeplay",
+    "country": "USA",
+    "era": "current",
+    "lat": 39.95,
+    "lng": -75.16,
+    "intensity": 4,
+    "subgenre": "slowcore / gaze",
+    "desc": "slowcore / gaze — USA, 2022.",
+    "moods": [
+      "depressive_beauty"
+    ],
+    "discography": [
+      {
+        "slug": "animal-drowning",
+        "title": "Animal Drowning",
+        "year": 2022,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "feeble-little-horse",
+    "name": "Feeble Little Horse",
+    "country": "USA",
+    "era": "current",
+    "lat": 40.44,
+    "lng": -79.99,
+    "intensity": 5,
+    "subgenre": "noise pop / gaze",
+    "desc": "noise pop / gaze — USA, 2023.",
+    "moods": [
+      "modern_anguish"
+    ],
+    "discography": [
+      {
+        "slug": "girl-with-fish",
+        "title": "Girl with Fish",
+        "year": 2023,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "glixen",
+    "name": "Glixen",
+    "country": "USA",
+    "era": "current",
+    "lat": 33.44,
+    "lng": -112.07,
+    "intensity": 5,
+    "subgenre": "modern shoegaze",
+    "desc": "modern shoegaze — USA, 2023.",
+    "moods": [
+      "modern_anguish"
+    ],
+    "discography": [
+      {
+        "slug": "she-only-said",
+        "title": "She Only Said",
+        "year": 2023,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "glare",
+    "name": "Glare",
+    "country": "USA",
+    "era": "current",
+    "lat": 29.76,
+    "lng": -95.36,
+    "intensity": 7,
+    "subgenre": "modern shoegaze",
+    "desc": "Texas band part of the current heavy-gaze revival; emotionally raw and abrasive.",
+    "moods": [
+      "modern_anguish"
+    ],
+    "discography": [
+      {
+        "slug": "the-beauty-of-the-end",
+        "title": "The Beauty of the End",
+        "year": 2024,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "quannnic",
+    "name": "Quannnic",
+    "country": "USA",
+    "era": "current",
+    "lat": 40.71,
+    "lng": -74,
+    "intensity": 5,
+    "subgenre": "bedroom shoegaze",
+    "desc": "bedroom shoegaze — USA, 2022.",
+    "moods": [
+      "lo_fi_bedroom"
+    ],
+    "discography": [
+      {
+        "slug": "stepdream",
+        "title": "Stepdream",
+        "year": 2022,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "fleshwater",
+    "name": "Fleshwater",
+    "country": "USA",
+    "era": "current",
+    "lat": 42.36,
+    "lng": -71.06,
+    "intensity": 7,
+    "subgenre": "metalcore-gaze",
+    "desc": "metalcore-gaze — USA, 2022.",
+    "moods": [
+      "ecstatic_catharsis"
+    ],
+    "discography": [
+      {
+        "slug": "were-not-here-to-be-loved",
+        "title": "We're Not Here to Be Loved",
+        "year": 2022,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "greet-death",
+    "name": "Greet Death",
+    "country": "USA",
+    "era": "current",
+    "lat": 43,
+    "lng": -83.69,
+    "intensity": 7,
+    "subgenre": "doomgaze",
+    "desc": "doomgaze — USA, 2019.",
+    "moods": [
+      "apocalyptic_doom"
+    ],
+    "discography": [
+      {
+        "slug": "new-hell",
+        "title": "New Hell",
+        "year": 2019,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "narrow-head",
+    "name": "Narrow Head",
+    "country": "USA",
+    "era": "current",
+    "lat": 29.76,
+    "lng": -95.36,
+    "intensity": 7,
+    "subgenre": "grunge-gaze",
+    "desc": "grunge-gaze — USA, 2020.",
+    "moods": [
+      "muscular_brooding"
+    ],
+    "discography": [
+      {
+        "slug": "12th-house-rock",
+        "title": "12th House Rock",
+        "year": 2020,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "hotline-tnt",
+    "name": "Hotline TNT",
+    "country": "USA",
+    "era": "current",
+    "lat": 40.71,
+    "lng": -74,
+    "intensity": 5,
+    "subgenre": "lo-fi gaze / power pop",
+    "desc": "lo-fi gaze / power pop — USA, 2023.",
+    "moods": [
+      "lo_fi_bedroom"
+    ],
+    "discography": [
+      {
+        "slug": "cartwheel",
+        "title": "Cartwheel",
+        "year": 2023,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "bdrmm",
+    "name": "bdrmm",
+    "country": "UK",
+    "era": "current",
+    "lat": 53.74,
+    "lng": -0.33,
+    "intensity": 5,
+    "subgenre": "modern shoegaze",
+    "desc": "modern shoegaze — UK, 2020.",
+    "moods": [
+      "lo_fi_bedroom"
+    ],
+    "discography": [
+      {
+        "slug": "bedroom",
+        "title": "Bedroom",
+        "year": 2020,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "mint-field",
+    "name": "Mint Field",
+    "country": "Mexico",
+    "era": "current",
+    "lat": 19.43,
+    "lng": -99.13,
+    "intensity": 4,
+    "subgenre": "psych-gaze",
+    "desc": "psych-gaze — Mexico, 2018.",
+    "moods": [],
+    "discography": [
+      {
+        "slug": "pasar-de-las-luces",
+        "title": "Pasar de las Luces",
+        "year": 2018,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "westkust",
+    "name": "Westkust",
+    "country": "Sweden",
+    "era": "second_wave",
+    "lat": 57.71,
+    "lng": 11.97,
+    "intensity": 5,
+    "subgenre": "shoegaze / dream pop",
+    "desc": "shoegaze / dream pop — Sweden, 2015.",
+    "moods": [
+      "euphoric_bliss"
+    ],
+    "discography": [
+      {
+        "slug": "last-forever",
+        "title": "Last Forever",
+        "year": 2015,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "the-cranes",
+    "name": "The Cranes",
+    "country": "UK",
+    "era": "first_wave",
+    "lat": 50.91,
+    "lng": -1.4,
+    "intensity": 5,
+    "subgenre": "dark dream pop",
+    "desc": "dark dream pop — UK, 1993.",
+    "moods": [
+      "dark_gothic"
+    ],
+    "discography": [
+      {
+        "slug": "forever",
+        "title": "Forever",
+        "year": 1993,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "lowlife",
+    "name": "Lowlife",
+    "country": "UK",
+    "era": "proto",
+    "lat": 55.95,
+    "lng": -3.19,
+    "intensity": 4,
+    "subgenre": "post-punk / dream pop",
+    "desc": "post-punk / dream pop — UK, 1986.",
+    "moods": [
+      "dark_gothic"
+    ],
+    "discography": [
+      {
+        "slug": "permanent-sleep",
+        "title": "Permanent Sleep",
+        "year": 1986,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "this-mortal-coil",
+    "name": "This Mortal Coil",
+    "country": "UK",
+    "era": "proto",
+    "lat": 51.5,
+    "lng": -0.12,
+    "intensity": 3,
+    "subgenre": "4AD dream pop",
+    "desc": "Ivo Watts-Russell's 4AD supergroup of darkly beautiful covers and originals.",
+    "moods": [
+      "ethereal_celestial"
+    ],
+    "discography": [
+      {
+        "slug": "itll-end-in-tears",
+        "title": "It'll End in Tears",
+        "year": 1984,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "suns-signature",
+    "name": "Sun's Signature",
+    "country": "UK",
+    "era": "current",
+    "lat": 55.95,
+    "lng": -3.19,
+    "intensity": 3,
+    "subgenre": "dream pop",
+    "desc": "Liz Fraser's long-awaited return — radiant, voice-as-instrument dream pop.",
+    "moods": [
+      "ethereal_celestial"
+    ],
+    "discography": [
+      {
+        "slug": "suns-signature",
+        "title": "Sun's Signature",
+        "year": 2022,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "cigarettes-after-sex",
+    "name": "Cigarettes After Sex",
+    "country": "USA",
+    "era": "current",
+    "lat": 31.76,
+    "lng": -106.49,
+    "intensity": 3,
+    "subgenre": "dream pop / sadcore",
+    "desc": "dream pop / sadcore — USA, 2017.",
+    "moods": [
+      "depressive_beauty"
+    ],
+    "discography": [
+      {
+        "slug": "cigarettes-after-sex",
+        "title": "Cigarettes After Sex",
+        "year": 2017,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "sadness",
+    "name": "Sadness",
+    "country": "USA",
+    "era": "current",
+    "lat": 47.6,
+    "lng": -122.33,
+    "intensity": 8,
+    "subgenre": "blackgaze / depressive black metal",
+    "desc": "blackgaze / depressive black metal — USA, 2021.",
+    "moods": [
+      "apocalyptic_doom"
+    ],
+    "discography": [
+      {
+        "slug": "atna",
+        "title": "Atna",
+        "year": 2021,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "an-autumn-for-crippled-children",
+    "name": "An Autumn for Crippled Children",
+    "country": "Netherlands",
+    "era": "second_wave",
+    "lat": 52.37,
+    "lng": 4.9,
+    "intensity": 7,
+    "subgenre": "blackgaze",
+    "desc": "blackgaze — Netherlands, 2015.",
+    "moods": [
+      "apocalyptic_doom"
+    ],
+    "discography": [
+      {
+        "slug": "try-not-to-destroy-everything-you-love",
+        "title": "Try Not to Destroy Everything You Love",
+        "year": 2015,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "lantl-s",
+    "name": "Lantlôs",
+    "country": "Germany",
+    "era": "second_wave",
+    "lat": 50.94,
+    "lng": 6.96,
+    "intensity": 7,
+    "subgenre": "blackgaze / post-everything",
+    "desc": "blackgaze / post-everything — Germany, 2014.",
+    "moods": [
+      "depressive_beauty"
+    ],
+    "discography": [
+      {
+        "slug": "melting-sun",
+        "title": "Melting Sun",
+        "year": 2014,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "amesoeurs",
+    "name": "Amesoeurs",
+    "country": "France",
+    "era": "second_wave",
+    "lat": 48.85,
+    "lng": 2.35,
+    "intensity": 7,
+    "subgenre": "blackgaze / post-punk",
+    "desc": "blackgaze / post-punk — France, 2009.",
+    "moods": [
+      "apocalyptic_doom"
+    ],
+    "discography": [
+      {
+        "slug": "amesoeurs",
+        "title": "Amesoeurs",
+        "year": 2009,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "astronoid",
+    "name": "Astronoid",
+    "country": "USA",
+    "era": "current",
+    "lat": 42.36,
+    "lng": -71.06,
+    "intensity": 6,
+    "subgenre": "dream-thrash / blackgaze-adjacent",
+    "desc": "dream-thrash / blackgaze-adjacent — USA, 2016.",
+    "moods": [
+      "ecstatic_catharsis"
+    ],
+    "discography": [
+      {
+        "slug": "air",
+        "title": "Air",
+        "year": 2016,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "air-formation",
+    "name": "Air Formation",
+    "country": "UK",
+    "era": "second_wave",
+    "lat": 50.82,
+    "lng": -0.13,
+    "intensity": 5,
+    "subgenre": "shoegaze",
+    "desc": "shoegaze — UK, 2006.",
+    "moods": [
+      "euphoric_bliss"
+    ],
+    "discography": [
+      {
+        "slug": "daylight-storms",
+        "title": "Daylight Storms",
+        "year": 2006,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "resplandor",
+    "name": "Resplandor",
+    "country": "Peru",
+    "era": "second_wave",
+    "lat": -12.04,
+    "lng": -77.04,
+    "intensity": 4,
+    "subgenre": "shoegaze",
+    "desc": "shoegaze — Peru, 2009.",
+    "moods": [],
+    "discography": [
+      {
+        "slug": "pan-american-saint",
+        "title": "Pan-American Saint",
+        "year": 2009,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "pia-fraus",
+    "name": "Pia Fraus",
+    "country": "Estonia",
+    "era": "transitional",
+    "lat": 59.43,
+    "lng": 24.75,
+    "intensity": 4,
+    "subgenre": "shoegaze / twee",
+    "desc": "shoegaze / twee — Estonia, 2002.",
+    "moods": [
+      "euphoric_bliss"
+    ],
+    "discography": [
+      {
+        "slug": "in-solarium",
+        "title": "In Solarium",
+        "year": 2002,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "hibou",
+    "name": "Hibou",
+    "country": "USA",
+    "era": "second_wave",
+    "lat": 47.6,
+    "lng": -122.33,
+    "intensity": 3,
+    "subgenre": "dream pop / surf gaze",
+    "desc": "dream pop / surf gaze — USA, 2015.",
+    "moods": [
+      "wistful_dreamers"
+    ],
+    "discography": [
+      {
+        "slug": "hibou",
+        "title": "Hibou",
+        "year": 2015,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "title-fight",
+    "name": "Title Fight",
+    "country": "USA",
+    "era": "current",
+    "lat": 41.24,
+    "lng": -75.88,
+    "intensity": 4,
+    "subgenre": "post-hardcore → shoegaze",
+    "desc": "post-hardcore → shoegaze — USA, 2015.",
+    "moods": [
+      "wistful_dreamers"
+    ],
+    "discography": [
+      {
+        "slug": "hyperview",
+        "title": "Hyperview",
+        "year": 2015,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "citizen",
+    "name": "Citizen",
+    "country": "USA",
+    "era": "current",
+    "lat": 41.66,
+    "lng": -83.58,
+    "intensity": 5,
+    "subgenre": "post-hardcore / emo-gaze",
+    "desc": "post-hardcore / emo-gaze — USA, 2015.",
+    "moods": [
+      "yearning_anthemic"
+    ],
+    "discography": [
+      {
+        "slug": "everybody-is-going-to-heaven",
+        "title": "Everybody Is Going to Heaven",
+        "year": 2015,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "turnover",
+    "name": "Turnover",
+    "country": "USA",
+    "era": "current",
+    "lat": 36.85,
+    "lng": -76.29,
+    "intensity": 2,
+    "subgenre": "pop-punk → dream pop",
+    "desc": "pop-punk → dream pop — USA, 2015.",
+    "moods": [
+      "wistful_dreamers"
+    ],
+    "discography": [
+      {
+        "slug": "peripheral-vision",
+        "title": "Peripheral Vision",
+        "year": 2015,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "basement",
+    "name": "Basement",
+    "country": "UK",
+    "era": "second_wave",
+    "lat": 52.63,
+    "lng": 1.29,
+    "intensity": 4,
+    "subgenre": "post-hardcore / emo-gaze",
+    "desc": "post-hardcore / emo-gaze — UK, 2012.",
+    "moods": [
+      "wistful_dreamers"
+    ],
+    "discography": [
+      {
+        "slug": "colourmeinkindness",
+        "title": "Colourmeinkindness",
+        "year": 2012,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "balance-and-composure",
+    "name": "Balance and Composure",
+    "country": "USA",
+    "era": "second_wave",
+    "lat": 40.6,
+    "lng": -75.47,
+    "intensity": 5,
+    "subgenre": "post-hardcore / emo-gaze",
+    "desc": "post-hardcore / emo-gaze — USA, 2013.",
+    "moods": [
+      "yearning_anthemic"
+    ],
+    "discography": [
+      {
+        "slug": "the-things-we-think-were-missing",
+        "title": "The Things We Think We're Missing",
+        "year": 2013,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "superheaven",
+    "name": "Superheaven",
+    "country": "USA",
+    "era": "current",
+    "lat": 39.95,
+    "lng": -75.16,
+    "intensity": 6,
+    "subgenre": "grunge-gaze / sludgy alt",
+    "desc": "grunge-gaze / sludgy alt — USA, 2013.",
+    "moods": [
+      "sun_bleached_sludge"
+    ],
+    "discography": [
+      {
+        "slug": "jar",
+        "title": "Jar",
+        "year": 2013,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "true-widow",
+    "name": "True Widow",
+    "country": "USA",
+    "era": "second_wave",
+    "lat": 32.78,
+    "lng": -96.8,
+    "intensity": 6,
+    "subgenre": "stonegaze",
+    "desc": "stonegaze — USA, 2013.",
+    "moods": [
+      "hypnotic_heavy"
+    ],
+    "discography": [
+      {
+        "slug": "circumambulation",
+        "title": "Circumambulation",
+        "year": 2013,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "holy-fawn",
+    "name": "Holy Fawn",
+    "country": "USA",
+    "era": "current",
+    "lat": 33.44,
+    "lng": -112.07,
+    "intensity": 7,
+    "subgenre": "post-metal / atmospheric heavy",
+    "desc": "post-metal / atmospheric heavy — USA, 2018.",
+    "moods": [
+      "apocalyptic_doom"
+    ],
+    "discography": [
+      {
+        "slug": "death-spells",
+        "title": "Death Spells",
+        "year": 2018,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "spotlights",
+    "name": "Spotlights",
+    "country": "USA",
+    "era": "current",
+    "lat": 40.71,
+    "lng": -74,
+    "intensity": 8,
+    "subgenre": "post-metal / doomgaze",
+    "desc": "post-metal / doomgaze — USA, 2017.",
+    "moods": [
+      "apocalyptic_doom"
+    ],
+    "discography": [
+      {
+        "slug": "tidals",
+        "title": "Tidals",
+        "year": 2017,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "loathe",
+    "name": "Loathe",
+    "country": "UK",
+    "era": "current",
+    "lat": 53.4,
+    "lng": -2.99,
+    "intensity": 9,
+    "subgenre": "metalcore × shoegaze",
+    "desc": "Liverpool band that perfected the Deftones-meets-MBV formula on their 2020 breakthrough.",
+    "moods": [
+      "volatile_violent"
+    ],
+    "discography": [
+      {
+        "slug": "i-let-it-in-and-it-took-everything",
+        "title": "I Let It In and It Took Everything",
+        "year": 2020,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "spiritbox",
+    "name": "Spiritbox",
+    "country": "Canada",
+    "era": "current",
+    "lat": 48.43,
+    "lng": -123.37,
+    "intensity": 9,
+    "subgenre": "metalcore with gaze textures",
+    "desc": "metalcore with gaze textures — Canada, 2021.",
+    "moods": [
+      "volatile_violent"
+    ],
+    "discography": [
+      {
+        "slug": "eternal-blue",
+        "title": "Eternal Blue",
+        "year": 2021,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "bilmuri",
+    "name": "Bilmuri",
+    "country": "USA",
+    "era": "current",
+    "lat": 41.5,
+    "lng": -81.69,
+    "intensity": 7,
+    "subgenre": "post-metalcore / genre-blender",
+    "desc": "post-metalcore / genre-blender — USA, 2024.",
+    "moods": [
+      "experimental_strange"
+    ],
+    "discography": [
+      {
+        "slug": "american-motor-sports",
+        "title": "AMERICAN MOTOR SPORTS",
+        "year": 2024,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "bosse-de-nage",
+    "name": "Bosse-de-Nage",
+    "country": "USA",
+    "era": "second_wave",
+    "lat": 37.77,
+    "lng": -122.41,
+    "intensity": 8,
+    "subgenre": "blackgaze / experimental",
+    "desc": "blackgaze / experimental — USA, 2012.",
+    "moods": [
+      "apocalyptic_doom"
+    ],
+    "discography": [
+      {
+        "slug": "iii",
+        "title": "III",
+        "year": 2012,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "quicksand",
+    "name": "Quicksand",
+    "country": "USA",
+    "era": "first_wave",
+    "lat": 40.71,
+    "lng": -74,
+    "intensity": 7,
+    "subgenre": "post-hardcore",
+    "desc": "post-hardcore — USA, 1993.",
+    "moods": [
+      "muscular_brooding"
+    ],
+    "discography": [
+      {
+        "slug": "slip",
+        "title": "Slip",
+        "year": 1993,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "cave-in",
+    "name": "Cave In",
+    "country": "USA",
+    "era": "transitional",
+    "lat": 42.36,
+    "lng": -71.06,
+    "intensity": 7,
+    "subgenre": "post-hardcore / space rock",
+    "desc": "post-hardcore / space rock — USA, 2000.",
+    "moods": [
+      "muscular_brooding"
+    ],
+    "discography": [
+      {
+        "slug": "jupiter",
+        "title": "Jupiter",
+        "year": 2000,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "far",
+    "name": "Far",
+    "country": "USA",
+    "era": "transitional",
+    "lat": 38.58,
+    "lng": -121.49,
+    "intensity": 6,
+    "subgenre": "post-hardcore / emo",
+    "desc": "post-hardcore / emo — USA, 1998.",
+    "moods": [
+      "yearning_anthemic"
+    ],
+    "discography": [
+      {
+        "slug": "water-and-solutions",
+        "title": "Water and Solutions",
+        "year": 1998,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "webbed-wing",
+    "name": "Webbed Wing",
+    "country": "USA",
+    "era": "current",
+    "lat": 39.95,
+    "lng": -75.16,
+    "intensity": 5,
+    "subgenre": "indie-gaze / scrappy alt",
+    "desc": "indie-gaze / scrappy alt — USA, 2020.",
+    "moods": [
+      "wistful_dreamers"
+    ],
+    "discography": [
+      {
+        "slug": "whats-so-fucking-funny",
+        "title": "What's So Fucking Funny",
+        "year": 2020,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "anxious",
+    "name": "Anxious",
+    "country": "USA",
+    "era": "current",
+    "lat": 41.18,
+    "lng": -73.18,
+    "intensity": 5,
+    "subgenre": "emo / gaze-adjacent",
+    "desc": "emo / gaze-adjacent — USA, 2022.",
+    "moods": [
+      "yearning_anthemic"
+    ],
+    "discography": [
+      {
+        "slug": "little-green-house",
+        "title": "Little Green House",
+        "year": 2022,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  },
+  {
+    "schemaVersion": 1,
+    "slug": "koyo",
+    "name": "Koyo",
+    "country": "USA",
+    "era": "current",
+    "lat": 40.78,
+    "lng": -73.13,
+    "intensity": 5,
+    "subgenre": "emo / post-hardcore",
+    "desc": "emo / post-hardcore — USA, 2024.",
+    "moods": [
+      "yearning_anthemic"
+    ],
+    "discography": [
+      {
+        "slug": "would-you-miss-it",
+        "title": "Would You Miss It?",
+        "year": 2024,
+        "kind": "LP",
+        "isReference": true,
+        "note": "reference album"
+      }
+    ],
+    "listen": {}
+  }
+]

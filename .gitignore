@@ -8,6 +8,9 @@ next-env.d.ts
 _audit
 .playwright-mcp
 
+# Any .env file anywhere — credentials never enter the repo
+.env
+
 # Python
 __pycache__/
 *.pyc
