@@ -6,8 +6,9 @@ Services:
   bandcamp — URL probe at https://{slug}.bandcamp.com/ (no auth). Always attempted.
   spotify  — Spotify Web API client-credentials flow. Requires env vars:
                SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET
-  youtube  — YouTube Data API v3. Requires env var:
-               YOUTUBE_API_KEY
+  tidal    — Tidal Open Developer API client-credentials flow. Requires env vars:
+               TIDAL_CLIENT_ID, TIDAL_CLIENT_SECRET
+             Register at https://developer.tidal.com/.
 
 Idempotent: skips a sub-field that already has a non-empty value unless --force.
 Partial enrichment runs compose correctly (each service writes its own subkey).
@@ -125,37 +126,71 @@ def find_spotify_url(artist_name: str) -> str | None:
 
 
 # ---------------------------------------------------------------------------
-# YouTube
+# Tidal — Open Developer Platform (https://developer.tidal.com/)
 # ---------------------------------------------------------------------------
 
+_tidal_token: str | None = None
+_tidal_token_expiry: float = 0.0
 
-def find_youtube_url(artist_name: str) -> str | None:
-    api_key = os.environ.get("YOUTUBE_API_KEY")
-    if not api_key:
+
+def _tidal_access_token() -> str | None:
+    global _tidal_token, _tidal_token_expiry
+    client_id = os.environ.get("TIDAL_CLIENT_ID")
+    client_secret = os.environ.get("TIDAL_CLIENT_SECRET")
+    if not client_id or not client_secret:
         return None
+
+    if _tidal_token and time.time() < _tidal_token_expiry - 30:
+        return _tidal_token
+
+    creds = base64.b64encode(f"{client_id}:{client_secret}".encode()).decode()
+    try:
+        r = requests.post(
+            "https://auth.tidal.com/v1/oauth2/token",
+            data={"grant_type": "client_credentials"},
+            headers={"Authorization": f"Basic {creds}"},
+            timeout=15,
+        )
+        r.raise_for_status()
+    except Exception as e:
+        print(f"    ! tidal token error: {e}", flush=True)
+        return None
+    data = r.json()
+    _tidal_token = data.get("access_token")
+    _tidal_token_expiry = time.time() + data.get("expires_in", 3600)
+    return _tidal_token
+
+
+def find_tidal_url(artist_name: str) -> str | None:
+    """Tidal v2 search uses JSON:API. We fetch the searchResults document with
+    `include=artists`, then pull the first artist from `included[]` and build
+    its public URL.
+    """
+    token = _tidal_access_token()
+    if not token:
+        return None
+    from urllib.parse import quote
     try:
         r = requests.get(
-            "https://www.googleapis.com/youtube/v3/search",
-            params={
-                "q": artist_name,
-                "type": "channel",
-                "part": "snippet",
-                "maxResults": 1,
-                "key": api_key,
+            f"https://openapi.tidal.com/v2/searchResults/{quote(artist_name)}",
+            params={"countryCode": "US", "include": "artists"},
+            headers={
+                "Authorization": f"Bearer {token}",
+                "Accept": "application/vnd.api+json",
             },
             timeout=15,
         )
         r.raise_for_status()
     except Exception as e:
-        print(f"    ! youtube search error: {e}", flush=True)
+        print(f"    ! tidal search error: {e}", flush=True)
         return None
-    items: list[dict[str, Any]] = r.json().get("items") or []
-    if not items:
-        return None
-    channel_id = items[0].get("id", {}).get("channelId")
-    if not channel_id:
-        return None
-    return f"https://www.youtube.com/channel/{channel_id}"
+    included: list[dict[str, Any]] = r.json().get("included") or []
+    for item in included:
+        if item.get("type") == "artists":
+            artist_id = item.get("id")
+            if artist_id:
+                return f"https://tidal.com/browse/artist/{artist_id}"
+    return None
 
 
 # ---------------------------------------------------------------------------
@@ -171,8 +206,13 @@ def main() -> int:
     args = ap.parse_args()
 
     has_spotify = bool(os.environ.get("SPOTIFY_CLIENT_ID") and os.environ.get("SPOTIFY_CLIENT_SECRET"))
-    has_youtube = bool(os.environ.get("YOUTUBE_API_KEY"))
-    print(f"Services: apple=yes  bandcamp=yes  spotify={'yes' if has_spotify else 'no (set SPOTIFY_CLIENT_ID/SECRET)'}  youtube={'yes' if has_youtube else 'no (set YOUTUBE_API_KEY)'}", flush=True)
+    has_tidal = bool(os.environ.get("TIDAL_CLIENT_ID") and os.environ.get("TIDAL_CLIENT_SECRET"))
+    print(
+        "Services: apple=yes  bandcamp=yes  "
+        f"spotify={'yes' if has_spotify else 'no (set SPOTIFY_CLIENT_ID/SECRET)'}  "
+        f"tidal={'yes' if has_tidal else 'no (set TIDAL_CLIENT_ID/SECRET)'}",
+        flush=True,
+    )
     print(flush=True)
 
     coll = db.artists()
@@ -181,7 +221,7 @@ def main() -> int:
         query["slug"] = args.artist
 
     artist_updates = 0
-    field_updates: dict[str, int] = {"apple": 0, "bandcamp": 0, "spotify": 0, "youtube": 0}
+    field_updates: dict[str, int] = {"apple": 0, "bandcamp": 0, "spotify": 0, "tidal": 0}
 
     for artist in coll.find(query):
         name: str = artist["name"]
@@ -226,14 +266,14 @@ def main() -> int:
             else:
                 print("    spotify  · no match", flush=True)
 
-        # --- YouTube ---
-        if has_youtube and (args.force or not listen.get("youtube")):
-            url = find_youtube_url(name)
+        # --- Tidal ---
+        if has_tidal and (args.force or not listen.get("tidal")):
+            url = find_tidal_url(name)
             if url:
-                service_sets["youtube"] = url
-                print(f"    youtube  ✓ {url}", flush=True)
+                service_sets["tidal"] = url
+                print(f"    tidal    ✓ {url}", flush=True)
             else:
-                print("    youtube  · no match", flush=True)
+                print("    tidal    · no match", flush=True)
 
         # Write each service sub-field independently so partial runs compose.
         for service, service_url in service_sets.items():

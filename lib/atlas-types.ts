@@ -26,7 +26,7 @@ export interface AtlasArtistListen {
   bandcamp?: string;
   spotify?: string;
   apple?: string;
-  youtube?: string;
+  tidal?: string;
 }
 
 export interface AtlasArtist {

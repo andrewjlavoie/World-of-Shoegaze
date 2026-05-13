@@ -50,7 +50,7 @@ const LISTEN_ORDER: Array<{ key: keyof AtlasArtist["listen"]; svc: string; note:
   { key: "bandcamp", svc: "Bandcamp",   note: "buy + stream", primary: true },
   { key: "spotify",  svc: "Spotify",    note: "stream" },
   { key: "apple",    svc: "Apple Music", note: "stream" },
-  { key: "youtube",  svc: "YouTube",    note: "videos · live" },
+  { key: "tidal",    svc: "Tidal",       note: "hi-fi stream" },
 ];
 
 export function BandDetail({ artist, similar }: { artist: AtlasArtist; similar: AtlasArtist[] }) {

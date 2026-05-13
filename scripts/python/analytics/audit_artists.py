@@ -31,7 +31,7 @@ FIELDS: list[tuple[str, str, Callable[[dict[str, Any]], bool]]] = [
     ("bandcamp", "BC",    lambda a: bool((a.get("listen") or {}).get("bandcamp"))),
     ("apple",    "APPLE", lambda a: bool((a.get("listen") or {}).get("apple"))),
     ("spotify",  "SPOT",  lambda a: bool((a.get("listen") or {}).get("spotify"))),
-    ("youtube",  "YT",    lambda a: bool((a.get("listen") or {}).get("youtube"))),
+    ("tidal",    "TIDAL", lambda a: bool((a.get("listen") or {}).get("tidal"))),
 ]
 
 FIELD_KEYS = {key for key, _, _ in FIELDS}
