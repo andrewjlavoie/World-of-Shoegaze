@@ -74,5 +74,42 @@ def find_album_cover(artist: str, album: str) -> tuple[str | None, str | None]:
     return fallback if fallback else (None, None)
 
 
+def search_artist(artist: str, country: str = "us") -> list[dict[str, Any]]:
+    """Search iTunes for `artist` as a musicArtist entity. Returns up to 5 hits."""
+    r = requests.get(
+        BASE,
+        params={
+            "term": artist,
+            "entity": "musicArtist",
+            "country": country,
+            "limit": 5,
+        },
+        headers={"User-Agent": USER_AGENT},
+        timeout=15,
+    )
+    r.raise_for_status()
+    return r.json().get("results", []) or []
+
+
+def find_artist_url(artist: str) -> tuple[str | None, str | None]:
+    """Return (artistLinkUrl, None) for the best-matching musicArtist hit, or (None, None).
+
+    Matching: first hit whose `artistName` normalises equal (or is a prefix/substring)
+    to the input name. The ``artistLinkUrl`` is the public music.apple.com page.
+    """
+    target = _norm(artist)
+    results = search_artist(artist)
+
+    for hit in results:
+        link = hit.get("artistLinkUrl")
+        if not link:
+            continue
+        hit_name = _norm(hit.get("artistName", ""))
+        if hit_name == target or target in hit_name or hit_name in target:
+            return link, None
+
+    return None, None
+
+
 def sleep() -> None:
     time.sleep(DEFAULT_DELAY)
