@@ -8,6 +8,7 @@ next-env.d.ts
 _audit
 .playwright-mcp
 .claude
+.superpowers
 
 # Any .env file anywhere — credentials never enter the repo
 .env
