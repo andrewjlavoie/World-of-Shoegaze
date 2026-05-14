@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import type { CSSProperties } from "react";
 import type { AtlasArtist } from "@/lib/atlas-types";
 import { refAlbum, paletteFor, initials } from "@/lib/atlas-helpers";
@@ -41,7 +42,7 @@ export function Tile({
       onClick={onClick}
     >
       {album.art?.url ? (
-        <img src={album.art.url} alt="" loading="lazy" decoding="async" />
+        <Image src={album.art.url} alt="" width={50} height={50} />
       ) : (
         <span className="gx-tile-fallback">{initials(artist.name)}</span>
       )}

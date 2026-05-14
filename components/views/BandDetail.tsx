@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import { ERAS, MOOD_COLORS } from "@/lib/taxonomy";
@@ -16,17 +17,24 @@ function AlbumCover({
 }) {
   if (album.art?.url) {
     return (
-      <img
-        src={album.art.url}
-        alt={`${album.title} cover`}
+      <div
         style={{
+          position: "relative",
           width: "100%",
           aspectRatio: "1 / 1",
-          objectFit: "cover",
           display: "block",
+          overflow: "hidden",
           ...style,
         }}
-      />
+      >
+        <Image
+          src={album.art.url}
+          alt={`${album.title} cover`}
+          fill
+          sizes="(max-width: 720px) 100vw, 480px"
+          style={{ objectFit: "cover" }}
+        />
+      </div>
     );
   }
   const css = {
@@ -107,10 +115,18 @@ export function BandDetail({ artist, similar }: { artist: AtlasArtist; similar: 
 
             {artist.photo?.url && (
               <div style={{ marginTop: 18 }}>
-                <img
+                <Image
                   src={artist.photo.url}
                   alt={artist.photo.alt || `${artist.name} photo`}
-                  style={{ width: "100%", display: "block", border: "1px solid var(--rule)" }}
+                  width={800}
+                  height={600}
+                  priority
+                  style={{
+                    width: "100%",
+                    height: "auto",
+                    display: "block",
+                    border: "1px solid var(--rule)",
+                  }}
                 />
                 {artist.photo.credit && (
                   <div className="micro" style={{ marginTop: 6, color: "var(--ink-faint)" }}>

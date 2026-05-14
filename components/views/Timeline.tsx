@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { ERAS } from "@/lib/taxonomy";
@@ -140,7 +141,7 @@ export function Timeline({ artists }: { artists: AtlasArtist[] }) {
                         }}
                       >
                         {album.art?.url ? (
-                          <img src={album.art.url} alt="" />
+                          <Image src={album.art.url} alt="" width={56} height={56} />
                         ) : (
                           <span className="tl-tile-fallback">{initials(a.name)}</span>
                         )}
@@ -180,7 +181,7 @@ function HoverCard({ artist }: { artist: AtlasArtist }) {
         }}
       >
         {album.art?.url ? (
-          <img src={album.art.url} alt="" />
+          <Image src={album.art.url} alt="" width={320} height={320} />
         ) : (
           <span className="serif italic" style={{ color: "#fff8e8", fontSize: 22 }}>
             {album.title}

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useMemo, useState, type CSSProperties } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -84,7 +85,13 @@ function FeedCard({ artist, idx }: { artist: AtlasArtist; idx: number }) {
 
       <Link href={`/band/${slug}`} className="feed-art" aria-label={`${album.title} cover`}>
         {album.art?.url ? (
-          <img src={album.art.url} alt={`${album.title} cover`} className="feed-art-img" />
+          <Image
+            src={album.art.url}
+            alt={`${album.title} cover`}
+            width={400}
+            height={400}
+            className="feed-art-img"
+          />
         ) : (
           <div className="album-art" style={albumArtStyle}>
             <span className="aa-marker">[{album.year}]</span>

@@ -1315,6 +1315,7 @@ a,
   margin-bottom: 14px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   overflow: hidden;
+  position: relative;
 }
 .gx-panel-art img {
   display: block;

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import { MOOD_COLORS } from "@/lib/taxonomy";
@@ -26,7 +27,13 @@ export function GraphPanel({ artist }: { artist: AtlasArtist | null }) {
     <aside className="gx-panel">
       <div className="gx-panel-art" style={artStyle}>
         {album.art?.url ? (
-          <img src={album.art.url} alt={`${album.title} cover`} />
+          <Image
+            src={album.art.url}
+            alt={`${album.title} cover`}
+            fill
+            sizes="240px"
+            style={{ objectFit: "cover" }}
+          />
         ) : (
           <div className="gx-panel-art-title">{album.title}</div>
         )}
