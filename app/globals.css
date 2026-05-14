@@ -202,9 +202,11 @@ a,
     color var(--motion-fast),
     text-decoration-color var(--motion-fast);
 }
-.wos a:hover {
-  color: var(--accent);
-  text-decoration-color: var(--accent);
+@media (hover: hover) {
+  .wos a:hover {
+    color: var(--accent);
+    text-decoration-color: var(--accent);
+  }
 }
 
 .wos .rule {
@@ -401,8 +403,16 @@ a,
 }
 
 .wos button:focus-visible,
-.wos input:focus-visible {
+.wos input:focus-visible,
+.wos a:focus-visible {
   outline: 1px dashed var(--ink);
+  outline-offset: 2px;
+}
+
+.gx-page button:focus-visible,
+.gx-page a:focus-visible,
+.gx-tile:focus-visible {
+  outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
 
@@ -597,8 +607,10 @@ a,
   letter-spacing: 0.1em;
   line-height: 1;
 }
-.feed-menu:hover {
-  color: var(--ink);
+@media (hover: hover) {
+  .feed-menu:hover {
+    color: var(--ink);
+  }
 }
 
 .feed-art {
@@ -633,9 +645,11 @@ a,
     color var(--motion-fast),
     transform var(--motion-fast);
 }
-.feed-act:hover {
-  color: var(--accent);
-  transform: translateY(-1px);
+@media (hover: hover) {
+  .feed-act:hover {
+    color: var(--accent);
+    transform: translateY(-1px);
+  }
 }
 .feed-act.is-on {
   color: var(--accent);
@@ -665,8 +679,10 @@ a,
   color: var(--ink);
   text-decoration: none;
 }
-.feed-caption-name:hover {
-  color: var(--accent);
+@media (hover: hover) {
+  .feed-caption-name:hover {
+    color: var(--accent);
+  }
 }
 .feed-caption-album {
   color: var(--ink-soft);
