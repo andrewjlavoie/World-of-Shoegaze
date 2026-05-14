@@ -1,13 +1,7 @@
 import { z } from "zod";
 
 // EraKey values from lib/types.ts
-const ERA_KEYS = [
-  "proto",
-  "first_wave",
-  "transitional",
-  "second_wave",
-  "current",
-] as const;
+const ERA_KEYS = ["proto", "first_wave", "transitional", "second_wave", "current"] as const;
 
 // Image from lib/atlas-types.ts — url is a plain string (no URL format enforcement)
 const imageSchema = z.object({

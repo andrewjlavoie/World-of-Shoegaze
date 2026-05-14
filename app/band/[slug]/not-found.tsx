@@ -4,7 +4,10 @@ export default function BandNotFound() {
   return (
     <div className="wos paper wos-paper-pad" style={{ padding: 32, maxWidth: 640 }}>
       <h1 className="feed-h1">
-        Unknown band<span className="italic" style={{ color: "var(--accent)" }}>.</span>
+        Unknown band
+        <span className="italic" style={{ color: "var(--accent)" }}>
+          .
+        </span>
       </h1>
       <p className="serif italic" style={{ marginTop: 12 }}>
         That slug doesn&rsquo;t exist in the catalog.

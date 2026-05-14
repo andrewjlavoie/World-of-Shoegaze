@@ -14,9 +14,7 @@ const validDoc = {
   subgenre: "shoegaze",
   desc: "Reading dream-pop architects.",
   moods: ["wistful_dreamers"],
-  discography: [
-    { slug: "souvlaki", title: "Souvlaki", year: 1993, kind: "LP", isReference: true },
-  ],
+  discography: [{ slug: "souvlaki", title: "Souvlaki", year: 1993, kind: "LP", isReference: true }],
   listen: {},
 };
 
@@ -70,7 +68,10 @@ test("parseArtists drops invalid docs and returns the valid ones", () => {
   try {
     const out = parseArtists(docs);
     assert.equal(out.length, 2);
-    assert.deepEqual(out.map((a) => a.slug), ["slowdive", "alsogood"]);
+    assert.deepEqual(
+      out.map((a) => a.slug),
+      ["slowdive", "alsogood"],
+    );
   } finally {
     console.warn = original;
   }
@@ -79,7 +80,9 @@ test("parseArtists drops invalid docs and returns the valid ones", () => {
 test("parseArtists logs a warning for each dropped doc", () => {
   const original = console.warn;
   let warnCount = 0;
-  console.warn = () => { warnCount++; };
+  console.warn = () => {
+    warnCount++;
+  };
   try {
     parseArtists([{ ...validDoc, slug: "x", discography: [] }]);
     assert.equal(warnCount, 1);

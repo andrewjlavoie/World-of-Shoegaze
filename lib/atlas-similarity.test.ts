@@ -41,9 +41,21 @@ test("computeSimilarityAtlas: artists with identical attributes score > 0", () =
 test("computeSimilarityAtlas: shared moods raise the score", () => {
   const base = fakeArtist({ slug: "x", moods: ["wistful_dreamers", "noise_chaos"] });
   // partial: shares one mood; all other attributes differ
-  const partial = fakeArtist({ slug: "y", era: "current", country: "Japan", moods: ["wistful_dreamers"], intensity: 9 });
+  const partial = fakeArtist({
+    slug: "y",
+    era: "current",
+    country: "Japan",
+    moods: ["wistful_dreamers"],
+    intensity: 9,
+  });
   // none: shares no moods; all other attributes also differ
-  const none = fakeArtist({ slug: "z", era: "current", country: "Japan", moods: ["japanese_gaze"], intensity: 9 });
+  const none = fakeArtist({
+    slug: "z",
+    era: "current",
+    country: "Japan",
+    moods: ["japanese_gaze"],
+    intensity: 9,
+  });
   assert.ok(
     computeSimilarityAtlas(base, partial) > computeSimilarityAtlas(base, none),
     "shared moods should yield higher score",
@@ -72,8 +84,20 @@ test("computeSimilarityAtlas: same intensity scores higher than intensity-1 apar
 
 test("computeSimilarityAtlas: same country adds to the score", () => {
   const base = fakeArtist({ slug: "x", country: "UK", moods: [], intensity: 5, era: "first_wave" });
-  const sameCountry = fakeArtist({ slug: "y", country: "UK", moods: [], intensity: 5, era: "first_wave" });
-  const diffCountry = fakeArtist({ slug: "z", country: "Japan", moods: [], intensity: 5, era: "first_wave" });
+  const sameCountry = fakeArtist({
+    slug: "y",
+    country: "UK",
+    moods: [],
+    intensity: 5,
+    era: "first_wave",
+  });
+  const diffCountry = fakeArtist({
+    slug: "z",
+    country: "Japan",
+    moods: [],
+    intensity: 5,
+    era: "first_wave",
+  });
   assert.ok(
     computeSimilarityAtlas(base, sameCountry) > computeSimilarityAtlas(base, diffCountry),
     "same country should yield higher score",
@@ -81,9 +105,27 @@ test("computeSimilarityAtlas: same country adds to the score", () => {
 });
 
 test("computeSimilarityAtlas: dissimilar artists score lower than similar ones", () => {
-  const a = fakeArtist({ slug: "x", era: "first_wave", country: "UK", moods: ["wistful_dreamers"], intensity: 4 });
-  const close = fakeArtist({ slug: "y", era: "first_wave", country: "UK", moods: ["wistful_dreamers"], intensity: 4 });
-  const far = fakeArtist({ slug: "z", era: "current", country: "Japan", moods: ["japanese_gaze"], intensity: 9 });
+  const a = fakeArtist({
+    slug: "x",
+    era: "first_wave",
+    country: "UK",
+    moods: ["wistful_dreamers"],
+    intensity: 4,
+  });
+  const close = fakeArtist({
+    slug: "y",
+    era: "first_wave",
+    country: "UK",
+    moods: ["wistful_dreamers"],
+    intensity: 4,
+  });
+  const far = fakeArtist({
+    slug: "z",
+    era: "current",
+    country: "Japan",
+    moods: ["japanese_gaze"],
+    intensity: 9,
+  });
   assert.ok(computeSimilarityAtlas(a, far) < computeSimilarityAtlas(a, close));
 });
 
@@ -97,39 +139,71 @@ test("similarArtists: excludes the target itself (same slug filtered out)", () =
     target, // same slug — must be excluded
   ];
   const out = similarArtists(target, pool, 5);
-  assert.ok(
-    !out.some((a) => a.slug === "target"),
-    "target slug should not appear in results",
-  );
+  assert.ok(!out.some((a) => a.slug === "target"), "target slug should not appear in results");
 });
 
 test("similarArtists: respects the limit parameter", () => {
   const target = fakeArtist({ slug: "target" });
-  const pool = Array.from({ length: 10 }, (_, i) =>
-    fakeArtist({ slug: `a${i}`, intensity: i }),
-  );
+  const pool = Array.from({ length: 10 }, (_, i) => fakeArtist({ slug: `a${i}`, intensity: i }));
   const out = similarArtists(target, pool, 3);
   assert.ok(out.length <= 3, `expected ≤3 results, got ${out.length}`);
 });
 
 test("similarArtists: results are ordered by score descending", () => {
-  const target = fakeArtist({ slug: "target", era: "first_wave", moods: ["wistful_dreamers"], intensity: 5 });
+  const target = fakeArtist({
+    slug: "target",
+    era: "first_wave",
+    moods: ["wistful_dreamers"],
+    intensity: 5,
+  });
   // "close" shares era + mood + intensity → high score
-  const close = fakeArtist({ slug: "close", era: "first_wave", moods: ["wistful_dreamers"], intensity: 5 });
+  const close = fakeArtist({
+    slug: "close",
+    era: "first_wave",
+    moods: ["wistful_dreamers"],
+    intensity: 5,
+  });
   // "far" shares nothing → low score
-  const far = fakeArtist({ slug: "far", era: "current", country: "Japan", moods: ["japanese_gaze"], intensity: 1 });
+  const far = fakeArtist({
+    slug: "far",
+    era: "current",
+    country: "Japan",
+    moods: ["japanese_gaze"],
+    intensity: 1,
+  });
   const out = similarArtists(target, [far, close], 2);
   assert.equal(out[0]?.slug, "close", "highest-similarity artist should be first");
 });
 
 test("similarArtists: only returns artists with score > 0", () => {
-  const target = fakeArtist({ slug: "target", moods: [], intensity: 5, era: "first_wave", country: "UK" });
+  const target = fakeArtist({
+    slug: "target",
+    moods: [],
+    intensity: 5,
+    era: "first_wave",
+    country: "UK",
+  });
   // Artist with intensity 8 and different era/country: intDist=3, eraDist=2 → score 0
-  const zero = fakeArtist({ slug: "zero", moods: [], intensity: 8, era: "current", country: "Japan" });
-  const positive = fakeArtist({ slug: "positive", moods: ["wistful_dreamers"], intensity: 5, era: "first_wave", country: "UK" });
+  const zero = fakeArtist({
+    slug: "zero",
+    moods: [],
+    intensity: 8,
+    era: "current",
+    country: "Japan",
+  });
+  const positive = fakeArtist({
+    slug: "positive",
+    moods: ["wistful_dreamers"],
+    intensity: 5,
+    era: "first_wave",
+    country: "UK",
+  });
   const out = similarArtists(target, [zero, positive], 5);
   assert.ok(!out.some((a) => a.slug === "zero"), "zero-score artist should be excluded");
-  assert.ok(out.some((a) => a.slug === "positive"), "positive-score artist should be included");
+  assert.ok(
+    out.some((a) => a.slug === "positive"),
+    "positive-score artist should be included",
+  );
 });
 
 test("similarArtists: returns AtlasArtist objects (not score wrappers)", () => {
