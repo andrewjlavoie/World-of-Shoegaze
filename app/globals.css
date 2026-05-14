@@ -955,3 +955,55 @@ button, a, [role="button"] { -webkit-tap-highlight-color: transparent; touch-act
   .feed-toolbar2-sort { width: 100%; order: 99; }
   .feed-toolbar2-sort .btn { flex: 1; }
 }
+
+/* Active filter strip — appears between toolbar and feed when filters are active. */
+.feed-active {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  font-size: 10px;
+  padding: 6px 0 14px;
+}
+.feed-active-label {
+  color: var(--ink-soft);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 9px;
+  margin-right: 2px;
+}
+.feed-active-chip {
+  padding: 4px 8px;
+  background: rgba(140, 42, 35, 0.10);
+  color: var(--accent);
+  border: none;
+  font-family: inherit;
+  font-size: 10px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.feed-active-chip::after { content: " ✕"; opacity: 0.55; margin-left: 4px; }
+.feed-active-chip:hover { background: rgba(140, 42, 35, 0.18); }
+
+.feed-active-clear {
+  background: none;
+  border: none;
+  color: var(--ink-soft);
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: var(--rule);
+  font-family: inherit;
+  font-size: 10px;
+  padding: 0 6px;
+}
+.feed-active-clear:hover { color: var(--ink); text-decoration-color: var(--ink); }
+
+.feed-active-count {
+  margin-left: auto;
+  color: var(--ink-faint);
+  font-size: 10px;
+}
+
+@media (max-width: 720px) {
+  .feed-active-count { margin-left: 0; flex-basis: 100%; }
+}
