@@ -245,16 +245,6 @@ button, a, [role="button"] { -webkit-tap-highlight-color: transparent; touch-act
 .feed-h1 { font-size: 54px; line-height: 1; }
 .feed-page-tagline { color: var(--ink-soft); text-align: right; font-size: 14px; max-width: 220px; }
 
-.feed-toolbar { display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
-.feed-toolbar-row {
-  display: flex; gap: 10px; align-items: stretch; flex-wrap: wrap;
-  justify-content: space-between;
-}
-.feed-eras { display: flex; gap: 6px; flex-wrap: wrap; }
-.feed-sort { display: flex; border: 1px solid var(--rule); }
-.feed-sort .btn { border: none; border-right: 1px solid var(--rule); }
-.feed-sort .btn:last-child { border-right: none; }
-
 .feed-stream { display: flex; flex-direction: column; gap: 32px; }
 
 .feed-card {
@@ -380,9 +370,6 @@ button, a, [role="button"] { -webkit-tap-highlight-color: transparent; touch-act
   align-items: baseline;
 }
 
-/* timeline — used to override grid template columns */
-.wos-timeline-grid { display: grid; grid-template-columns: 80px 1.6fr 1fr; gap: 28px; }
-
 /* New timeline (album-tile grid) ------------------------------------- */
 .tl-grid { display: flex; flex-direction: column; gap: 6px; }
 .tl-row-wrap {
@@ -489,11 +476,6 @@ button, a, [role="button"] { -webkit-tap-highlight-color: transparent; touch-act
   .feed-intensity { padding: 0 14px; }
   .feed-caption { padding: 6px 14px 12px; }
   .feed-tags { padding: 0 14px 14px; }
-  .feed-toolbar { gap: 12px; }
-  .feed-toolbar-row { flex-direction: column; align-items: stretch; gap: 12px; }
-  .feed-sort { align-self: stretch; }
-  .feed-sort .btn { flex: 1; }
-
   /* bigger touch targets on mobile — chips and btns */
   .wos .chip {
     font-size: 12px; padding: 10px 14px; min-height: 40px;
@@ -501,8 +483,6 @@ button, a, [role="button"] { -webkit-tap-highlight-color: transparent; touch-act
   .wos .btn {
     font-size: 11px; padding: 11px 14px; min-height: 40px;
   }
-  .feed-eras { gap: 8px; }
-
   /* band hero stacks */
   .wos-band-hero { grid-template-columns: 1fr; gap: 22px; }
   .wos-band-hero-art { position: static; }
@@ -519,8 +499,6 @@ button, a, [role="button"] { -webkit-tap-highlight-color: transparent; touch-act
   }
   .wos-band-disco-row > .wos-disco-kind { display: none; }
 
-  /* timeline: shrink left col + gaps */
-  .wos-timeline-grid { grid-template-columns: 44px 1.4fr 1fr; gap: 10px; }
   .wos-timeline-h1 { font-size: 44px !important; }
 
   /* band hero h1 */
