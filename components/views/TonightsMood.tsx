@@ -167,8 +167,8 @@ export function TonightsMood({ artists }: { artists: AtlasArtist[] }) {
                 <button className="btn" onClick={() => setPicked(null)}>[ start over ]</button>
                 <button className="btn"
                   disabled={!picks.length}
-                  onClick={() => picks[0] && router.push(`/drift/${picks[0].slug}`)}>
-                  [ enter drift mode → ]
+                  onClick={() => picks[0] && router.push(`/band/${picks[0].slug}`)}>
+                  [ open the first → ]
                 </button>
               </div>
             </div>

@@ -12,8 +12,6 @@ const ROUTES = [
 
 export function SiteNav() {
   const path = usePathname();
-  // Hide chrome in Drift mode — that view is supposed to be all-screen, no UI.
-  if (path.startsWith("/drift/")) return null;
 
   return (
     <nav

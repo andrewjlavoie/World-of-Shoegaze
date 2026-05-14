@@ -62,7 +62,6 @@ export function BandDetail({ artist, similar }: { artist: AtlasArtist; similar: 
   const tint = `hsl(${palette.hue}, 22%, 92%)`;
   const accentSoft = `hsl(${palette.hue}, 55%, 38%)`;
   const eraInfo = ERAS.find((e) => e.key === artist.era);
-  const play = () => router.push(`/drift/${artist.slug}`);
 
   return (
     <div className="wos paper" style={{ width: "100%", minHeight: "100%", background: tint, ["--accent" as string]: accentSoft } as CSSProperties}>
@@ -99,10 +98,6 @@ export function BandDetail({ artist, similar }: { artist: AtlasArtist; similar: 
                 )}
               </div>
             )}
-
-            <button onClick={play} className="btn" style={{ marginTop: 14, width: "100%", padding: "10px 12px", background: accentSoft, color: "#fff8e8", borderColor: accentSoft }}>
-              ▶ enter drift mode
-            </button>
           </div>
 
           <div>

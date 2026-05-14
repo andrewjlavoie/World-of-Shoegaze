@@ -86,8 +86,7 @@ function FeedCard({ artist, idx }: { artist: AtlasArtist; idx: number }) {
       </Link>
 
       <div className="feed-actions">
-        <Link href={`/drift/${slug}`} className="feed-act" aria-label="enter drift">▶</Link>
-        <Link href={`/band/${slug}`} className="feed-act" aria-label="sounds like">↗</Link>
+        <Link href={`/band/${slug}`} className="feed-act" aria-label="open band">↗</Link>
         <span className="feed-act-spacer" />
         <span className="feed-act-year micro">[{album.year}]</span>
       </div>
