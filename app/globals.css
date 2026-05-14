@@ -709,6 +709,11 @@ button, a, [role="button"] { -webkit-tap-highlight-color: transparent; touch-act
   will-change: transform;
 }
 
+/* While the world is animating to a new transform (e.g. fit-all reset),
+   smoothly transition. Otherwise transitions would interfere with
+   real-time pan/zoom. */
+.gx-world.is-animating { transition: transform 400ms var(--motion-ease); }
+
 /* A tile = one artist. Absolutely positioned at the layout coords. */
 .gx-tile {
   position: absolute;

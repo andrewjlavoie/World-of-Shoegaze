@@ -86,6 +86,7 @@ export function Graph({ artists }: { artists: AtlasArtist[] }) {
   const worldRef = useRef<HTMLDivElement>(null);
 
   const [transform, setTransform] = useState<Transform>({ z: 1, x: 0, y: 0 });
+  const [isAnimating, setIsAnimating] = useState(false);
   const tfRef = useRef<Transform>(transform);
   tfRef.current = transform;
 
@@ -148,7 +149,14 @@ export function Graph({ artists }: { artists: AtlasArtist[] }) {
     zoomAt(vp.clientWidth / 2, vp.clientHeight / 2, factor);
   }, [zoomAt]);
 
-  const fitAll = useCallback(() => setTransform(computeFitAll()), [computeFitAll]);
+  const fitAll = useCallback(() => {
+    setIsAnimating(true);
+    setTransform(computeFitAll());
+    // Match the CSS transition duration. setTimeout is OK here — we're
+    // explicitly synchronizing with a CSS transition, not coupling to
+    // some external timer.
+    window.setTimeout(() => setIsAnimating(false), 420);
+  }, [computeFitAll]);
 
   // Pointer handlers attached to the viewport.
   const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
@@ -285,7 +293,7 @@ export function Graph({ artists }: { artists: AtlasArtist[] }) {
         onPointerUp={onPointerUp}
         onPointerCancel={onPointerUp}
       >
-        <div ref={worldRef} className="gx-world" style={worldStyle}>
+        <div ref={worldRef} className={`gx-world ${isAnimating ? "is-animating" : ""}`} style={worldStyle}>
           {artists.map((a) => {
             const pos = positions.get(a.slug);
             if (!pos) return null;
