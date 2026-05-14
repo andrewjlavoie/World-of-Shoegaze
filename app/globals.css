@@ -1081,3 +1081,79 @@ button, a, [role="button"] { -webkit-tap-highlight-color: transparent; touch-act
 }
 .feed-panel-url code { font-family: var(--font-jetbrains-mono), monospace; font-size: 10px; }
 .feed-panel-foot-buttons { display: flex; gap: 8px; }
+
+/* Filter panel — mobile bottom drawer.
+   Below 720px the inline panel becomes a fixed-bottom sheet that slides
+   up when .is-open. A semi-opaque backdrop dims the feed behind it. */
+@media (max-width: 720px) {
+  .feed-panel-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(8, 6, 12, 0.45);
+    z-index: 90;
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+  }
+
+  .feed-panel {
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    border: none;
+    border-top: 1px solid var(--ink);
+    border-radius: 12px 12px 0 0;
+    max-height: 80vh;
+    overflow-y: auto;
+    transform: translateY(100%);
+    transition: transform 320ms var(--motion-ease);
+    z-index: 100;
+    padding: 12px 16px 28px;
+    box-shadow: 0 -8px 28px rgba(0, 0, 0, 0.18);
+  }
+  .feed-panel.is-open { transform: translateY(0); }
+
+  .feed-panel-mobile-handle {
+    display: block;
+    width: 36px;
+    height: 4px;
+    background: var(--rule);
+    border-radius: 2px;
+    margin: 0 auto 10px;
+  }
+  .feed-panel-mobile-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 12px;
+  }
+  .feed-panel-mobile-title {
+    font-family: var(--font-instrument-serif), Georgia, serif;
+    font-style: italic;
+    font-size: 22px;
+    color: var(--ink);
+  }
+  .feed-panel-mobile-close {
+    background: none;
+    border: none;
+    color: var(--ink-soft);
+    font-size: 22px;
+    line-height: 1;
+    padding: 4px 8px;
+    cursor: pointer;
+  }
+
+  .feed-panel-grid { grid-template-columns: 1fr; gap: 16px; }
+  .feed-panel-block.is-wide { grid-column: 1; }
+
+  .feed-panel-foot {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .feed-panel-url { display: none; }
+  .feed-panel-foot-buttons .btn { flex: 1; padding: 10px 12px; }
+}
