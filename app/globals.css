@@ -1,10 +1,31 @@
-/* World of Shoegaze — global styles */
+/* ============================================================================
+ * world of shoegaze — global stylesheet
+ *
+ * Sections (search by header):
+ *
+ *   1. TOKENS              — :root and [data-tone] CSS variables
+ *   2. RESET + BASE        — box-sizing, body/html, font wiring,
+ *                            tap-highlight suppression
+ *   3. SHELF               — .shelf-* settings panel (cogwheel + flyout)
+ *   4. PRIMITIVES          — .wos base, .btn, .chip, .kicker, .micro,
+ *                            .small, .serif, .italic, .rule, .ascii-rule,
+ *                            .fadeup, .album-art, scrollbars, focus-visible
+ *   5. SITE NAV            — .wos-nav*
+ *   6. FEED                — .feed-* (cards, toolbar2, active strip, panel,
+ *                            mobile drawer); also .wos-paper-pad layout helper
+ *   7. BAND DETAIL         — .wos-band-*
+ *   8. TIMELINE            — .tl-*
+ *   9. MOBILE OVERRIDES    — @media (max-width: 720px) consolidated at end
+ *  10. GRAPH               — .gx-* (canvas, tiles, panel, controls)
+ *
+ * Conventions:
+ *   - All colors come from CSS vars; do not inline hex/rgba values
+ *   - Mobile breakpoint is 720px (one canonical value)
+ *   - Hover styles wrap in @media (hover: hover) — never bare :hover
+ *   - Focus-visible matters; do not strip outlines
+ * ============================================================================ */
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+/* === 1. TOKENS ============================================================== */
 
 :root {
   --paper: #ebe5d6;
@@ -57,6 +78,14 @@
   --highlight: #ff5eb8;
 }
 
+/* === 2. RESET + BASE ======================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html,
 body {
   margin: 0;
@@ -76,9 +105,8 @@ a,
   touch-action: manipulation;
 }
 
-/* ------------------------------------------------------------------ */
-/* Settings shelf (floating cogwheel + panel)                          */
-/* ------------------------------------------------------------------ */
+/* === 3. SHELF =============================================================== */
+
 .shelf-toggle {
   position: fixed;
   right: 18px;
@@ -143,6 +171,8 @@ a,
     bottom: calc(150px + env(safe-area-inset-bottom, 0px));
   }
 }
+
+/* === 4. PRIMITIVES ========================================================== */
 
 .wos {
   font-family: var(--font-jetbrains-mono), ui-monospace, Menlo, monospace;
@@ -413,7 +443,8 @@ a,
   outline-offset: 2px;
 }
 
-/* --- Site nav (sticky top bar) ----------------------------------------- */
+/* === 5. SITE NAV ============================================================ */
+
 .wos-nav {
   position: sticky;
   top: 0;
@@ -488,19 +519,12 @@ a,
   }
 }
 
-/* ------------------------------------------------------------------ */
-/* Responsive layout helpers — used by views via className.            */
-/* Default = desktop. Mobile breakpoints override below.               */
-/* ------------------------------------------------------------------ */
+/* === 6. FEED ================================================================ */
 
 /* page-level paper container — used by all .wos.paper views via .wos-paper-pad */
 .wos-paper-pad {
   padding: 32px 36px 64px;
 }
-
-/* ------------------------------------------------------------------ */
-/* Feed (homepage) — single-column, instagrammy                       */
-/* ------------------------------------------------------------------ */
 
 .feed-page {
   max-width: 540px;
@@ -726,6 +750,8 @@ a,
   border-top: 1px solid var(--rule);
 }
 
+/* === 7. BAND DETAIL ========================================================= */
+
 /* band detail hero — sidebar art + body */
 .wos-band-hero {
   display: grid;
@@ -765,6 +791,8 @@ a,
   border-bottom: 1px solid var(--rule-soft);
   align-items: baseline;
 }
+
+/* === 8. TIMELINE ============================================================ */
 
 /* New timeline (album-tile grid) ------------------------------------- */
 .tl-grid {
@@ -914,7 +942,8 @@ a,
   } /* hover doesn't fire on touch — just tap to open */
 }
 
-/* ----------------------------- mobile ----------------------------- */
+/* === 9. MOBILE OVERRIDES ==================================================== */
+
 @media (max-width: 720px) {
   .wos {
     font-size: 12.5px;
@@ -1050,9 +1079,7 @@ a,
   }
 }
 
-/* ------------------------------------------------------------------ */
-/* Graph view — atlas of mood gardens                                 */
-/* ------------------------------------------------------------------ */
+/* === 10. GRAPH ============================================================== */
 
 .gx-page {
   position: relative;
@@ -1488,6 +1515,8 @@ a,
     font-size: 18px;
   }
 }
+
+/* === 6. FEED (continued) — toolbar2, active strip, filter panel ============= */
 
 /* Feed toolbar v2 — search + filters button + sort buttons in one row. */
 .feed-toolbar2 {
