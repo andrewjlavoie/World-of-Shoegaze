@@ -6,7 +6,10 @@ import {
   buildHref,
   decadeOf,
   activeCount,
+  applyFilters,
+  dimensionCounts,
 } from "./feed-filters";
+import type { AtlasArtist } from "./atlas-types";
 
 test("EMPTY_STATE has no selections, sort=name, search=''", () => {
   assert.equal(EMPTY_STATE.search, "");
@@ -104,9 +107,6 @@ test("activeCount: counts dimensions with non-empty selections", () => {
   // search and sort don't count toward active dimensions
   assert.equal(activeCount({ ...EMPTY_STATE, search: "x", sort: "year" }), 0);
 });
-
-import type { AtlasArtist } from "./atlas-types";
-import { applyFilters, dimensionCounts } from "./feed-filters";
 
 function fakeArtist(opts: {
   slug: string;
