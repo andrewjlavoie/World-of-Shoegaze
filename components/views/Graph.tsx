@@ -241,6 +241,22 @@ export function Graph({ artists }: { artists: AtlasArtist[] }) {
     return () => vp.removeEventListener("wheel", onWheel);
   }, [zoomAt]);
 
+  // Keyboard shortcuts: Esc dismisses focus; 0 fits all; +/- step zoom.
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      // Ignore when typing in an input/textarea/contenteditable somewhere.
+      const target = e.target as HTMLElement | null;
+      if (target && (target.tagName === "INPUT" || target.tagName === "TEXTAREA" || target.isContentEditable)) return;
+
+      if (e.key === "Escape") setFocusedSlug(null);
+      else if (e.key === "0") fitAll();
+      else if (e.key === "+" || e.key === "=") zoomBy(ZOOM_STEP);
+      else if (e.key === "-") zoomBy(1 / ZOOM_STEP);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [fitAll, zoomBy]);
+
   const worldStyle: CSSProperties = {
     width: 600,
     height: 400,
