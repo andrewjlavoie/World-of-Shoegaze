@@ -25,20 +25,6 @@ export interface Era {
   range: string;
 }
 
-export interface Discography {
-  title: string;
-  year: number;
-  kind: "LP" | "EP";
-  note: string;
-}
-
-export interface Palette {
-  bg: string;
-  accent: string;
-  fg: string;
-  hue: number;
-}
-
 export type Tone = "paper" | "terminal" | "magenta";
 export type Density = "tight" | "normal" | "loose";
 export type Motion = "snap" | "fast" | "slow";
