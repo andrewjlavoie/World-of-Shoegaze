@@ -4,6 +4,7 @@
 // task) consume it without ever touching React.
 
 import type { AtlasArtist } from "./atlas-types";
+import { familyFor } from "./mood-families";
 
 export type SortKey = "name" | "year" | "intensity";
 
@@ -90,4 +91,80 @@ export function activeCount(state: FilterState): number {
   let n = 0;
   for (const k of DIMENSION_KEYS) if (state[k].length > 0) n++;
   return n;
+}
+
+function refAlbum(a: AtlasArtist) {
+  return a.discography.find((d) => d.isReference) ?? a.discography[0];
+}
+
+function searchMatches(a: AtlasArtist, q: string): boolean {
+  if (!q) return true;
+  const needle = q.toLowerCase();
+  const haystack = [
+    a.name,
+    refAlbum(a).title,
+    a.country,
+    a.subgenre,
+    ...a.moods,
+  ].join(" ").toLowerCase();
+  return haystack.includes(needle);
+}
+
+function dimensionMatches(a: AtlasArtist, dim: DimensionKey, values: string[]): boolean {
+  if (values.length === 0) return true;
+  switch (dim) {
+    case "era":
+      return values.includes(a.era);
+    case "mood": {
+      const family = familyFor(a.moods[0]);
+      return values.includes(family);
+    }
+    case "country":
+      return values.includes(a.country);
+    case "decade":
+      return values.includes(decadeOf(refAlbum(a).year));
+  }
+}
+
+function compareArtists(a: AtlasArtist, b: AtlasArtist, sort: SortKey): number {
+  if (sort === "year") return refAlbum(b).year - refAlbum(a).year;
+  if (sort === "intensity") return b.intensity - a.intensity;
+  return a.name.replace(/^The /i, "").localeCompare(b.name.replace(/^The /i, ""));
+}
+
+/**
+ * Apply every dimension AND-style. Within a dimension, values compose OR-style.
+ * Returns a new sorted array; does not mutate input.
+ */
+export function applyFilters(artists: AtlasArtist[], state: FilterState): AtlasArtist[] {
+  const out: AtlasArtist[] = [];
+  for (const a of artists) {
+    if (!searchMatches(a, state.search)) continue;
+    if (!dimensionMatches(a, "era", state.era)) continue;
+    if (!dimensionMatches(a, "mood", state.mood)) continue;
+    if (!dimensionMatches(a, "country", state.country)) continue;
+    if (!dimensionMatches(a, "decade", state.decade)) continue;
+    out.push(a);
+  }
+  out.sort((x, y) => compareArtists(x, y, state.sort));
+  return out;
+}
+
+/**
+ * Faceted counts for each option in `dim`. The count for option V is
+ * "how many bands match the current state with `dim` replaced by [V]".
+ * Other dimensions stay as they are. Search applies. Sort doesn't matter.
+ */
+export function dimensionCounts(
+  artists: AtlasArtist[],
+  state: FilterState,
+  dim: DimensionKey,
+  options: string[],
+): Map<string, number> {
+  const out = new Map<string, number>();
+  for (const value of options) {
+    const probe: FilterState = { ...state, [dim]: [value] };
+    out.set(value, applyFilters(artists, probe).length);
+  }
+  return out;
 }
