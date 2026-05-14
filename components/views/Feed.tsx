@@ -5,6 +5,7 @@ import { useCallback, useMemo, useState, type CSSProperties } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { MOOD_COLORS } from "@/lib/data";
 import { eraLabel } from "@/lib/helpers";
+import { initials, moodTag, paletteFor, refAlbum } from "@/lib/atlas-helpers";
 import {
   EMPTY_STATE,
   activeCount,
@@ -20,29 +21,6 @@ import { ActiveFilterStrip } from "./ActiveFilterStrip";
 import { FeedPanel } from "./FeedPanel";
 import type { AtlasArtist, AtlasAlbum } from "@/lib/atlas-types";
 
-function initials(name: string): string {
-  const words = name.replace(/^The\s+/i, "").split(/\s+/).filter(Boolean);
-  if (words.length === 1) return words[0].slice(0, 2).toUpperCase();
-  return (words[0][0] + words[1][0]).toUpperCase();
-}
-
-function moodTag(label: string): string {
-  return label.toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_|_$/g, "");
-}
-
-function paletteFor(moods: string[]) {
-  const h = moods.length && MOOD_COLORS[moods[0]] ? MOOD_COLORS[moods[0]].hue : 260;
-  return {
-    bg: `linear-gradient(135deg, hsl(${h}, 55%, 35%), hsl(${(h + 35) % 360}, 60%, 22%))`,
-    fg: "#fff8e8",
-    hue: h,
-  };
-}
-
-function refAlbum(artist: AtlasArtist): AtlasAlbum {
-  return artist.discography.find((d) => d.isReference) || artist.discography[0];
-}
-
 function IntensityBar({ value }: { value: number }) {
   return (
     <span style={{ display: "inline-flex", gap: 2, fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 10, letterSpacing: 1, lineHeight: 1 }}>
@@ -56,7 +34,7 @@ function IntensityBar({ value }: { value: number }) {
 function FeedCard({ artist, idx }: { artist: AtlasArtist; idx: number }) {
   const router = useRouter();
   const palette = paletteFor(artist.moods);
-  const album = refAlbum(artist);
+  const album = refAlbum(artist)!;
   const slug = artist.slug;
   const albumArtStyle: CSSProperties = {
     ["--art-bg" as string]: palette.bg,
