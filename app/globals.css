@@ -717,10 +717,10 @@ button, a, [role="button"] { -webkit-tap-highlight-color: transparent; touch-act
 /* A tile = one artist. Absolutely positioned at the layout coords. */
 .gx-tile {
   position: absolute;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   padding: 0;
-  margin: -20px 0 0 -20px; /* center on its (x, y) */
+  margin: -25px 0 0 -25px; /* center on its (x, y) */
   background: var(--art-bg, #2d3f5f);
   border: 1px solid rgba(0, 0, 0, 0.4);
   cursor: pointer;

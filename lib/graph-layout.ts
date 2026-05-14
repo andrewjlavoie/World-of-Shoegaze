@@ -33,7 +33,7 @@ interface SimNode extends SimulationNodeDatum {
 }
 
 const DEFAULT_TICKS = 300;
-const TILE_RADIUS = 22;       // ≈ tile size 40px + collision padding
+const TILE_RADIUS = 30;       // ≈ tile size 50px + breathing-room padding
 const SUB_FORCE = 0.9;         // strong attraction to sub-mood centroid
 const FAMILY_FORCE = 0.3;      // medium attraction to family centroid
 const CHARGE = -8;             // light universal repulsion
