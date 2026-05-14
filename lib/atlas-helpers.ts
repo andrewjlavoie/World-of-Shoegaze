@@ -1,5 +1,5 @@
 import type { AtlasArtist, AtlasAlbum } from "./atlas-types";
-import { MOOD_COLORS } from "./data";
+import { MOOD_COLORS } from "./taxonomy";
 
 const DEFAULT_HUE = 260;
 const FG = "#fff8e8";

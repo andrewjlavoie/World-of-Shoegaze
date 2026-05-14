@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { MOOD_TO_BANDS } from "./data";
+import { MOOD_TO_BANDS } from "../scripts/seed-data";
 import {
   FAMILY_KEYS,
   FAMILY_LABELS,

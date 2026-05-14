@@ -1,164 +1,23 @@
-import type { Band, Era, EraKey, MoodColor } from "./types";
+// Legacy seed dataset — only used by scripts/seed.ts and
+// scripts/export-seed-json.ts. Not part of the runtime bundle.
+import type { EraKey } from "../lib/types";
 
-export const MOOD_COLORS: Record<string, MoodColor> = {
-  euphoric_bliss: { hue: 340, label: "euphoric bliss", desc: "Classic dreamy wall-of-sound" },
-  ethereal_celestial: { hue: 200, label: "ethereal celestial", desc: "Voices from another plane" },
-  noisy_chaotic: { hue: 15, label: "noisy chaotic", desc: "Beauty buried in feedback" },
-  dark_gothic: { hue: 280, label: "dark gothic", desc: "Dream pop with teeth" },
-  psychedelic_hypnotic: {
-    hue: 50,
-    label: "psychedelic hypnotic",
-    desc: "Drone, repetition, trance",
-  },
-  wistful_dreamers: {
-    hue: 260,
-    label: "wistful dreamers",
-    desc: "Gaze with the volume turned down",
-  },
-  yearning_anthemic: {
-    hue: 25,
-    label: "yearning anthemic",
-    desc: "Big choruses, post-hardcore heart",
-  },
-  hypnotic_heavy: { hue: 220, label: "hypnotic heavy", desc: "Slow tempos, dense low end" },
-  depressive_beauty: {
-    hue: 250,
-    label: "depressive beauty",
-    desc: "Pretty melodies wrapped in despair",
-  },
-  ecstatic_catharsis: { hue: 320, label: "ecstatic catharsis", desc: "Euphoric noise" },
-  apocalyptic_doom: { hue: 0, label: "apocalyptic doom", desc: "End-of-world heaviness" },
-  muscular_brooding: { hue: 210, label: "muscular brooding", desc: "Controlled aggression" },
-  volatile_violent: { hue: 355, label: "volatile violent", desc: "Beauty interrupted" },
-  sun_bleached_sludge: { hue: 35, label: "sun-bleached sludge", desc: "Sludgy 90s alt weariness" },
-  modern_anguish: { hue: 310, label: "modern anguish", desc: "Current scene angst" },
-  dream_pop_warmth: { hue: 20, label: "dream pop warmth", desc: "Warm, melodic, accessible" },
-  lo_fi_bedroom: { hue: 40, label: "lo-fi bedroom", desc: "Homemade, distant, intimate" },
-  ambient_drift: { hue: 190, label: "ambient drift", desc: "Near-formless atmosphere" },
-  nostalgic_jangly: { hue: 55, label: "nostalgic jangly", desc: "Twee, noise-pop adjacent" },
-  experimental_strange: { hue: 170, label: "experimental strange", desc: "Hard to pin down" },
-  japanese_gaze: {
-    hue: 335,
-    label: "Japanese gaze",
-    desc: "Japan's sweet-meets-aggressive tradition",
-  },
-};
+export interface Band {
+  name: string;
+  subgenre: string;
+  country: string;
+  era: EraKey;
+  album: string;
+  year: number;
+  intensity: number;
+  lat: number;
+  lng: number;
+  desc: string;
+}
 
-export const MOOD_TO_BANDS: Record<string, string[]> = {
-  euphoric_bliss: [
-    "My Bloody Valentine",
-    "Slowdive",
-    "Ride",
-    "Lush",
-    "Chapterhouse",
-    "Pale Saints",
-    "Ringo Deathstarr",
-    "Amusement Parks on Fire",
-    "Westkust",
-    "Pia Fraus",
-    "Air Formation",
-  ],
-  ethereal_celestial: ["Cocteau Twins", "This Mortal Coil", "Sun's Signature", "Mojave 3"],
-  noisy_chaotic: [
-    "The Jesus and Mary Chain",
-    "A Place to Bury Strangers",
-    "Whirr",
-    "Medicine",
-    "Serena-Maneesh",
-    "No Joy",
-    "Lovesliescrushing",
-  ],
-  dark_gothic: ["Curve", "The Cranes", "Mazzy Star", "Tamaryn", "Lowlife", "Crystal Stilts"],
-  psychedelic_hypnotic: [
-    "Spacemen 3",
-    "Loop",
-    "Spiritualized",
-    "The Telescopes",
-    "Flying Saucer Attack",
-  ],
-  wistful_dreamers: [
-    "Title Fight",
-    "Turnover",
-    "Basement",
-    "Webbed Wing",
-    "Beach Fossils",
-    "Hibou",
-    "Wild Nothing",
-  ],
-  yearning_anthemic: ["Citizen", "Balance and Composure", "Far", "Anxious", "Koyo", "Adorable"],
-  hypnotic_heavy: ["Hum", "Cloakroom", "True Widow", "Failure", "Catherine Wheel", "Swervedriver"],
-  depressive_beauty: [
-    "Nothing",
-    "Alcest",
-    "Lantlôs",
-    "Have a Nice Life",
-    "Knifeplay",
-    "Cigarettes After Sex",
-  ],
-  ecstatic_catharsis: ["Deafheaven", "Astronoid", "Fleshwater"],
-  apocalyptic_doom: [
-    "Greet Death",
-    "Holy Fawn",
-    "Spotlights",
-    "Bosse-de-Nage",
-    "Jesu",
-    "Sadness",
-    "An Autumn for Crippled Children",
-    "Amesoeurs",
-  ],
-  muscular_brooding: ["Narrow Head", "Quicksand", "Cave In", "The Boo Radleys", "Moose"],
-  volatile_violent: ["Loathe", "Spiritbox"],
-  sun_bleached_sludge: ["Superheaven", "The Verve"],
-  modern_anguish: ["Glare", "Glixen", "Julie", "Wisp", "Feeble Little Horse"],
-  dream_pop_warmth: [
-    "Beach House",
-    "M83",
-    "DIIV",
-    "Asobi Seksu",
-    "Drop Nineteens",
-    "Galaxie 500",
-    "Engineers",
-    "Cheatahs",
-  ],
-  lo_fi_bedroom: [
-    "Parannoul",
-    "Asian Glow",
-    "Quannnic",
-    "Hotline TNT",
-    "Sonhos Tomam Conta",
-    "bdrmm",
-    "My Dead Girlfriend",
-  ],
-  ambient_drift: ["Auburn Lull", "Bowery Electric", "Ulrich Schnauss", "Half String"],
-  nostalgic_jangly: [
-    "Black Tambourine",
-    "Velocity Girl",
-    "The Pains of Being Pure at Heart",
-    "Lilys",
-    "The Radio Dept.",
-    "Yuck",
-    "For Tracy Hyde",
-  ],
-  experimental_strange: [
-    "They Are Gutting a Body of Water",
-    "Coaltar of the Deepers",
-    "Sweet Trip",
-    "Bilmuri",
-  ],
-  japanese_gaze: [
-    "Kinoko Teikoku",
-    "For Tracy Hyde",
-    "My Dead Girlfriend",
-    "Coaltar of the Deepers",
-    "Cruyff in the Bedroom",
-    "Plastic Girl in Closet",
-    "Tokyo Shoegazer",
-  ],
-};
+export type RawBand = [string, string, string, EraKey, string, number, number, number, number];
 
-type RawBand = [string, string, string, EraKey, string, number, number, number, number];
-
-const RAW: RawBand[] = [
+export const RAW: RawBand[] = [
   [
     "My Bloody Valentine",
     "shoegaze",
@@ -920,7 +779,7 @@ const RAW: RawBand[] = [
   ["Koyo", "emo / post-hardcore", "USA", "current", "Would You Miss It?", 2024, 5, 40.78, -73.13],
 ];
 
-const DESC: Record<string, string> = {
+export const DESC: Record<string, string> = {
   "My Bloody Valentine":
     "The genre's center of gravity. Kevin Shields' guitar manipulations on Loveless became the template for everything after.",
   Slowdive: "The most emotionally resonant of the originals — ethereal, melancholy, patient.",
@@ -971,6 +830,118 @@ const DESC: Record<string, string> = {
     "Ivo Watts-Russell's 4AD supergroup of darkly beautiful covers and originals.",
 };
 
+export const MOOD_TO_BANDS: Record<string, string[]> = {
+  euphoric_bliss: [
+    "My Bloody Valentine",
+    "Slowdive",
+    "Ride",
+    "Lush",
+    "Chapterhouse",
+    "Pale Saints",
+    "Ringo Deathstarr",
+    "Amusement Parks on Fire",
+    "Westkust",
+    "Pia Fraus",
+    "Air Formation",
+  ],
+  ethereal_celestial: ["Cocteau Twins", "This Mortal Coil", "Sun's Signature", "Mojave 3"],
+  noisy_chaotic: [
+    "The Jesus and Mary Chain",
+    "A Place to Bury Strangers",
+    "Whirr",
+    "Medicine",
+    "Serena-Maneesh",
+    "No Joy",
+    "Lovesliescrushing",
+  ],
+  dark_gothic: ["Curve", "The Cranes", "Mazzy Star", "Tamaryn", "Lowlife", "Crystal Stilts"],
+  psychedelic_hypnotic: [
+    "Spacemen 3",
+    "Loop",
+    "Spiritualized",
+    "The Telescopes",
+    "Flying Saucer Attack",
+  ],
+  wistful_dreamers: [
+    "Title Fight",
+    "Turnover",
+    "Basement",
+    "Webbed Wing",
+    "Beach Fossils",
+    "Hibou",
+    "Wild Nothing",
+  ],
+  yearning_anthemic: ["Citizen", "Balance and Composure", "Far", "Anxious", "Koyo", "Adorable"],
+  hypnotic_heavy: ["Hum", "Cloakroom", "True Widow", "Failure", "Catherine Wheel", "Swervedriver"],
+  depressive_beauty: [
+    "Nothing",
+    "Alcest",
+    "Lantlôs",
+    "Have a Nice Life",
+    "Knifeplay",
+    "Cigarettes After Sex",
+  ],
+  ecstatic_catharsis: ["Deafheaven", "Astronoid", "Fleshwater"],
+  apocalyptic_doom: [
+    "Greet Death",
+    "Holy Fawn",
+    "Spotlights",
+    "Bosse-de-Nage",
+    "Jesu",
+    "Sadness",
+    "An Autumn for Crippled Children",
+    "Amesoeurs",
+  ],
+  muscular_brooding: ["Narrow Head", "Quicksand", "Cave In", "The Boo Radleys", "Moose"],
+  volatile_violent: ["Loathe", "Spiritbox"],
+  sun_bleached_sludge: ["Superheaven", "The Verve"],
+  modern_anguish: ["Glare", "Glixen", "Julie", "Wisp", "Feeble Little Horse"],
+  dream_pop_warmth: [
+    "Beach House",
+    "M83",
+    "DIIV",
+    "Asobi Seksu",
+    "Drop Nineteens",
+    "Galaxie 500",
+    "Engineers",
+    "Cheatahs",
+  ],
+  lo_fi_bedroom: [
+    "Parannoul",
+    "Asian Glow",
+    "Quannnic",
+    "Hotline TNT",
+    "Sonhos Tomam Conta",
+    "bdrmm",
+    "My Dead Girlfriend",
+  ],
+  ambient_drift: ["Auburn Lull", "Bowery Electric", "Ulrich Schnauss", "Half String"],
+  nostalgic_jangly: [
+    "Black Tambourine",
+    "Velocity Girl",
+    "The Pains of Being Pure at Heart",
+    "Lilys",
+    "The Radio Dept.",
+    "Yuck",
+    "For Tracy Hyde",
+  ],
+  experimental_strange: [
+    "They Are Gutting a Body of Water",
+    "Coaltar of the Deepers",
+    "Sweet Trip",
+    "Bilmuri",
+  ],
+  japanese_gaze: [
+    "Kinoko Teikoku",
+    "For Tracy Hyde",
+    "My Dead Girlfriend",
+    "Coaltar of the Deepers",
+    "Cruyff in the Bedroom",
+    "Plastic Girl in Closet",
+    "Tokyo Shoegazer",
+  ],
+};
+
 export const BANDS: Band[] = RAW.map(
   ([name, subgenre, country, era, album, year, intensity, lat, lng]) => ({
     name,
@@ -992,19 +963,3 @@ for (const [mood, names] of Object.entries(MOOD_TO_BANDS)) {
     (BAND_MOODS[n] ||= []).push(mood);
   }
 }
-
-export const ERAS: Era[] = [
-  { key: "proto", label: "Proto", range: "pre-1989" },
-  { key: "first_wave", label: "First Wave", range: "1989–94" },
-  { key: "transitional", label: "Transitional", range: "1995–2003" },
-  { key: "second_wave", label: "Nu-Gaze", range: "2004–13" },
-  { key: "current", label: "Current", range: "2014–now" },
-];
-
-export const ERA_ORDER: EraKey[] = [
-  "proto",
-  "first_wave",
-  "transitional",
-  "second_wave",
-  "current",
-];

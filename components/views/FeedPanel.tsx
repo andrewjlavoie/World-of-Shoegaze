@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
-import { ERAS } from "@/lib/data";
+import { ERAS } from "@/lib/taxonomy";
 import { eraLabel } from "@/lib/helpers";
 import { FAMILY_KEYS, FAMILY_LABELS, type FamilyKey } from "@/lib/mood-families";
 import {

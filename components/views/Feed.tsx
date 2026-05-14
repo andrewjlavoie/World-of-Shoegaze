@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useCallback, useMemo, useState, type CSSProperties } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { MOOD_COLORS } from "@/lib/data";
+import { MOOD_COLORS } from "@/lib/taxonomy";
 import { eraLabel } from "@/lib/helpers";
 import { initials, moodTag, paletteFor, refAlbum } from "@/lib/atlas-helpers";
 import {

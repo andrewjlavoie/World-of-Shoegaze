@@ -1,4 +1,4 @@
-import { ERAS } from "./data";
+import { ERAS } from "./taxonomy";
 
 export function eraLabel(key: string): string {
   return ERAS.find((e) => e.key === key)?.label || key;

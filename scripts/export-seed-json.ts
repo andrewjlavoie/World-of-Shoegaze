@@ -6,7 +6,7 @@
 
 import { writeFileSync } from "fs";
 import { join } from "path";
-import { BANDS, BAND_MOODS } from "../lib/data";
+import { BANDS, BAND_MOODS } from "./seed-data";
 import { slugify } from "../lib/helpers";
 import type { AtlasArtist, AtlasAlbum } from "../lib/atlas-types";
 

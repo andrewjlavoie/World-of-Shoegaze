@@ -3,7 +3,7 @@
 // After initial seed, ongoing enrichment goes through scripts/python/*.
 
 import { MongoClient } from "mongodb";
-import { BANDS, BAND_MOODS } from "../lib/data";
+import { BANDS, BAND_MOODS } from "./seed-data";
 import { slugify } from "../lib/helpers";
 import type { AtlasAlbum, AtlasArtist } from "../lib/atlas-types";
 

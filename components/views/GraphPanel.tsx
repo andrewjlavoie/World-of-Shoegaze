@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import type { CSSProperties } from "react";
-import { MOOD_COLORS } from "@/lib/data";
+import { MOOD_COLORS } from "@/lib/taxonomy";
 import { eraLabel } from "@/lib/helpers";
 import type { AtlasArtist } from "@/lib/atlas-types";
 import { refAlbum, paletteFor } from "@/lib/atlas-helpers";

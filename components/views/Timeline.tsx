@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
-import { ERAS } from "@/lib/data";
+import { ERAS } from "@/lib/taxonomy";
 import type { AtlasArtist } from "@/lib/atlas-types";
 import type { EraKey } from "@/lib/types";
 import { refAlbum, paletteFor, initials } from "@/lib/atlas-helpers";

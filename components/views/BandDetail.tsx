@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import type { CSSProperties } from "react";
 import { useSettings } from "@/components/SettingsProvider";
-import { ERAS, MOOD_COLORS } from "@/lib/data";
+import { ERAS, MOOD_COLORS } from "@/lib/taxonomy";
 import { eraLabel } from "@/lib/helpers";
 import type { AtlasAlbum, AtlasArtist } from "@/lib/atlas-types";
 import { refAlbum, paletteFor } from "@/lib/atlas-helpers";

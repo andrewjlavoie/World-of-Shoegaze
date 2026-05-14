@@ -1,6 +1,6 @@
 // Similarity ranking adapted for AtlasArtist documents.
 
-import { ERA_ORDER } from "./data";
+import { ERA_ORDER } from "./taxonomy";
 import type { AtlasArtist } from "./atlas-types";
 
 export function computeSimilarityAtlas(a: AtlasArtist, b: AtlasArtist): number {
