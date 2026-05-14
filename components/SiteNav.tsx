@@ -51,7 +51,7 @@ export function SiteNav() {
           );
         })}
       </div>
-      <span className="wos-nav-version" style={{ marginLeft: "auto", color: "var(--ink-faint)" }}>v0.1 · 11.05.2026</span>
+      <span className="wos-nav-version" style={{ marginLeft: "auto", color: "var(--ink-faint)" }}>v0.1</span>
     </nav>
   );
 }

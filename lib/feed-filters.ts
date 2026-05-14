@@ -1,7 +1,7 @@
 // Pure filter logic for the Feed view.
 // FilterState is the single source of truth. URL search params parse into
-// it; it builds back into a URL. applyFilters and dimensionCounts (next
-// task) consume it without ever touching React.
+// it; it builds back into a URL. applyFilters and dimensionCounts consume
+// it without ever touching React.
 
 import type { AtlasArtist } from "./atlas-types";
 import { familyFor } from "./mood-families";

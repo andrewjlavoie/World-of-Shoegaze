@@ -1,5 +1,4 @@
 // Similarity ranking adapted for AtlasArtist documents.
-// Mirrors lib/helpers.ts#computeSimilarity but typed for the Atlas shape.
 
 import { ERA_ORDER } from "./data";
 import type { AtlasArtist } from "./atlas-types";

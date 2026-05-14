@@ -219,7 +219,7 @@ export function BandDetail({ artist, similar }: { artist: AtlasArtist; similar: 
           <div className="ascii-rule" style={{ fontSize: 10 }}>= = = = = = = = = = = = = = = = = end of file = = = = = = = = = = = = = = = = =</div>
           <div className="micro" style={{ marginTop: 14, lineHeight: 1.7, maxWidth: "60ch" }}>
             entry maintained by hand. corrections, missing albums, scene memories: <a href="mailto:notes@worldofshoegaze.com">notes@worldofshoegaze.com</a>. <br />
-            last revised: 13.05.2026. <span className="italic serif">no analytics. no popups. thank you for visiting.</span>
+<span className="italic serif">no analytics. no popups. thank you for visiting.</span>
           </div>
         </footer>
       </div>
