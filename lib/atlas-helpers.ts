@@ -30,8 +30,9 @@ export function refAlbum(artist: AtlasArtist): AtlasAlbum | undefined {
 export function initials(name: string): string {
   const words = name.replace(/^The\s+/i, "").split(/\s+/).filter(Boolean);
   if (words.length === 0) return "??";
-  if (words.length === 1) return words[0].slice(0, 2).toUpperCase();
-  return (words[0][0] + words[1][0]).toUpperCase();
+  // length guards guarantee words[0] and words[1] are present; [0] on a non-empty string is safe
+  if (words.length === 1) return words[0]!.slice(0, 2).toUpperCase();
+  return (words[0]![0]! + words[1]![0]!).toUpperCase();
 }
 
 /**

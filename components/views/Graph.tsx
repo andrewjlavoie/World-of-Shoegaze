@@ -162,9 +162,10 @@ export function Graph({ artists }: { artists: AtlasArtist[] }) {
       pinchRef.current = null;
     } else if (pointersRef.current.size === 2) {
       const pts = Array.from(pointersRef.current.values());
-      const dist = Math.hypot(pts[1].x - pts[0].x, pts[1].y - pts[0].y);
-      const cx = (pts[0].x + pts[1].x) / 2;
-      const cy = (pts[0].y + pts[1].y) / 2;
+      // size === 2 guarantees pts[0] and pts[1] exist
+      const dist = Math.hypot(pts[1]!.x - pts[0]!.x, pts[1]!.y - pts[0]!.y);
+      const cx = (pts[0]!.x + pts[1]!.x) / 2;
+      const cy = (pts[0]!.y + pts[1]!.y) / 2;
       pinchRef.current = { startDist: dist, startZoom: tfRef.current.z, cx, cy };
       dragRef.current = null;
     }
@@ -176,7 +177,8 @@ export function Graph({ artists }: { artists: AtlasArtist[] }) {
 
     if (pinchRef.current && pointersRef.current.size >= 2) {
       const pts = Array.from(pointersRef.current.values());
-      const dist = Math.hypot(pts[1].x - pts[0].x, pts[1].y - pts[0].y);
+      // size >= 2 guarantees pts[0] and pts[1] exist
+      const dist = Math.hypot(pts[1]!.x - pts[0]!.x, pts[1]!.y - pts[0]!.y);
       const ratio = dist / pinchRef.current.startDist;
       const target = pinchRef.current.startZoom * ratio;
       const vp = viewportRef.current;
@@ -207,7 +209,8 @@ export function Graph({ artists }: { artists: AtlasArtist[] }) {
     if (pointersRef.current.size < 2) pinchRef.current = null;
     if (pointersRef.current.size === 0) dragRef.current = null;
     else if (pointersRef.current.size === 1 && !dragRef.current) {
-      const remaining = Array.from(pointersRef.current.values())[0];
+      // size === 1 guarantees the first value exists
+      const remaining = Array.from(pointersRef.current.values())[0]!;
       dragRef.current = {
         startX: remaining.x,
         startY: remaining.y,

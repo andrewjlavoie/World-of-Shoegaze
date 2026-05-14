@@ -197,7 +197,7 @@ test("applyFilters: sort by year (descending)", () => {
 
 test("applyFilters: sort by intensity (descending)", () => {
   const out = applyFilters(SAMPLE, { ...EMPTY_STATE, sort: "intensity" });
-  assert.equal(out[0].slug, "deafheaven");
+  assert.equal(out[0]?.slug, "deafheaven");
 });
 
 test("applyFilters: mood filter uses primary mood's family", () => {

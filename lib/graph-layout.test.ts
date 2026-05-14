@@ -39,7 +39,7 @@ test("layoutPositions returns a position for every artist", () => {
 
 test("layoutPositions output is finite (no NaN/Infinity)", () => {
   const artists = Array.from({ length: 50 }, (_, i) =>
-    fakeArtist(`a${i}`, ["euphoric_bliss", "noisy_chaotic", "apocalyptic_doom", "yearning_anthemic"][i % 4]),
+    fakeArtist(`a${i}`, ["euphoric_bliss", "noisy_chaotic", "apocalyptic_doom", "yearning_anthemic"][i % 4]!),
   );
   const positions = layoutPositions(artists);
   for (const [slug, pos] of positions) {
