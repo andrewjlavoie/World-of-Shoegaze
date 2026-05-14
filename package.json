@@ -10,7 +10,9 @@
     "typecheck": "tsc --noEmit",
     "test": "tsx --test lib/mood-families.test.ts lib/graph-layout.test.ts lib/feed-filters.test.ts lib/atlas-helpers.test.ts",
     "seed": "tsx --env-file=.env.local scripts/seed.ts",
-    "seed:export": "tsx scripts/export-seed-json.ts"
+    "seed:export": "tsx scripts/export-seed-json.ts",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "dependencies": {
     "d3-force": "^3.0.0",
@@ -31,6 +33,7 @@
     "@typescript-eslint/parser": "^8.59.3",
     "eslint": "^10.3.0",
     "eslint-plugin-react-hooks": "^7.1.1",
+    "prettier": "^3.8.3",
     "tsx": "^4.21.0",
     "typescript": "^5.6.3"
   }
