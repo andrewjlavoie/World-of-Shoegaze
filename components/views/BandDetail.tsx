@@ -1,9 +1,5 @@
-"use client";
-
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import type { CSSProperties } from "react";
-import { useSettings } from "@/components/SettingsProvider";
 import { ERAS, MOOD_COLORS } from "@/lib/taxonomy";
 import { eraLabel } from "@/lib/helpers";
 import type { AtlasAlbum, AtlasArtist } from "@/lib/atlas-types";
@@ -59,9 +55,6 @@ const LISTEN_ORDER: Array<{
 ];
 
 export function BandDetail({ artist, similar }: { artist: AtlasArtist; similar: AtlasArtist[] }) {
-  const router = useRouter();
-  useSettings(); // re-render on settings change
-
   const palette = paletteFor(artist.moods);
   const ref = refAlbum(artist)!;
   const tint = `hsl(${palette.hue}, 22%, 92%)`;
@@ -319,10 +312,16 @@ export function BandDetail({ artist, similar }: { artist: AtlasArtist; similar: 
               const p = paletteFor(a.moods);
               const aRef = refAlbum(a)!;
               return (
-                <div
+                <Link
                   key={a.slug}
-                  onClick={() => router.push(`/band/${a.slug}`)}
-                  style={{ cursor: "pointer", borderTop: "1px solid var(--rule)", paddingTop: 12 }}
+                  href={`/band/${a.slug}`}
+                  style={{
+                    display: "block",
+                    textDecoration: "none",
+                    color: "inherit",
+                    borderTop: "1px solid var(--rule)",
+                    paddingTop: 12,
+                  }}
                 >
                   <div
                     style={{ display: "flex", justifyContent: "space-between", marginBottom: 8 }}
@@ -337,7 +336,7 @@ export function BandDetail({ artist, similar }: { artist: AtlasArtist; similar: 
                   <div className="micro" style={{ marginTop: 2 }}>
                     {aRef.title} · {aRef.year}
                   </div>
-                </div>
+                </Link>
               );
             })}
           </div>
