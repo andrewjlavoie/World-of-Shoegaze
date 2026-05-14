@@ -28,7 +28,10 @@ export function refAlbum(artist: AtlasArtist): AtlasAlbum | undefined {
  * letter of first two words.
  */
 export function initials(name: string): string {
-  const words = name.replace(/^The\s+/i, "").split(/\s+/).filter(Boolean);
+  const words = name
+    .replace(/^The\s+/i, "")
+    .split(/\s+/)
+    .filter(Boolean);
   if (words.length === 0) return "??";
   // length guards guarantee words[0] and words[1] are present; [0] on a non-empty string is safe
   if (words.length === 1) return words[0]!.slice(0, 2).toUpperCase();

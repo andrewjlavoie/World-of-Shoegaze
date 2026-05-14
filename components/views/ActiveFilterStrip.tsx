@@ -20,8 +20,8 @@ function valueLabel(dim: DimensionKey, value: string): string {
 
 export interface ActiveFilterStripProps {
   state: FilterState;
-  total: number;       // total artists in dataset
-  filtered: number;    // count after filtering
+  total: number; // total artists in dataset
+  filtered: number; // count after filtering
   onClearDimension: (dim: DimensionKey) => void;
   onClearAll: () => void;
 }
@@ -57,11 +57,7 @@ export function ActiveFilterStrip({
           </button>
         );
       })}
-      <button
-        type="button"
-        className="feed-active-clear"
-        onClick={onClearAll}
-      >
+      <button type="button" className="feed-active-clear" onClick={onClearAll}>
         clear all
       </button>
       <span className="feed-active-count">

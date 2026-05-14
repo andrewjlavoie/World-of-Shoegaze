@@ -23,9 +23,20 @@ import type { AtlasArtist, AtlasAlbum } from "@/lib/atlas-types";
 
 function IntensityBar({ value }: { value: number }) {
   return (
-    <span style={{ display: "inline-flex", gap: 2, fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 10, letterSpacing: 1, lineHeight: 1 }}>
+    <span
+      style={{
+        display: "inline-flex",
+        gap: 2,
+        fontFamily: "var(--font-jetbrains-mono), monospace",
+        fontSize: 10,
+        letterSpacing: 1,
+        lineHeight: 1,
+      }}
+    >
       {Array.from({ length: 10 }).map((_, i) => (
-        <span key={i} style={{ color: i < value ? "var(--ink)" : "var(--rule)" }}>{i < value ? "▰" : "▱"}</span>
+        <span key={i} style={{ color: i < value ? "var(--ink)" : "var(--rule)" }}>
+          {i < value ? "▰" : "▱"}
+        </span>
       ))}
     </span>
   );
@@ -44,7 +55,11 @@ function FeedCard({ artist, idx }: { artist: AtlasArtist; idx: number }) {
   return (
     <article className="feed-card fadeup" style={{ animationDelay: `${Math.min(idx, 12) * 30}ms` }}>
       <header className="feed-head">
-        <Link href={`/band/${slug}`} className="feed-avatar" style={{ background: palette.bg, color: palette.fg }}>
+        <Link
+          href={`/band/${slug}`}
+          className="feed-avatar"
+          style={{ background: palette.bg, color: palette.fg }}
+        >
           <span>{initials(artist.name)}</span>
         </Link>
         <Link href={`/band/${slug}`} className="feed-handle" aria-label={artist.name}>
@@ -58,8 +73,13 @@ function FeedCard({ artist, idx }: { artist: AtlasArtist; idx: number }) {
         <button
           className="feed-menu"
           aria-label="more"
-          onClick={(e) => { e.preventDefault(); router.push(`/band/${slug}`); }}
-        >⋯</button>
+          onClick={(e) => {
+            e.preventDefault();
+            router.push(`/band/${slug}`);
+          }}
+        >
+          ⋯
+        </button>
       </header>
 
       <Link href={`/band/${slug}`} className="feed-art" aria-label={`${album.title} cover`}>
@@ -74,7 +94,9 @@ function FeedCard({ artist, idx }: { artist: AtlasArtist; idx: number }) {
       </Link>
 
       <div className="feed-actions">
-        <Link href={`/band/${slug}`} className="feed-act" aria-label="open band">↗</Link>
+        <Link href={`/band/${slug}`} className="feed-act" aria-label="open band">
+          ↗
+        </Link>
         <span className="feed-act-spacer" />
         <span className="feed-act-year micro">[{album.year}]</span>
       </div>
@@ -86,9 +108,12 @@ function FeedCard({ artist, idx }: { artist: AtlasArtist; idx: number }) {
       </div>
 
       <div className="feed-caption">
-        <Link href={`/band/${slug}`} className="feed-caption-name">{artist.name}</Link>
+        <Link href={`/band/${slug}`} className="feed-caption-name">
+          {artist.name}
+        </Link>
         <span className="feed-caption-album">
-          {" "}<span className="serif italic">{album.title}</span>
+          {" "}
+          <span className="serif italic">{album.title}</span>
         </span>
         <p className="feed-caption-note serif italic">&ldquo;{artist.desc}&rdquo;</p>
       </div>
@@ -114,10 +139,7 @@ function FeedCard({ artist, idx }: { artist: AtlasArtist; idx: number }) {
 export function Feed({ artists }: { artists: AtlasArtist[] }) {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const state = useMemo<FilterState>(
-    () => parseSearchParams(searchParams),
-    [searchParams],
-  );
+  const state = useMemo<FilterState>(() => parseSearchParams(searchParams), [searchParams]);
 
   const [panelOpen, setPanelOpen] = useState(false);
 
@@ -132,18 +154,12 @@ export function Feed({ artists }: { artists: AtlasArtist[] }) {
     (search: string) => update({ ...state, search }),
     [state, update],
   );
-  const onSortChange = useCallback(
-    (sort: SortKey) => update({ ...state, sort }),
-    [state, update],
-  );
+  const onSortChange = useCallback((sort: SortKey) => update({ ...state, sort }), [state, update]);
   const onClearDimension = useCallback(
     (dim: DimensionKey) => update({ ...state, [dim]: [] }),
     [state, update],
   );
-  const onClearAll = useCallback(
-    () => update(EMPTY_STATE),
-    [update],
-  );
+  const onClearAll = useCallback(() => update(EMPTY_STATE), [update]);
 
   return (
     <div className="wos paper wos-paper-pad" style={{ width: "100%", minHeight: "100%" }}>
@@ -156,7 +172,10 @@ export function Feed({ artists }: { artists: AtlasArtist[] }) {
           <div className="rule-2" style={{ marginTop: 10 }} />
           <div className="feed-page-title">
             <h1 className="feed-h1">
-              The Feed<span className="italic" style={{ color: "var(--accent)" }}>.</span>
+              The Feed
+              <span className="italic" style={{ color: "var(--accent)" }}>
+                .
+              </span>
             </h1>
             <div className="small italic serif feed-page-tagline">
               {filtered.length} of {artists.length} entries · scroll like it&rsquo;s 2012
@@ -190,13 +209,20 @@ export function Feed({ artists }: { artists: AtlasArtist[] }) {
         />
 
         <div className="feed-stream">
-          {filtered.map((a, i) => <FeedCard key={a.slug} artist={a} idx={i} />)}
+          {filtered.map((a, i) => (
+            <FeedCard key={a.slug} artist={a} idx={i} />
+          ))}
           {filtered.length === 0 && (
             <div className="feed-empty">
               <div className="kicker">[ nothing matches ]</div>
               <p className="serif italic">try fewer filters</p>
               {activeCount(state) > 0 && (
-                <button type="button" className="btn" onClick={onClearAll} style={{ marginTop: 12 }}>
+                <button
+                  type="button"
+                  className="btn"
+                  onClick={onClearAll}
+                  style={{ marginTop: 12 }}
+                >
                   clear all filters
                 </button>
               )}
@@ -205,10 +231,17 @@ export function Feed({ artists }: { artists: AtlasArtist[] }) {
         </div>
 
         <footer className="feed-footer">
-          <div className="ascii-rule" style={{ fontSize: 10 }}>================================ end of feed ================================</div>
-          <div className="micro" style={{ marginTop: 14, display: "flex", justifyContent: "space-between" }}>
+          <div className="ascii-rule" style={{ fontSize: 10 }}>
+            ================================ end of feed ================================
+          </div>
+          <div
+            className="micro"
+            style={{ marginTop: 14, display: "flex", justifyContent: "space-between" }}
+          >
             <span>maintained by one obsessive</span>
-            <span><a href="#">guestbook</a> · <a href="#">about</a> · <a href="#">rss</a></span>
+            <span>
+              <a href="#">guestbook</a> · <a href="#">about</a> · <a href="#">rss</a>
+            </span>
           </div>
         </footer>
       </div>

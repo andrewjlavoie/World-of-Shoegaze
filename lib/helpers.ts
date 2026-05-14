@@ -5,4 +5,8 @@ export function eraLabel(key: string): string {
 }
 
 export const slugify = (n: string): string =>
-  n.toLowerCase().replace(/['"]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  n
+    .toLowerCase()
+    .replace(/['"]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");

@@ -22,7 +22,8 @@ const instrument = Instrument_Serif({
 
 export const metadata: Metadata = {
   title: "World of Shoegaze — an atlas",
-  description: "A hand-maintained atlas of shoegaze. No accounts, no tracking. A love letter, written slowly.",
+  description:
+    "A hand-maintained atlas of shoegaze. No accounts, no tracking. A love letter, written slowly.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -30,7 +31,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${jetbrains.variable} ${instrument.variable}`}>
       <body data-tone="paper">
         <SettingsProvider>
-          <div style={{ width: "100vw", minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+          <div
+            style={{ width: "100vw", minHeight: "100vh", display: "flex", flexDirection: "column" }}
+          >
             <SiteNav />
             <div style={{ flex: 1, position: "relative" }}>{children}</div>
           </div>

@@ -13,14 +13,12 @@ import {
   type SimulationNodeDatum,
 } from "d3-force";
 import type { AtlasArtist } from "./atlas-types";
-import {
-  FAMILY_CENTROIDS,
-  type FamilyKey,
-  familyFor,
-  SUB_MOOD_OFFSETS,
-} from "./mood-families";
+import { FAMILY_CENTROIDS, type FamilyKey, familyFor, SUB_MOOD_OFFSETS } from "./mood-families";
 
-export interface NodePos { x: number; y: number; }
+export interface NodePos {
+  x: number;
+  y: number;
+}
 
 interface SimNode extends SimulationNodeDatum {
   slug: string;
@@ -32,10 +30,10 @@ interface SimNode extends SimulationNodeDatum {
 }
 
 const DEFAULT_TICKS = 300;
-const TILE_RADIUS = 30;       // ≈ tile size 50px + breathing-room padding
-const SUB_FORCE = 0.9;         // strong attraction to sub-mood centroid
-const FAMILY_FORCE = 0.3;      // medium attraction to family centroid
-const CHARGE = -8;             // light universal repulsion
+const TILE_RADIUS = 30; // ≈ tile size 50px + breathing-room padding
+const SUB_FORCE = 0.9; // strong attraction to sub-mood centroid
+const FAMILY_FORCE = 0.3; // medium attraction to family centroid
+const CHARGE = -8; // light universal repulsion
 
 /**
  * Cheap deterministic hash of a string → small non-negative integer.

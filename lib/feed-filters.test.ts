@@ -71,7 +71,12 @@ test("buildHref: includes non-default sort", () => {
 });
 
 test("buildHref: arrays joined with comma, in stable key order", () => {
-  const state = { ...EMPTY_STATE, era: ["first_wave"], country: ["UK", "USA"], mood: ["heavy_doom"] };
+  const state = {
+    ...EMPTY_STATE,
+    era: ["first_wave"],
+    country: ["UK", "USA"],
+    mood: ["heavy_doom"],
+  };
   // Expected key order: search, sort, era, mood, country, decade
   assert.equal(buildHref(state), "/?era=first_wave&mood=heavy_doom&country=UK%2CUSA");
 });
@@ -131,23 +136,65 @@ function fakeArtist(opts: {
     subgenre: opts.subgenre ?? "shoegaze",
     desc: "",
     moods: opts.moods ?? ["euphoric_bliss"],
-    discography: [{
-      slug: "ref",
-      title: opts.album ?? "Ref",
-      year: opts.year ?? 1992,
-      kind: "LP",
-      isReference: true,
-    }],
+    discography: [
+      {
+        slug: "ref",
+        title: opts.album ?? "Ref",
+        year: opts.year ?? 1992,
+        kind: "LP",
+        isReference: true,
+      },
+    ],
     listen: {},
   };
 }
 
 const SAMPLE: AtlasArtist[] = [
-  fakeArtist({ slug: "slowdive",   country: "UK",  era: "first_wave",   intensity: 4, moods: ["wistful_dreamers"], year: 1993, album: "Souvlaki" }),
-  fakeArtist({ slug: "ride",       country: "UK",  era: "first_wave",   intensity: 5, moods: ["euphoric_bliss"],   year: 1990, album: "Nowhere" }),
-  fakeArtist({ slug: "deafheaven", country: "USA", era: "second_wave",  intensity: 9, moods: ["ecstatic_catharsis"], year: 2013, album: "Sunbather" }),
-  fakeArtist({ slug: "wisp",       country: "USA", era: "current",      intensity: 4, moods: ["modern_anguish"],   year: 2024, album: "Pandora" }),
-  fakeArtist({ slug: "kinoko",     country: "Japan", era: "second_wave", intensity: 5, moods: ["japanese_gaze"],    year: 2013, album: "eureka" }),
+  fakeArtist({
+    slug: "slowdive",
+    country: "UK",
+    era: "first_wave",
+    intensity: 4,
+    moods: ["wistful_dreamers"],
+    year: 1993,
+    album: "Souvlaki",
+  }),
+  fakeArtist({
+    slug: "ride",
+    country: "UK",
+    era: "first_wave",
+    intensity: 5,
+    moods: ["euphoric_bliss"],
+    year: 1990,
+    album: "Nowhere",
+  }),
+  fakeArtist({
+    slug: "deafheaven",
+    country: "USA",
+    era: "second_wave",
+    intensity: 9,
+    moods: ["ecstatic_catharsis"],
+    year: 2013,
+    album: "Sunbather",
+  }),
+  fakeArtist({
+    slug: "wisp",
+    country: "USA",
+    era: "current",
+    intensity: 4,
+    moods: ["modern_anguish"],
+    year: 2024,
+    album: "Pandora",
+  }),
+  fakeArtist({
+    slug: "kinoko",
+    country: "Japan",
+    era: "second_wave",
+    intensity: 5,
+    moods: ["japanese_gaze"],
+    year: 2013,
+    album: "eureka",
+  }),
 ];
 
 test("applyFilters: empty state returns all artists", () => {
@@ -157,7 +204,10 @@ test("applyFilters: empty state returns all artists", () => {
 
 test("applyFilters: era filter (single value)", () => {
   const out = applyFilters(SAMPLE, { ...EMPTY_STATE, era: ["first_wave"] });
-  assert.deepEqual(out.map((a) => a.slug), ["ride", "slowdive"]); // sorted by name
+  assert.deepEqual(
+    out.map((a) => a.slug),
+    ["ride", "slowdive"],
+  ); // sorted by name
 });
 
 test("applyFilters: era filter (multiple values, OR)", () => {
@@ -182,17 +232,26 @@ test("applyFilters: across dimensions = AND", () => {
 
 test("applyFilters: search matches name (case-insensitive)", () => {
   const out = applyFilters(SAMPLE, { ...EMPTY_STATE, search: "DEAF" });
-  assert.deepEqual(out.map((a) => a.slug), ["deafheaven"]);
+  assert.deepEqual(
+    out.map((a) => a.slug),
+    ["deafheaven"],
+  );
 });
 
 test("applyFilters: search matches album title", () => {
   const out = applyFilters(SAMPLE, { ...EMPTY_STATE, search: "souvlaki" });
-  assert.deepEqual(out.map((a) => a.slug), ["slowdive"]);
+  assert.deepEqual(
+    out.map((a) => a.slug),
+    ["slowdive"],
+  );
 });
 
 test("applyFilters: sort by year (descending)", () => {
   const out = applyFilters(SAMPLE, { ...EMPTY_STATE, sort: "year" });
-  assert.deepEqual(out.map((a) => a.slug), ["wisp", "deafheaven", "kinoko", "slowdive", "ride"]);
+  assert.deepEqual(
+    out.map((a) => a.slug),
+    ["wisp", "deafheaven", "kinoko", "slowdive", "ride"],
+  );
 });
 
 test("applyFilters: sort by intensity (descending)", () => {
@@ -211,15 +270,15 @@ test("dimensionCounts: each option's count respects OTHER dimensions but probes 
   // include first_wave bands.
   const state = { ...EMPTY_STATE, era: ["first_wave"] };
   const counts = dimensionCounts(SAMPLE, state, "country", ["UK", "USA", "Japan"]);
-  assert.equal(counts.get("UK"), 2);    // ride + slowdive
-  assert.equal(counts.get("USA"), 0);    // deafheaven & wisp aren't first_wave
-  assert.equal(counts.get("Japan"), 0);  // kinoko isn't first_wave
+  assert.equal(counts.get("UK"), 2); // ride + slowdive
+  assert.equal(counts.get("USA"), 0); // deafheaven & wisp aren't first_wave
+  assert.equal(counts.get("Japan"), 0); // kinoko isn't first_wave
 });
 
 test("dimensionCounts: probing a dimension ignores its CURRENT selection", () => {
   // Even with country=UK already selected, USA count = "what if country were just USA"
   const state = { ...EMPTY_STATE, country: ["UK"] };
   const counts = dimensionCounts(SAMPLE, state, "country", ["UK", "USA"]);
-  assert.equal(counts.get("UK"), 2);   // ride + slowdive
-  assert.equal(counts.get("USA"), 2);   // deafheaven + wisp
+  assert.equal(counts.get("UK"), 2); // ride + slowdive
+  assert.equal(counts.get("USA"), 2); // deafheaven + wisp
 });

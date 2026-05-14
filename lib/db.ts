@@ -13,10 +13,12 @@ declare global {
   var _wosMongo: { client: MongoClient; connect: Promise<MongoClient> } | undefined;
 }
 
-const cached = globalThis._wosMongo ?? (globalThis._wosMongo = (() => {
-  const client = new MongoClient(uri, { maxPoolSize: 5 });
-  return { client, connect: client.connect() };
-})());
+const cached =
+  globalThis._wosMongo ??
+  (globalThis._wosMongo = (() => {
+    const client = new MongoClient(uri, { maxPoolSize: 5 });
+    return { client, connect: client.connect() };
+  })());
 
 export async function getDb(): Promise<Db> {
   await cached.connect;

@@ -13,10 +13,7 @@ export async function generateStaticParams() {
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const [artist, all] = await Promise.all([
-    getArtistBySlug(slug),
-    getArtists(),
-  ]);
+  const [artist, all] = await Promise.all([getArtistBySlug(slug), getArtists()]);
   if (!artist) notFound();
   const similar = similarArtists(artist, all, 6);
   return <BandDetail artist={artist} similar={similar} />;

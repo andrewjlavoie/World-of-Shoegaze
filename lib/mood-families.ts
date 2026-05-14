@@ -74,55 +74,55 @@ export const MOOD_FAMILIES: Record<string, FamilyKey> = {
 // Roughly arranged as the brainstorm "tight" mockup: top row (3),
 // middle row (4), bottom row (1).
 export const FAMILY_CENTROIDS: Record<FamilyKey, { x: number; y: number }> = {
-  dreampop_bliss:    { x: 130, y: 130 },
-  noise_chaos:       { x: 290, y: 110 },
-  heavy_doom:        { x: 450, y: 130 },
-  dark_gothic:       { x:  90, y: 250 },
+  dreampop_bliss: { x: 130, y: 130 },
+  noise_chaos: { x: 290, y: 110 },
+  heavy_doom: { x: 450, y: 130 },
+  dark_gothic: { x: 90, y: 250 },
   anthemic_yearning: { x: 250, y: 250 },
-  lofi_modern:       { x: 380, y: 250 },
-  twee_strange:      { x: 190, y: 350 },
-  japanese_gaze:     { x: 490, y: 320 },
+  lofi_modern: { x: 380, y: 250 },
+  twee_strange: { x: 190, y: 350 },
+  japanese_gaze: { x: 490, y: 320 },
 };
 
 // Sub-mood offsets relative to the family centroid. Sub-clumps within
 // a family land at (familyCentroid + subMoodOffset).
 export const SUB_MOOD_OFFSETS: Record<string, { dx: number; dy: number }> = {
   // Dreampop & Bliss internals
-  euphoric_bliss:       { dx: -30, dy: -10 },
-  ethereal_celestial:   { dx:   0, dy: -30 },
-  dream_pop_warmth:     { dx:  30, dy: -10 },
-  wistful_dreamers:     { dx: -15, dy:  25 },
-  ambient_drift:        { dx:  20, dy:  25 },
+  euphoric_bliss: { dx: -30, dy: -10 },
+  ethereal_celestial: { dx: 0, dy: -30 },
+  dream_pop_warmth: { dx: 30, dy: -10 },
+  wistful_dreamers: { dx: -15, dy: 25 },
+  ambient_drift: { dx: 20, dy: 25 },
 
   // Noise & Chaos internals
-  noisy_chaotic:        { dx: -20, dy:   0 },
-  ecstatic_catharsis:   { dx:  10, dy:  15 },
-  volatile_violent:     { dx:  20, dy: -10 },
+  noisy_chaotic: { dx: -20, dy: 0 },
+  ecstatic_catharsis: { dx: 10, dy: 15 },
+  volatile_violent: { dx: 20, dy: -10 },
 
   // Heavy & Doom internals
-  hypnotic_heavy:       { dx: -20, dy: -15 },
-  apocalyptic_doom:     { dx:  20, dy: -15 },
-  muscular_brooding:    { dx: -15, dy:  20 },
-  sun_bleached_sludge:  { dx:  20, dy:  20 },
+  hypnotic_heavy: { dx: -20, dy: -15 },
+  apocalyptic_doom: { dx: 20, dy: -15 },
+  muscular_brooding: { dx: -15, dy: 20 },
+  sun_bleached_sludge: { dx: 20, dy: 20 },
 
   // Dark & Gothic internals
-  dark_gothic:          { dx: -20, dy: -10 },
-  depressive_beauty:    { dx:  15, dy: -10 },
-  psychedelic_hypnotic: { dx:  -5, dy:  20 },
+  dark_gothic: { dx: -20, dy: -10 },
+  depressive_beauty: { dx: 15, dy: -10 },
+  psychedelic_hypnotic: { dx: -5, dy: 20 },
 
   // Anthemic & Yearning (single sub)
-  yearning_anthemic:    { dx:   0, dy:   0 },
+  yearning_anthemic: { dx: 0, dy: 0 },
 
   // Lo-fi & Modern internals
-  lo_fi_bedroom:        { dx: -20, dy:   0 },
-  modern_anguish:       { dx:  20, dy:   0 },
+  lo_fi_bedroom: { dx: -20, dy: 0 },
+  modern_anguish: { dx: 20, dy: 0 },
 
   // Twee & Strange internals
-  nostalgic_jangly:     { dx: -15, dy:   0 },
-  experimental_strange: { dx:  15, dy:   0 },
+  nostalgic_jangly: { dx: -15, dy: 0 },
+  experimental_strange: { dx: 15, dy: 0 },
 
   // Japanese Gaze (single sub)
-  japanese_gaze:        { dx:   0, dy:   0 },
+  japanese_gaze: { dx: 0, dy: 0 },
 };
 
 // Bounding box of all family centroids (with padding) — used for fit-all.
@@ -140,4 +140,3 @@ export function familyFor(primaryMood: string | undefined): FamilyKey {
   if (!primaryMood) return FALLBACK_FAMILY;
   return MOOD_FAMILIES[primaryMood] ?? FALLBACK_FAMILY;
 }
-

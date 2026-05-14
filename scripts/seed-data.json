@@ -10,9 +10,7 @@
     "intensity": 6,
     "subgenre": "shoegaze",
     "desc": "The genre's center of gravity. Kevin Shields' guitar manipulations on Loveless became the template for everything after.",
-    "moods": [
-      "euphoric_bliss"
-    ],
+    "moods": ["euphoric_bliss"],
     "discography": [
       {
         "slug": "loveless",
@@ -36,9 +34,7 @@
     "intensity": 4,
     "subgenre": "shoegaze",
     "desc": "The most emotionally resonant of the originals — ethereal, melancholy, patient.",
-    "moods": [
-      "euphoric_bliss"
-    ],
+    "moods": ["euphoric_bliss"],
     "discography": [
       {
         "slug": "souvlaki",
@@ -62,9 +58,7 @@
     "intensity": 5,
     "subgenre": "shoegaze",
     "desc": "Oxford four-piece whose Nowhere is a foundational text — propulsive, melodic, kinetic.",
-    "moods": [
-      "euphoric_bliss"
-    ],
+    "moods": ["euphoric_bliss"],
     "discography": [
       {
         "slug": "nowhere",
@@ -88,9 +82,7 @@
     "intensity": 3,
     "subgenre": "dream pop / proto-shoegaze",
     "desc": "Liz Fraser's glossolalia and Robin Guthrie's effects-drenched guitars laid the entire blueprint.",
-    "moods": [
-      "ethereal_celestial"
-    ],
+    "moods": ["ethereal_celestial"],
     "discography": [
       {
         "slug": "heaven-or-las-vegas",
@@ -114,9 +106,7 @@
     "intensity": 6,
     "subgenre": "noise pop",
     "desc": "Psychocandy invented the feedback-pop hybrid that shoegaze would refine.",
-    "moods": [
-      "noisy_chaotic"
-    ],
+    "moods": ["noisy_chaotic"],
     "discography": [
       {
         "slug": "psychocandy",
@@ -140,9 +130,7 @@
     "intensity": 4,
     "subgenre": "shoegaze / dream pop",
     "desc": "Sharper, more pop-forward songwriting than most of their scene peers.",
-    "moods": [
-      "euphoric_bliss"
-    ],
+    "moods": ["euphoric_bliss"],
     "discography": [
       {
         "slug": "spooky",
@@ -166,9 +154,7 @@
     "intensity": 6,
     "subgenre": "shoegaze",
     "desc": "The muscular, motorik, road-tripping end of the scene.",
-    "moods": [
-      "hypnotic_heavy"
-    ],
+    "moods": ["hypnotic_heavy"],
     "discography": [
       {
         "slug": "mezcal-head",
@@ -192,9 +178,7 @@
     "intensity": 6,
     "subgenre": "alt-rock / heavy gaze",
     "desc": "Illinois band whose 90s records and 2020 reunion defined the heavy-melodic blueprint everyone is now copying.",
-    "moods": [
-      "hypnotic_heavy"
-    ],
+    "moods": ["hypnotic_heavy"],
     "discography": [
       {
         "slug": "youd-prefer-an-astronaut",
@@ -218,9 +202,7 @@
     "intensity": 4,
     "subgenre": "shoegaze",
     "desc": "Whirlpool is criminally underrated — dance-leaning, sparkling shoegaze.",
-    "moods": [
-      "euphoric_bliss"
-    ],
+    "moods": ["euphoric_bliss"],
     "discography": [
       {
         "slug": "whirlpool",
@@ -244,9 +226,7 @@
     "intensity": 6,
     "subgenre": "shoegaze",
     "desc": "Heavier and more rock-leaning — guitar muscle with a gaze veneer.",
-    "moods": [
-      "hypnotic_heavy"
-    ],
+    "moods": ["hypnotic_heavy"],
     "discography": [
       {
         "slug": "ferment",
@@ -270,9 +250,7 @@
     "intensity": 4,
     "subgenre": "shoegaze / dream pop",
     "desc": "Leeds band that was beautifully strange — fractured pop with a 4AD sensibility.",
-    "moods": [
-      "euphoric_bliss"
-    ],
+    "moods": ["euphoric_bliss"],
     "discography": [
       {
         "slug": "the-comforts-of-madness",
@@ -296,9 +274,7 @@
     "intensity": 6,
     "subgenre": "shoegaze / industrial",
     "desc": "Darker, more electronic and gothic than most of the scene.",
-    "moods": [
-      "dark_gothic"
-    ],
+    "moods": ["dark_gothic"],
     "discography": [
       {
         "slug": "doppelg-nger",
@@ -322,9 +298,7 @@
     "intensity": 7,
     "subgenre": "shoegaze",
     "desc": "The great American answer to MBV — noisier, brattier, more deranged.",
-    "moods": [
-      "noisy_chaotic"
-    ],
+    "moods": ["noisy_chaotic"],
     "discography": [
       {
         "slug": "shot-forth-self-living",
@@ -348,9 +322,7 @@
     "intensity": 5,
     "subgenre": "shoegaze",
     "desc": "Boston band whose Delaware is a cult classic — slacker-y, dreamy, deceptively heavy.",
-    "moods": [
-      "dream_pop_warmth"
-    ],
+    "moods": ["dream_pop_warmth"],
     "discography": [
       {
         "slug": "delaware",
@@ -374,9 +346,7 @@
     "intensity": 3,
     "subgenre": "dream pop",
     "desc": "Hope Sandoval's voice over David Roback's haunted Americana — desert dream pop.",
-    "moods": [
-      "dark_gothic"
-    ],
+    "moods": ["dark_gothic"],
     "discography": [
       {
         "slug": "so-tonight-that-i-might-see",
@@ -400,9 +370,7 @@
     "intensity": 2,
     "subgenre": "dream folk",
     "desc": "Slowdive members going pastoral after the gaze imploded.",
-    "moods": [
-      "ethereal_celestial"
-    ],
+    "moods": ["ethereal_celestial"],
     "discography": [
       {
         "slug": "ask-me-tomorrow",
@@ -426,9 +394,7 @@
     "intensity": 4,
     "subgenre": "psych / proto-gaze",
     "desc": "Drugs, drone, repetition — the spiritual ancestor of shoegaze's hypnotic side.",
-    "moods": [
-      "psychedelic_hypnotic"
-    ],
+    "moods": ["psychedelic_hypnotic"],
     "discography": [
       {
         "slug": "playing-with-fire",
@@ -452,9 +418,7 @@
     "intensity": 7,
     "subgenre": "noise-gaze / psych",
     "desc": "noise-gaze / psych — UK, 1989.",
-    "moods": [
-      "psychedelic_hypnotic"
-    ],
+    "moods": ["psychedelic_hypnotic"],
     "discography": [
       {
         "slug": "taste",
@@ -478,9 +442,7 @@
     "intensity": 2,
     "subgenre": "dream pop / slowcore",
     "desc": "Boston trio whose slow, fragile records were proto-everything-good.",
-    "moods": [
-      "dream_pop_warmth"
-    ],
+    "moods": ["dream_pop_warmth"],
     "discography": [
       {
         "slug": "on-fire",
@@ -504,9 +466,7 @@
     "intensity": 5,
     "subgenre": "space rock / gospel",
     "desc": "Jason Pierce's post-Spacemen 3 vehicle — symphonic, addictive, ecstatic.",
-    "moods": [
-      "psychedelic_hypnotic"
-    ],
+    "moods": ["psychedelic_hypnotic"],
     "discography": [
       {
         "slug": "ladies-and-gentlemen-we-are-floating-in-space",
@@ -530,9 +490,7 @@
     "intensity": 6,
     "subgenre": "drone / psych",
     "desc": "drone / psych — UK, 1987.",
-    "moods": [
-      "psychedelic_hypnotic"
-    ],
+    "moods": ["psychedelic_hypnotic"],
     "discography": [
       {
         "slug": "heavens-end",
@@ -556,9 +514,7 @@
     "intensity": 5,
     "subgenre": "shoegaze / space rock",
     "desc": "shoegaze / space rock — UK, 1993.",
-    "moods": [
-      "sun_bleached_sludge"
-    ],
+    "moods": ["sun_bleached_sludge"],
     "discography": [
       {
         "slug": "a-storm-in-heaven",
@@ -582,9 +538,7 @@
     "intensity": 5,
     "subgenre": "shoegaze",
     "desc": "shoegaze — UK, 1992.",
-    "moods": [
-      "muscular_brooding"
-    ],
+    "moods": ["muscular_brooding"],
     "discography": [
       {
         "slug": "xyz",
@@ -608,9 +562,7 @@
     "intensity": 5,
     "subgenre": "shoegaze / indie rock",
     "desc": "shoegaze / indie rock — UK, 1993.",
-    "moods": [
-      "yearning_anthemic"
-    ],
+    "moods": ["yearning_anthemic"],
     "discography": [
       {
         "slug": "against-perfection",
@@ -634,9 +586,7 @@
     "intensity": 5,
     "subgenre": "shoegaze / indie pop",
     "desc": "shoegaze / indie pop — UK, 1993.",
-    "moods": [
-      "muscular_brooding"
-    ],
+    "moods": ["muscular_brooding"],
     "discography": [
       {
         "slug": "giant-steps",
@@ -660,9 +610,7 @@
     "intensity": 5,
     "subgenre": "dream pop / electronic gaze",
     "desc": "Anthony Gonzalez's early albums were pure cathedral-of-sound shoegaze.",
-    "moods": [
-      "dream_pop_warmth"
-    ],
+    "moods": ["dream_pop_warmth"],
     "discography": [
       {
         "slug": "dead-cities-red-seas-lost-ghosts",
@@ -686,9 +634,7 @@
     "intensity": 5,
     "subgenre": "shoegaze / dream pop",
     "desc": "NYC band whose Citrus defined the 2000s revival — bilingual, sugary, propulsive.",
-    "moods": [
-      "dream_pop_warmth"
-    ],
+    "moods": ["dream_pop_warmth"],
     "discography": [
       {
         "slug": "citrus",
@@ -712,9 +658,7 @@
     "intensity": 8,
     "subgenre": "noise-gaze",
     "desc": "Marketed as the loudest band in NYC — abrasive, industrial, relentless.",
-    "moods": [
-      "noisy_chaotic"
-    ],
+    "moods": ["noisy_chaotic"],
     "discography": [
       {
         "slug": "a-place-to-bury-strangers",
@@ -738,9 +682,7 @@
     "intensity": 4,
     "subgenre": "indie / dream pop",
     "desc": "The flagship indie-gaze band of the 2010s, evolving toward heavier post-shoegaze.",
-    "moods": [
-      "dream_pop_warmth"
-    ],
+    "moods": ["dream_pop_warmth"],
     "discography": [
       {
         "slug": "oshin",
@@ -764,9 +706,7 @@
     "intensity": 3,
     "subgenre": "dream pop",
     "desc": "Baltimore duo perfecting the slow-build, organ-and-guitar dream pop format.",
-    "moods": [
-      "dream_pop_warmth"
-    ],
+    "moods": ["dream_pop_warmth"],
     "discography": [
       {
         "slug": "teen-dream",
@@ -790,9 +730,7 @@
     "intensity": 7,
     "subgenre": "noise-gaze",
     "desc": "noise-gaze — USA, 2014.",
-    "moods": [
-      "noisy_chaotic"
-    ],
+    "moods": ["noisy_chaotic"],
     "discography": [
       {
         "slug": "sway",
@@ -816,9 +754,7 @@
     "intensity": 6,
     "subgenre": "shoegaze (hardcore lineage)",
     "desc": "Philadelphia band founded by ex-hardcore members; lush, beautiful, often harrowing.",
-    "moods": [
-      "depressive_beauty"
-    ],
+    "moods": ["depressive_beauty"],
     "discography": [
       {
         "slug": "guilty-of-everything",
@@ -842,9 +778,7 @@
     "intensity": 9,
     "subgenre": "blackgaze",
     "desc": "Bay Area band whose 2013 album fused black metal blast beats with shoegaze euphoria.",
-    "moods": [
-      "ecstatic_catharsis"
-    ],
+    "moods": ["ecstatic_catharsis"],
     "discography": [
       {
         "slug": "sunbather",
@@ -868,9 +802,7 @@
     "intensity": 5,
     "subgenre": "blackgaze / post-metal",
     "desc": "Neige's project — foundational blackgaze, leaning more dreamy than aggressive.",
-    "moods": [
-      "depressive_beauty"
-    ],
+    "moods": ["depressive_beauty"],
     "discography": [
       {
         "slug": "souvenirs-dun-autre-monde",
@@ -894,9 +826,7 @@
     "intensity": 4,
     "subgenre": "modern shoegaze",
     "desc": "The TikTok-era breakthrough — gauzy, intimate gaze for a new generation.",
-    "moods": [
-      "modern_anguish"
-    ],
+    "moods": ["modern_anguish"],
     "discography": [
       {
         "slug": "pandora",
@@ -920,9 +850,7 @@
     "intensity": 5,
     "subgenre": "shoegaze / indie pop",
     "desc": "shoegaze / indie pop — USA, 1992.",
-    "moods": [
-      "nostalgic_jangly"
-    ],
+    "moods": ["nostalgic_jangly"],
     "discography": [
       {
         "slug": "in-the-presence-of-nothing",
@@ -946,9 +874,7 @@
     "intensity": 5,
     "subgenre": "noise pop / shoegaze",
     "desc": "noise pop / shoegaze — USA, 1993.",
-    "moods": [
-      "nostalgic_jangly"
-    ],
+    "moods": ["nostalgic_jangly"],
     "discography": [
       {
         "slug": "copacetic",
@@ -972,9 +898,7 @@
     "intensity": 4,
     "subgenre": "dream pop / trip-hop gaze",
     "desc": "dream pop / trip-hop gaze — USA, 1996.",
-    "moods": [
-      "ambient_drift"
-    ],
+    "moods": ["ambient_drift"],
     "discography": [
       {
         "slug": "beat",
@@ -998,9 +922,7 @@
     "intensity": 4,
     "subgenre": "lo-fi space gaze",
     "desc": "lo-fi space gaze — UK, 1995.",
-    "moods": [
-      "psychedelic_hypnotic"
-    ],
+    "moods": ["psychedelic_hypnotic"],
     "discography": [
       {
         "slug": "further",
@@ -1024,9 +946,7 @@
     "intensity": 5,
     "subgenre": "electronic gaze / glitch pop",
     "desc": "electronic gaze / glitch pop — USA, 2003.",
-    "moods": [
-      "experimental_strange"
-    ],
+    "moods": ["experimental_strange"],
     "discography": [
       {
         "slug": "velocity-design-comfort",
@@ -1050,9 +970,7 @@
     "intensity": 5,
     "subgenre": "drone / noise gaze",
     "desc": "drone / noise gaze — USA, 1993.",
-    "moods": [
-      "noisy_chaotic"
-    ],
+    "moods": ["noisy_chaotic"],
     "discography": [
       {
         "slug": "bloweyelashwish",
@@ -1076,9 +994,7 @@
     "intensity": 3,
     "subgenre": "ambient gaze",
     "desc": "ambient gaze — USA, 1999.",
-    "moods": [
-      "ambient_drift"
-    ],
+    "moods": ["ambient_drift"],
     "discography": [
       {
         "slug": "alone-i-admire",
@@ -1102,9 +1018,7 @@
     "intensity": 4,
     "subgenre": "shoegaze",
     "desc": "shoegaze — USA, 1996.",
-    "moods": [
-      "ambient_drift"
-    ],
+    "moods": ["ambient_drift"],
     "discography": [
       {
         "slug": "a-fascination-with-heights",
@@ -1128,9 +1042,7 @@
     "intensity": 5,
     "subgenre": "space rock / alt-gaze",
     "desc": "space rock / alt-gaze — USA, 1996.",
-    "moods": [
-      "hypnotic_heavy"
-    ],
+    "moods": ["hypnotic_heavy"],
     "discography": [
       {
         "slug": "fantastic-planet",
@@ -1154,9 +1066,7 @@
     "intensity": 8,
     "subgenre": "shoegaze metal",
     "desc": "shoegaze metal — UK, 2007.",
-    "moods": [
-      "apocalyptic_doom"
-    ],
+    "moods": ["apocalyptic_doom"],
     "discography": [
       {
         "slug": "conqueror",
@@ -1180,9 +1090,7 @@
     "intensity": 4,
     "subgenre": "indie pop / gaze",
     "desc": "indie pop / gaze — USA, 2009.",
-    "moods": [
-      "nostalgic_jangly"
-    ],
+    "moods": ["nostalgic_jangly"],
     "discography": [
       {
         "slug": "the-pains-of-being-pure-at-heart",
@@ -1206,9 +1114,7 @@
     "intensity": 3,
     "subgenre": "indie pop / dream pop",
     "desc": "indie pop / dream pop — Sweden, 2003.",
-    "moods": [
-      "nostalgic_jangly"
-    ],
+    "moods": ["nostalgic_jangly"],
     "discography": [
       {
         "slug": "lesser-matters",
@@ -1232,9 +1138,7 @@
     "intensity": 4,
     "subgenre": "dreamy gaze / post-rock",
     "desc": "dreamy gaze / post-rock — UK, 2005.",
-    "moods": [
-      "dream_pop_warmth"
-    ],
+    "moods": ["dream_pop_warmth"],
     "discography": [
       {
         "slug": "engineers",
@@ -1258,9 +1162,7 @@
     "intensity": 6,
     "subgenre": "noise-gaze / psych",
     "desc": "noise-gaze / psych — Norway, 2005.",
-    "moods": [
-      "noisy_chaotic"
-    ],
+    "moods": ["noisy_chaotic"],
     "discography": [
       {
         "slug": "serena-maneesh",
@@ -1284,9 +1186,7 @@
     "intensity": 3,
     "subgenre": "electronic / ambient gaze",
     "desc": "electronic / ambient gaze — Germany, 2003.",
-    "moods": [
-      "ambient_drift"
-    ],
+    "moods": ["ambient_drift"],
     "discography": [
       {
         "slug": "a-strangely-isolated-place",
@@ -1310,9 +1210,7 @@
     "intensity": 5,
     "subgenre": "shoegaze",
     "desc": "shoegaze — UK, 2004.",
-    "moods": [
-      "euphoric_bliss"
-    ],
+    "moods": ["euphoric_bliss"],
     "discography": [
       {
         "slug": "amusement-parks-on-fire",
@@ -1336,9 +1234,7 @@
     "intensity": 3,
     "subgenre": "dream pop",
     "desc": "dream pop — USA, 2010.",
-    "moods": [
-      "wistful_dreamers"
-    ],
+    "moods": ["wistful_dreamers"],
     "discography": [
       {
         "slug": "gemini",
@@ -1362,9 +1258,7 @@
     "intensity": 6,
     "subgenre": "noise-gaze",
     "desc": "noise-gaze — Canada, 2015.",
-    "moods": [
-      "noisy_chaotic"
-    ],
+    "moods": ["noisy_chaotic"],
     "discography": [
       {
         "slug": "more-faithful",
@@ -1388,9 +1282,7 @@
     "intensity": 6,
     "subgenre": "shoegaze",
     "desc": "shoegaze — USA, 2011.",
-    "moods": [
-      "euphoric_bliss"
-    ],
+    "moods": ["euphoric_bliss"],
     "discography": [
       {
         "slug": "colour-trip",
@@ -1414,9 +1306,7 @@
     "intensity": 6,
     "subgenre": "stonegaze / heavy gaze",
     "desc": "stonegaze / heavy gaze — USA, 2017.",
-    "moods": [
-      "hypnotic_heavy"
-    ],
+    "moods": ["hypnotic_heavy"],
     "discography": [
       {
         "slug": "time-well",
@@ -1440,9 +1330,7 @@
     "intensity": 7,
     "subgenre": "post-punk / drone gaze",
     "desc": "Bedroom-recorded double album that became a cult phenomenon — bleak, vast, devastating.",
-    "moods": [
-      "depressive_beauty"
-    ],
+    "moods": ["depressive_beauty"],
     "discography": [
       {
         "slug": "deathconsciousness",
@@ -1466,9 +1354,7 @@
     "intensity": 5,
     "subgenre": "dark gaze / dream pop",
     "desc": "dark gaze / dream pop — New Zealand/USA, 2010.",
-    "moods": [
-      "dark_gothic"
-    ],
+    "moods": ["dark_gothic"],
     "discography": [
       {
         "slug": "the-waves",
@@ -1492,9 +1378,7 @@
     "intensity": 3,
     "subgenre": "indie / dream pop",
     "desc": "indie / dream pop — USA, 2013.",
-    "moods": [
-      "wistful_dreamers"
-    ],
+    "moods": ["wistful_dreamers"],
     "discography": [
       {
         "slug": "clash-the-truth",
@@ -1518,9 +1402,7 @@
     "intensity": 5,
     "subgenre": "shoegaze / krautgaze",
     "desc": "shoegaze / krautgaze — UK, 2014.",
-    "moods": [
-      "dream_pop_warmth"
-    ],
+    "moods": ["dream_pop_warmth"],
     "discography": [
       {
         "slug": "cheatahs",
@@ -1544,9 +1426,7 @@
     "intensity": 5,
     "subgenre": "indie rock / 90s revival",
     "desc": "indie rock / 90s revival — UK, 2011.",
-    "moods": [
-      "nostalgic_jangly"
-    ],
+    "moods": ["nostalgic_jangly"],
     "discography": [
       {
         "slug": "yuck",
@@ -1570,9 +1450,7 @@
     "intensity": 4,
     "subgenre": "post-punk / dream pop",
     "desc": "post-punk / dream pop — USA, 2008.",
-    "moods": [
-      "dark_gothic"
-    ],
+    "moods": ["dark_gothic"],
     "discography": [
       {
         "slug": "alight-of-night",
@@ -1596,9 +1474,7 @@
     "intensity": 5,
     "subgenre": "noise pop / twee",
     "desc": "noise pop / twee — USA, 2010.",
-    "moods": [
-      "nostalgic_jangly"
-    ],
+    "moods": ["nostalgic_jangly"],
     "discography": [
       {
         "slug": "black-tambourine",
@@ -1622,9 +1498,7 @@
     "intensity": 5,
     "subgenre": "Japanese shoegaze",
     "desc": "Tokyo band moving from heavy gaze to dreamy J-pop across their run.",
-    "moods": [
-      "japanese_gaze"
-    ],
+    "moods": ["japanese_gaze"],
     "discography": [
       {
         "slug": "eureka",
@@ -1648,10 +1522,7 @@
     "intensity": 4,
     "subgenre": "Japanese dream pop / gaze",
     "desc": "Bittersweet, hyper-melodic J-gaze named after a British actress.",
-    "moods": [
-      "nostalgic_jangly",
-      "japanese_gaze"
-    ],
+    "moods": ["nostalgic_jangly", "japanese_gaze"],
     "discography": [
       {
         "slug": "ethernity",
@@ -1675,10 +1546,7 @@
     "intensity": 4,
     "subgenre": "Japanese shoegaze",
     "desc": "Japanese shoegaze — Japan, 2010.",
-    "moods": [
-      "lo_fi_bedroom",
-      "japanese_gaze"
-    ],
+    "moods": ["lo_fi_bedroom", "japanese_gaze"],
     "discography": [
       {
         "slug": "hatsukoi",
@@ -1702,10 +1570,7 @@
     "intensity": 7,
     "subgenre": "Japanese eclectic gaze",
     "desc": "Genre-omnivorous Japanese project — gaze, metal, anime themes, drum 'n' bass.",
-    "moods": [
-      "experimental_strange",
-      "japanese_gaze"
-    ],
+    "moods": ["experimental_strange", "japanese_gaze"],
     "discography": [
       {
         "slug": "no-thank-you",
@@ -1729,9 +1594,7 @@
     "intensity": 5,
     "subgenre": "Japanese shoegaze",
     "desc": "Japanese shoegaze — Japan, 2003.",
-    "moods": [
-      "japanese_gaze"
-    ],
+    "moods": ["japanese_gaze"],
     "discography": [
       {
         "slug": "hello",
@@ -1755,9 +1618,7 @@
     "intensity": 4,
     "subgenre": "Japanese shoegaze",
     "desc": "Japanese shoegaze — Japan, 2010.",
-    "moods": [
-      "japanese_gaze"
-    ],
+    "moods": ["japanese_gaze"],
     "discography": [
       {
         "slug": "this-is-my-shoegazer",
@@ -1781,9 +1642,7 @@
     "intensity": 5,
     "subgenre": "Japanese shoegaze",
     "desc": "Japanese shoegaze — Japan, 2011.",
-    "moods": [
-      "japanese_gaze"
-    ],
+    "moods": ["japanese_gaze"],
     "discography": [
       {
         "slug": "crystallize",
@@ -1807,9 +1666,7 @@
     "intensity": 7,
     "subgenre": "heavy shoegaze",
     "desc": "LA band channeling Nothing/Deftones heaviness with magnetic vocal interplay.",
-    "moods": [
-      "modern_anguish"
-    ],
+    "moods": ["modern_anguish"],
     "discography": [
       {
         "slug": "my-anti-aircraft-friend",
@@ -1833,9 +1690,7 @@
     "intensity": 6,
     "subgenre": "experimental shoegaze",
     "desc": "experimental shoegaze — USA, 2022.",
-    "moods": [
-      "experimental_strange"
-    ],
+    "moods": ["experimental_strange"],
     "discography": [
       {
         "slug": "lucky-styles",
@@ -1859,9 +1714,7 @@
     "intensity": 5,
     "subgenre": "lo-fi shoegaze",
     "desc": "Anonymous Korean bedroom artist whose 2021 album became an internet phenomenon.",
-    "moods": [
-      "lo_fi_bedroom"
-    ],
+    "moods": ["lo_fi_bedroom"],
     "discography": [
       {
         "slug": "to-see-the-next-part-of-the-dream",
@@ -1885,9 +1738,7 @@
     "intensity": 6,
     "subgenre": "lo-fi shoegaze / emo",
     "desc": "lo-fi shoegaze / emo — South Korea, 2021.",
-    "moods": [
-      "lo_fi_bedroom"
-    ],
+    "moods": ["lo_fi_bedroom"],
     "discography": [
       {
         "slug": "cull-ficle",
@@ -1911,9 +1762,7 @@
     "intensity": 4,
     "subgenre": "lo-fi shoegaze",
     "desc": "lo-fi shoegaze — Brazil, 2022.",
-    "moods": [
-      "lo_fi_bedroom"
-    ],
+    "moods": ["lo_fi_bedroom"],
     "discography": [
       {
         "slug": "sonhos-tomam-conta",
@@ -1937,9 +1786,7 @@
     "intensity": 4,
     "subgenre": "slowcore / gaze",
     "desc": "slowcore / gaze — USA, 2022.",
-    "moods": [
-      "depressive_beauty"
-    ],
+    "moods": ["depressive_beauty"],
     "discography": [
       {
         "slug": "animal-drowning",
@@ -1963,9 +1810,7 @@
     "intensity": 5,
     "subgenre": "noise pop / gaze",
     "desc": "noise pop / gaze — USA, 2023.",
-    "moods": [
-      "modern_anguish"
-    ],
+    "moods": ["modern_anguish"],
     "discography": [
       {
         "slug": "girl-with-fish",
@@ -1989,9 +1834,7 @@
     "intensity": 5,
     "subgenre": "modern shoegaze",
     "desc": "modern shoegaze — USA, 2023.",
-    "moods": [
-      "modern_anguish"
-    ],
+    "moods": ["modern_anguish"],
     "discography": [
       {
         "slug": "she-only-said",
@@ -2015,9 +1858,7 @@
     "intensity": 7,
     "subgenre": "modern shoegaze",
     "desc": "Texas band part of the current heavy-gaze revival; emotionally raw and abrasive.",
-    "moods": [
-      "modern_anguish"
-    ],
+    "moods": ["modern_anguish"],
     "discography": [
       {
         "slug": "the-beauty-of-the-end",
@@ -2041,9 +1882,7 @@
     "intensity": 5,
     "subgenre": "bedroom shoegaze",
     "desc": "bedroom shoegaze — USA, 2022.",
-    "moods": [
-      "lo_fi_bedroom"
-    ],
+    "moods": ["lo_fi_bedroom"],
     "discography": [
       {
         "slug": "stepdream",
@@ -2067,9 +1906,7 @@
     "intensity": 7,
     "subgenre": "metalcore-gaze",
     "desc": "metalcore-gaze — USA, 2022.",
-    "moods": [
-      "ecstatic_catharsis"
-    ],
+    "moods": ["ecstatic_catharsis"],
     "discography": [
       {
         "slug": "were-not-here-to-be-loved",
@@ -2093,9 +1930,7 @@
     "intensity": 7,
     "subgenre": "doomgaze",
     "desc": "doomgaze — USA, 2019.",
-    "moods": [
-      "apocalyptic_doom"
-    ],
+    "moods": ["apocalyptic_doom"],
     "discography": [
       {
         "slug": "new-hell",
@@ -2119,9 +1954,7 @@
     "intensity": 7,
     "subgenre": "grunge-gaze",
     "desc": "grunge-gaze — USA, 2020.",
-    "moods": [
-      "muscular_brooding"
-    ],
+    "moods": ["muscular_brooding"],
     "discography": [
       {
         "slug": "12th-house-rock",
@@ -2145,9 +1978,7 @@
     "intensity": 5,
     "subgenre": "lo-fi gaze / power pop",
     "desc": "lo-fi gaze / power pop — USA, 2023.",
-    "moods": [
-      "lo_fi_bedroom"
-    ],
+    "moods": ["lo_fi_bedroom"],
     "discography": [
       {
         "slug": "cartwheel",
@@ -2171,9 +2002,7 @@
     "intensity": 5,
     "subgenre": "modern shoegaze",
     "desc": "modern shoegaze — UK, 2020.",
-    "moods": [
-      "lo_fi_bedroom"
-    ],
+    "moods": ["lo_fi_bedroom"],
     "discography": [
       {
         "slug": "bedroom",
@@ -2221,9 +2050,7 @@
     "intensity": 5,
     "subgenre": "shoegaze / dream pop",
     "desc": "shoegaze / dream pop — Sweden, 2015.",
-    "moods": [
-      "euphoric_bliss"
-    ],
+    "moods": ["euphoric_bliss"],
     "discography": [
       {
         "slug": "last-forever",
@@ -2247,9 +2074,7 @@
     "intensity": 5,
     "subgenre": "dark dream pop",
     "desc": "dark dream pop — UK, 1993.",
-    "moods": [
-      "dark_gothic"
-    ],
+    "moods": ["dark_gothic"],
     "discography": [
       {
         "slug": "forever",
@@ -2273,9 +2098,7 @@
     "intensity": 4,
     "subgenre": "post-punk / dream pop",
     "desc": "post-punk / dream pop — UK, 1986.",
-    "moods": [
-      "dark_gothic"
-    ],
+    "moods": ["dark_gothic"],
     "discography": [
       {
         "slug": "permanent-sleep",
@@ -2299,9 +2122,7 @@
     "intensity": 3,
     "subgenre": "4AD dream pop",
     "desc": "Ivo Watts-Russell's 4AD supergroup of darkly beautiful covers and originals.",
-    "moods": [
-      "ethereal_celestial"
-    ],
+    "moods": ["ethereal_celestial"],
     "discography": [
       {
         "slug": "itll-end-in-tears",
@@ -2325,9 +2146,7 @@
     "intensity": 3,
     "subgenre": "dream pop",
     "desc": "Liz Fraser's long-awaited return — radiant, voice-as-instrument dream pop.",
-    "moods": [
-      "ethereal_celestial"
-    ],
+    "moods": ["ethereal_celestial"],
     "discography": [
       {
         "slug": "suns-signature",
@@ -2351,9 +2170,7 @@
     "intensity": 3,
     "subgenre": "dream pop / sadcore",
     "desc": "dream pop / sadcore — USA, 2017.",
-    "moods": [
-      "depressive_beauty"
-    ],
+    "moods": ["depressive_beauty"],
     "discography": [
       {
         "slug": "cigarettes-after-sex",
@@ -2377,9 +2194,7 @@
     "intensity": 8,
     "subgenre": "blackgaze / depressive black metal",
     "desc": "blackgaze / depressive black metal — USA, 2021.",
-    "moods": [
-      "apocalyptic_doom"
-    ],
+    "moods": ["apocalyptic_doom"],
     "discography": [
       {
         "slug": "atna",
@@ -2403,9 +2218,7 @@
     "intensity": 7,
     "subgenre": "blackgaze",
     "desc": "blackgaze — Netherlands, 2015.",
-    "moods": [
-      "apocalyptic_doom"
-    ],
+    "moods": ["apocalyptic_doom"],
     "discography": [
       {
         "slug": "try-not-to-destroy-everything-you-love",
@@ -2429,9 +2242,7 @@
     "intensity": 7,
     "subgenre": "blackgaze / post-everything",
     "desc": "blackgaze / post-everything — Germany, 2014.",
-    "moods": [
-      "depressive_beauty"
-    ],
+    "moods": ["depressive_beauty"],
     "discography": [
       {
         "slug": "melting-sun",
@@ -2455,9 +2266,7 @@
     "intensity": 7,
     "subgenre": "blackgaze / post-punk",
     "desc": "blackgaze / post-punk — France, 2009.",
-    "moods": [
-      "apocalyptic_doom"
-    ],
+    "moods": ["apocalyptic_doom"],
     "discography": [
       {
         "slug": "amesoeurs",
@@ -2481,9 +2290,7 @@
     "intensity": 6,
     "subgenre": "dream-thrash / blackgaze-adjacent",
     "desc": "dream-thrash / blackgaze-adjacent — USA, 2016.",
-    "moods": [
-      "ecstatic_catharsis"
-    ],
+    "moods": ["ecstatic_catharsis"],
     "discography": [
       {
         "slug": "air",
@@ -2507,9 +2314,7 @@
     "intensity": 5,
     "subgenre": "shoegaze",
     "desc": "shoegaze — UK, 2006.",
-    "moods": [
-      "euphoric_bliss"
-    ],
+    "moods": ["euphoric_bliss"],
     "discography": [
       {
         "slug": "daylight-storms",
@@ -2557,9 +2362,7 @@
     "intensity": 4,
     "subgenre": "shoegaze / twee",
     "desc": "shoegaze / twee — Estonia, 2002.",
-    "moods": [
-      "euphoric_bliss"
-    ],
+    "moods": ["euphoric_bliss"],
     "discography": [
       {
         "slug": "in-solarium",
@@ -2583,9 +2386,7 @@
     "intensity": 3,
     "subgenre": "dream pop / surf gaze",
     "desc": "dream pop / surf gaze — USA, 2015.",
-    "moods": [
-      "wistful_dreamers"
-    ],
+    "moods": ["wistful_dreamers"],
     "discography": [
       {
         "slug": "hibou",
@@ -2609,9 +2410,7 @@
     "intensity": 4,
     "subgenre": "post-hardcore → shoegaze",
     "desc": "post-hardcore → shoegaze — USA, 2015.",
-    "moods": [
-      "wistful_dreamers"
-    ],
+    "moods": ["wistful_dreamers"],
     "discography": [
       {
         "slug": "hyperview",
@@ -2635,9 +2434,7 @@
     "intensity": 5,
     "subgenre": "post-hardcore / emo-gaze",
     "desc": "post-hardcore / emo-gaze — USA, 2015.",
-    "moods": [
-      "yearning_anthemic"
-    ],
+    "moods": ["yearning_anthemic"],
     "discography": [
       {
         "slug": "everybody-is-going-to-heaven",
@@ -2661,9 +2458,7 @@
     "intensity": 2,
     "subgenre": "pop-punk → dream pop",
     "desc": "pop-punk → dream pop — USA, 2015.",
-    "moods": [
-      "wistful_dreamers"
-    ],
+    "moods": ["wistful_dreamers"],
     "discography": [
       {
         "slug": "peripheral-vision",
@@ -2687,9 +2482,7 @@
     "intensity": 4,
     "subgenre": "post-hardcore / emo-gaze",
     "desc": "post-hardcore / emo-gaze — UK, 2012.",
-    "moods": [
-      "wistful_dreamers"
-    ],
+    "moods": ["wistful_dreamers"],
     "discography": [
       {
         "slug": "colourmeinkindness",
@@ -2713,9 +2506,7 @@
     "intensity": 5,
     "subgenre": "post-hardcore / emo-gaze",
     "desc": "post-hardcore / emo-gaze — USA, 2013.",
-    "moods": [
-      "yearning_anthemic"
-    ],
+    "moods": ["yearning_anthemic"],
     "discography": [
       {
         "slug": "the-things-we-think-were-missing",
@@ -2739,9 +2530,7 @@
     "intensity": 6,
     "subgenre": "grunge-gaze / sludgy alt",
     "desc": "grunge-gaze / sludgy alt — USA, 2013.",
-    "moods": [
-      "sun_bleached_sludge"
-    ],
+    "moods": ["sun_bleached_sludge"],
     "discography": [
       {
         "slug": "jar",
@@ -2765,9 +2554,7 @@
     "intensity": 6,
     "subgenre": "stonegaze",
     "desc": "stonegaze — USA, 2013.",
-    "moods": [
-      "hypnotic_heavy"
-    ],
+    "moods": ["hypnotic_heavy"],
     "discography": [
       {
         "slug": "circumambulation",
@@ -2791,9 +2578,7 @@
     "intensity": 7,
     "subgenre": "post-metal / atmospheric heavy",
     "desc": "post-metal / atmospheric heavy — USA, 2018.",
-    "moods": [
-      "apocalyptic_doom"
-    ],
+    "moods": ["apocalyptic_doom"],
     "discography": [
       {
         "slug": "death-spells",
@@ -2817,9 +2602,7 @@
     "intensity": 8,
     "subgenre": "post-metal / doomgaze",
     "desc": "post-metal / doomgaze — USA, 2017.",
-    "moods": [
-      "apocalyptic_doom"
-    ],
+    "moods": ["apocalyptic_doom"],
     "discography": [
       {
         "slug": "tidals",
@@ -2843,9 +2626,7 @@
     "intensity": 9,
     "subgenre": "metalcore × shoegaze",
     "desc": "Liverpool band that perfected the Deftones-meets-MBV formula on their 2020 breakthrough.",
-    "moods": [
-      "volatile_violent"
-    ],
+    "moods": ["volatile_violent"],
     "discography": [
       {
         "slug": "i-let-it-in-and-it-took-everything",
@@ -2869,9 +2650,7 @@
     "intensity": 9,
     "subgenre": "metalcore with gaze textures",
     "desc": "metalcore with gaze textures — Canada, 2021.",
-    "moods": [
-      "volatile_violent"
-    ],
+    "moods": ["volatile_violent"],
     "discography": [
       {
         "slug": "eternal-blue",
@@ -2895,9 +2674,7 @@
     "intensity": 7,
     "subgenre": "post-metalcore / genre-blender",
     "desc": "post-metalcore / genre-blender — USA, 2024.",
-    "moods": [
-      "experimental_strange"
-    ],
+    "moods": ["experimental_strange"],
     "discography": [
       {
         "slug": "american-motor-sports",
@@ -2921,9 +2698,7 @@
     "intensity": 8,
     "subgenre": "blackgaze / experimental",
     "desc": "blackgaze / experimental — USA, 2012.",
-    "moods": [
-      "apocalyptic_doom"
-    ],
+    "moods": ["apocalyptic_doom"],
     "discography": [
       {
         "slug": "iii",
@@ -2947,9 +2722,7 @@
     "intensity": 7,
     "subgenre": "post-hardcore",
     "desc": "post-hardcore — USA, 1993.",
-    "moods": [
-      "muscular_brooding"
-    ],
+    "moods": ["muscular_brooding"],
     "discography": [
       {
         "slug": "slip",
@@ -2973,9 +2746,7 @@
     "intensity": 7,
     "subgenre": "post-hardcore / space rock",
     "desc": "post-hardcore / space rock — USA, 2000.",
-    "moods": [
-      "muscular_brooding"
-    ],
+    "moods": ["muscular_brooding"],
     "discography": [
       {
         "slug": "jupiter",
@@ -2999,9 +2770,7 @@
     "intensity": 6,
     "subgenre": "post-hardcore / emo",
     "desc": "post-hardcore / emo — USA, 1998.",
-    "moods": [
-      "yearning_anthemic"
-    ],
+    "moods": ["yearning_anthemic"],
     "discography": [
       {
         "slug": "water-and-solutions",
@@ -3025,9 +2794,7 @@
     "intensity": 5,
     "subgenre": "indie-gaze / scrappy alt",
     "desc": "indie-gaze / scrappy alt — USA, 2020.",
-    "moods": [
-      "wistful_dreamers"
-    ],
+    "moods": ["wistful_dreamers"],
     "discography": [
       {
         "slug": "whats-so-fucking-funny",
@@ -3051,9 +2818,7 @@
     "intensity": 5,
     "subgenre": "emo / gaze-adjacent",
     "desc": "emo / gaze-adjacent — USA, 2022.",
-    "moods": [
-      "yearning_anthemic"
-    ],
+    "moods": ["yearning_anthemic"],
     "discography": [
       {
         "slug": "little-green-house",
@@ -3077,9 +2842,7 @@
     "intensity": 5,
     "subgenre": "emo / post-hardcore",
     "desc": "emo / post-hardcore — USA, 2024.",
-    "moods": [
-      "yearning_anthemic"
-    ],
+    "moods": ["yearning_anthemic"],
     "discography": [
       {
         "slug": "would-you-miss-it",

@@ -35,7 +35,10 @@ test("every raw mood has a sub-mood offset", () => {
   for (const mood of Object.keys(MOOD_TO_BANDS)) {
     const off = SUB_MOOD_OFFSETS[mood];
     assert.ok(off, `SUB_MOOD_OFFSETS missing entry for "${mood}"`);
-    assert.ok(Number.isFinite(off.dx) && Number.isFinite(off.dy), `non-finite offset for "${mood}"`);
+    assert.ok(
+      Number.isFinite(off.dx) && Number.isFinite(off.dy),
+      `non-finite offset for "${mood}"`,
+    );
   }
 });
 

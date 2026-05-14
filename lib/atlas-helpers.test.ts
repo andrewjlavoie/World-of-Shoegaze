@@ -62,7 +62,7 @@ test("initials: multi-word name → first letter of first two words", () => {
 });
 
 test("initials: 'The' prefix is stripped", () => {
-  assert.equal(initials("The Cure"), "CU");           // becomes single-word "Cure"
+  assert.equal(initials("The Cure"), "CU"); // becomes single-word "Cure"
   assert.equal(initials("The Jesus and Mary Chain"), "JA");
 });
 

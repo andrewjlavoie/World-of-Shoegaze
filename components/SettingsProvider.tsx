@@ -38,7 +38,9 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
       "--density",
       settings.density === "tight" ? "0.85" : settings.density === "loose" ? "1.25" : "1",
     );
-    try { localStorage.setItem(KEY, JSON.stringify(settings)); } catch {}
+    try {
+      localStorage.setItem(KEY, JSON.stringify(settings));
+    } catch {}
   }, [settings]);
 
   const setOne = useCallback(<K extends keyof Settings>(k: K, v: Settings[K]) => {

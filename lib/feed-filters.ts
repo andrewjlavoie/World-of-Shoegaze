@@ -14,10 +14,10 @@ const SORT_KEYS: readonly SortKey[] = ["name", "year", "intensity"] as const;
 export interface FilterState {
   search: string;
   sort: SortKey;
-  era: string[];      // era keys (cf. lib/data.ts ERAS)
-  mood: string[];     // family keys (cf. lib/mood-families.ts FAMILY_KEYS)
-  country: string[];  // raw country names from artist.country
-  decade: string[];   // "1980s" | "1990s" | "2000s" | "2010s" | "2020s"
+  era: string[]; // era keys (cf. lib/data.ts ERAS)
+  mood: string[]; // family keys (cf. lib/mood-families.ts FAMILY_KEYS)
+  country: string[]; // raw country names from artist.country
+  decade: string[]; // "1980s" | "1990s" | "2000s" | "2010s" | "2020s"
 }
 
 export const EMPTY_STATE: FilterState = {
@@ -44,7 +44,10 @@ export function parseSearchParams(
   const arr = (k: string): string[] => {
     const raw = get(k);
     if (!raw) return [];
-    return raw.split(",").map((v) => v.trim()).filter(Boolean);
+    return raw
+      .split(",")
+      .map((v) => v.trim())
+      .filter(Boolean);
   };
   const sortRaw = get("sort");
   const sort: SortKey = (SORT_KEYS as readonly string[]).includes(sortRaw)
@@ -97,13 +100,9 @@ export function activeCount(state: FilterState): number {
 function searchMatches(a: AtlasArtist, q: string): boolean {
   if (!q) return true;
   const needle = q.toLowerCase();
-  const haystack = [
-    a.name,
-    refAlbum(a)!.title,
-    a.country,
-    a.subgenre,
-    ...a.moods,
-  ].join(" ").toLowerCase();
+  const haystack = [a.name, refAlbum(a)!.title, a.country, a.subgenre, ...a.moods]
+    .join(" ")
+    .toLowerCase();
   return haystack.includes(needle);
 }
 

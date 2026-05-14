@@ -14,7 +14,7 @@ if (!uri) {
   process.exit(1);
 }
 
-function buildArtistDoc(band: typeof BANDS[number]): AtlasArtist {
+function buildArtistDoc(band: (typeof BANDS)[number]): AtlasArtist {
   const refAlbum: AtlasAlbum = {
     slug: slugify(band.album),
     title: band.album,
@@ -74,4 +74,7 @@ async function main() {
   }
 }
 
-main().catch((e) => { console.error(e); process.exit(1); });
+main().catch((e) => {
+  console.error(e);
+  process.exit(1);
+});

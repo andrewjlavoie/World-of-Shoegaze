@@ -9,9 +9,9 @@ import { refAlbum, paletteFor } from "@/lib/atlas-helpers";
 
 const LISTEN_KEYS: Array<{ key: keyof AtlasArtist["listen"]; label: string }> = [
   { key: "bandcamp", label: "BC" },
-  { key: "spotify",  label: "SP" },
-  { key: "apple",    label: "AM" },
-  { key: "tidal",    label: "TI" },
+  { key: "spotify", label: "SP" },
+  { key: "apple", label: "AM" },
+  { key: "tidal", label: "TI" },
 ];
 
 export function GraphPanel({ artist }: { artist: AtlasArtist | null }) {
@@ -33,7 +33,9 @@ export function GraphPanel({ artist }: { artist: AtlasArtist | null }) {
       </div>
 
       <div className="gx-panel-meta">
-        <span>{album.year} · {artist.country}</span>
+        <span>
+          {album.year} · {artist.country}
+        </span>
         <span>intensity {artist.intensity} / 10</span>
       </div>
       <div className="gx-panel-name">{artist.name}</div>
@@ -41,18 +43,30 @@ export function GraphPanel({ artist }: { artist: AtlasArtist | null }) {
 
       <p className="gx-panel-quote">&ldquo;{artist.desc}&rdquo;</p>
 
-      <div className="gx-panel-row"><span className="gx-panel-key">era</span><span className="gx-panel-val">{eraLabel(artist.era)}</span></div>
-      <div className="gx-panel-row"><span className="gx-panel-key">subgenre</span><span className="gx-panel-val">{artist.subgenre}</span></div>
+      <div className="gx-panel-row">
+        <span className="gx-panel-key">era</span>
+        <span className="gx-panel-val">{eraLabel(artist.era)}</span>
+      </div>
+      <div className="gx-panel-row">
+        <span className="gx-panel-key">subgenre</span>
+        <span className="gx-panel-val">{artist.subgenre}</span>
+      </div>
 
       <div className="gx-panel-moods">
         {artist.moods.map((m) => {
           const mc = MOOD_COLORS[m];
           if (!mc) return null;
-          return <span key={m} className="gx-panel-mood-chip">#{mc.label}</span>;
+          return (
+            <span key={m} className="gx-panel-mood-chip">
+              #{mc.label}
+            </span>
+          );
         })}
       </div>
 
-      <Link className="gx-panel-cta" href={`/band/${artist.slug}`}>→ open band file</Link>
+      <Link className="gx-panel-cta" href={`/band/${artist.slug}`}>
+        → open band file
+      </Link>
 
       <div className="gx-panel-listen">
         {LISTEN_KEYS.map(({ key, label }) => {
@@ -80,9 +94,8 @@ function PanelIntro() {
       <div className="gx-panel-intro">
         <h2>an atlas of moods</h2>
         <p>
-          The whole catalog plotted by sound. Tiles cluster by primary mood —
-          eight loose family gardens. Anyone who reads the names will see
-          the gardens emerge.
+          The whole catalog plotted by sound. Tiles cluster by primary mood — eight loose family
+          gardens. Anyone who reads the names will see the gardens emerge.
         </p>
         <ul>
           <li>hover or tap a tile</li>

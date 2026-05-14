@@ -17,9 +17,7 @@ function fakeArtist(slug: string, primaryMood: string): AtlasArtist {
     subgenre: "shoegaze",
     desc: "",
     moods: [primaryMood],
-    discography: [
-      { slug: "ref", title: "Ref", year: 1992, kind: "LP", isReference: true },
-    ],
+    discography: [{ slug: "ref", title: "Ref", year: 1992, kind: "LP", isReference: true }],
     listen: {},
   };
 }
@@ -39,7 +37,10 @@ test("layoutPositions returns a position for every artist", () => {
 
 test("layoutPositions output is finite (no NaN/Infinity)", () => {
   const artists = Array.from({ length: 50 }, (_, i) =>
-    fakeArtist(`a${i}`, ["euphoric_bliss", "noisy_chaotic", "apocalyptic_doom", "yearning_anthemic"][i % 4]!),
+    fakeArtist(
+      `a${i}`,
+      ["euphoric_bliss", "noisy_chaotic", "apocalyptic_doom", "yearning_anthemic"][i % 4]!,
+    ),
   );
   const positions = layoutPositions(artists);
   for (const [slug, pos] of positions) {
@@ -63,9 +64,7 @@ test("layoutPositions is deterministic for the same input", () => {
 });
 
 test("artists with the same family cluster within ~80 units of the family centroid", () => {
-  const artists = Array.from({ length: 5 }, (_, i) =>
-    fakeArtist(`heavy${i}`, "apocalyptic_doom"),
-  );
+  const artists = Array.from({ length: 5 }, (_, i) => fakeArtist(`heavy${i}`, "apocalyptic_doom"));
   const positions = layoutPositions(artists);
   const fc = FAMILY_CENTROIDS[familyFor("apocalyptic_doom")];
   for (const [slug, pos] of positions) {

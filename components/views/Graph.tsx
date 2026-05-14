@@ -22,7 +22,11 @@ const ZOOM_MAX = 4;
 const ZOOM_STEP = 1.3; // multiplier for +/- buttons
 const FIT_MARGIN = 40; // px padding around content for fit-all
 
-interface Transform { z: number; x: number; y: number; }
+interface Transform {
+  z: number;
+  x: number;
+  y: number;
+}
 
 export function Graph({ artists }: { artists: AtlasArtist[] }) {
   const positions = useMemo(() => layoutPositions(artists), [artists]);
@@ -77,8 +81,15 @@ export function Graph({ artists }: { artists: AtlasArtist[] }) {
 
   // Pointer state — distinguishes single-finger drag from 2-finger pinch.
   const pointersRef = useRef<Map<number, { x: number; y: number }>>(new Map());
-  const dragRef = useRef<{ startX: number; startY: number; startTfX: number; startTfY: number } | null>(null);
-  const pinchRef = useRef<{ startDist: number; startZoom: number; cx: number; cy: number } | null>(null);
+  const dragRef = useRef<{
+    startX: number;
+    startY: number;
+    startTfX: number;
+    startTfY: number;
+  } | null>(null);
+  const pinchRef = useRef<{ startDist: number; startZoom: number; cx: number; cy: number } | null>(
+    null,
+  );
 
   /**
    * Compute the transform that fits the world bounds into the viewport
@@ -128,11 +139,14 @@ export function Graph({ artists }: { artists: AtlasArtist[] }) {
     setTransform({ z: next, x: vx - wpx * next, y: vy - wpy * next });
   }, []);
 
-  const zoomBy = useCallback((factor: number) => {
-    const vp = viewportRef.current;
-    if (!vp) return;
-    zoomAt(vp.clientWidth / 2, vp.clientHeight / 2, factor);
-  }, [zoomAt]);
+  const zoomBy = useCallback(
+    (factor: number) => {
+      const vp = viewportRef.current;
+      if (!vp) return;
+      zoomAt(vp.clientWidth / 2, vp.clientHeight / 2, factor);
+    },
+    [zoomAt],
+  );
 
   const fitAll = useCallback(() => {
     setIsAnimating(true);
@@ -242,7 +256,11 @@ export function Graph({ artists }: { artists: AtlasArtist[] }) {
     const onKey = (e: KeyboardEvent) => {
       // Ignore when typing in an input/textarea/contenteditable somewhere.
       const target = e.target as HTMLElement | null;
-      if (target && (target.tagName === "INPUT" || target.tagName === "TEXTAREA" || target.isContentEditable)) return;
+      if (
+        target &&
+        (target.tagName === "INPUT" || target.tagName === "TEXTAREA" || target.isContentEditable)
+      )
+        return;
 
       if (e.key === "Escape") setFocusedSlug(null);
       else if (e.key === "0") fitAll();
@@ -267,16 +285,44 @@ export function Graph({ artists }: { artists: AtlasArtist[] }) {
       <div className="gx-compass">an atlas</div>
 
       <div className="gx-legend" aria-hidden="true">
-        <div><span className="gx-legend-key">hover</span> related bands light up</div>
-        <div><span className="gx-legend-key">drag</span> pan <span className="gx-legend-sep">·</span> <span className="gx-legend-key">scroll</span> zoom</div>
-        <div><span className="gx-legend-key">click</span> open band file</div>
+        <div>
+          <span className="gx-legend-key">hover</span> related bands light up
+        </div>
+        <div>
+          <span className="gx-legend-key">drag</span> pan <span className="gx-legend-sep">·</span>{" "}
+          <span className="gx-legend-key">scroll</span> zoom
+        </div>
+        <div>
+          <span className="gx-legend-key">click</span> open band file
+        </div>
       </div>
 
-      <button className="gx-reset" onClick={fitAll} title="Fit all" aria-label="Fit all to viewport">↺ fit all</button>
+      <button
+        className="gx-reset"
+        onClick={fitAll}
+        title="Fit all"
+        aria-label="Fit all to viewport"
+      >
+        ↺ fit all
+      </button>
 
       <div className="gx-controls">
-        <button className="gx-ctl" onClick={() => zoomBy(ZOOM_STEP)} title="Zoom in" aria-label="Zoom in">＋</button>
-        <button className="gx-ctl" onClick={() => zoomBy(1 / ZOOM_STEP)} title="Zoom out" aria-label="Zoom out">－</button>
+        <button
+          className="gx-ctl"
+          onClick={() => zoomBy(ZOOM_STEP)}
+          title="Zoom in"
+          aria-label="Zoom in"
+        >
+          ＋
+        </button>
+        <button
+          className="gx-ctl"
+          onClick={() => zoomBy(1 / ZOOM_STEP)}
+          title="Zoom out"
+          aria-label="Zoom out"
+        >
+          －
+        </button>
       </div>
 
       <div
@@ -287,7 +333,11 @@ export function Graph({ artists }: { artists: AtlasArtist[] }) {
         onPointerUp={onPointerUp}
         onPointerCancel={onPointerUp}
       >
-        <div ref={worldRef} className={`gx-world ${isAnimating ? "is-animating" : ""}`} style={worldStyle}>
+        <div
+          ref={worldRef}
+          className={`gx-world ${isAnimating ? "is-animating" : ""}`}
+          style={worldStyle}
+        >
           {artists.map((a) => {
             const pos = positions.get(a.slug);
             if (!pos) return null;

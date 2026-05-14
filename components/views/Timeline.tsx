@@ -27,7 +27,7 @@ export function Timeline({ artists }: { artists: AtlasArtist[] }) {
     });
     // Stable order inside each row: by intensity descending, then by name
     Object.values(map).forEach((list) =>
-      list.sort((x, y) => (y.intensity - x.intensity) || x.name.localeCompare(y.name)),
+      list.sort((x, y) => y.intensity - x.intensity || x.name.localeCompare(y.name)),
     );
     return map;
   }, [artists, activeEra]);
@@ -50,26 +50,61 @@ export function Timeline({ artists }: { artists: AtlasArtist[] }) {
             <span style={{ marginLeft: "auto" }}>view 05 / timeline</span>
           </div>
           <div className="rule-2" />
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginTop: 14 }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "flex-end",
+              marginTop: 14,
+            }}
+          >
             <h1 className="wos-timeline-h1" style={{ fontSize: 64 }}>
-              Forty years <span className="italic" style={{ color: "var(--accent)" }}>down.</span>
+              Forty years{" "}
+              <span className="italic" style={{ color: "var(--accent)" }}>
+                down.
+              </span>
             </h1>
             <div className="small" style={{ color: "var(--ink-soft)", textAlign: "right" }}>
-              <div className="italic serif" style={{ fontSize: 17 }}>The &lsquo;91 spike. The &lsquo;14 revival. The current wave still cresting.</div>
-              <div className="micro" style={{ marginTop: 4 }}>each square is an album · hover for the file · click to open</div>
+              <div className="italic serif" style={{ fontSize: 17 }}>
+                The &lsquo;91 spike. The &lsquo;14 revival. The current wave still cresting.
+              </div>
+              <div className="micro" style={{ marginTop: 4 }}>
+                each square is an album · hover for the file · click to open
+              </div>
             </div>
           </div>
         </header>
 
-        <div style={{ display: "flex", gap: 6, marginBottom: 28, flexWrap: "wrap", alignItems: "center" }}>
-          <button className={`chip ${!activeEra ? "is-active" : ""}`} onClick={() => setActiveEra(null)}>all eras</button>
+        <div
+          style={{
+            display: "flex",
+            gap: 6,
+            marginBottom: 28,
+            flexWrap: "wrap",
+            alignItems: "center",
+          }}
+        >
+          <button
+            className={`chip ${!activeEra ? "is-active" : ""}`}
+            onClick={() => setActiveEra(null)}
+          >
+            all eras
+          </button>
           {ERAS.map((e) => (
-            <button key={e.key} className={`chip ${activeEra === e.key ? "is-active" : ""}`} onClick={() => setActiveEra(activeEra === e.key ? null : e.key)}>
+            <button
+              key={e.key}
+              className={`chip ${activeEra === e.key ? "is-active" : ""}`}
+              onClick={() => setActiveEra(activeEra === e.key ? null : e.key)}
+            >
               <span>{e.label}</span>
-              <span className="micro" style={{ opacity: 0.5 }}>{e.range}</span>
+              <span className="micro" style={{ opacity: 0.5 }}>
+                {e.range}
+              </span>
             </button>
           ))}
-          <span className="micro" style={{ marginLeft: "auto", color: "var(--ink-faint)" }}>{total} album{total === 1 ? "" : "s"}</span>
+          <span className="micro" style={{ marginLeft: "auto", color: "var(--ink-faint)" }}>
+            {total} album{total === 1 ? "" : "s"}
+          </span>
         </div>
 
         <div className="tl-grid">
@@ -79,7 +114,9 @@ export function Timeline({ artists }: { artists: AtlasArtist[] }) {
             const isEmpty = list.length === 0;
             return (
               <div key={y} className="tl-row-wrap" data-empty={isEmpty ? "1" : "0"}>
-                <div className={`tl-year ${isMajor ? "is-major" : ""} ${isEmpty ? "is-empty" : ""}`}>
+                <div
+                  className={`tl-year ${isMajor ? "is-major" : ""} ${isEmpty ? "is-empty" : ""}`}
+                >
                   <span style={{ fontVariantNumeric: "tabular-nums" }}>{y}</span>
                   {!isEmpty && <span className="tl-year-count micro">{list.length}</span>}
                 </div>
@@ -93,7 +130,9 @@ export function Timeline({ artists }: { artists: AtlasArtist[] }) {
                         type="button"
                         className="tl-tile"
                         onMouseEnter={() => setHover(a)}
-                        onMouseLeave={() => setHover((cur) => (cur && cur.slug === a.slug ? null : cur))}
+                        onMouseLeave={() =>
+                          setHover((cur) => (cur && cur.slug === a.slug ? null : cur))
+                        }
                         onClick={() => open(a)}
                         aria-label={`${a.name} — ${album.title}`}
                         style={{
@@ -117,8 +156,12 @@ export function Timeline({ artists }: { artists: AtlasArtist[] }) {
         {hover && <HoverCard artist={hover} />}
 
         <footer style={{ marginTop: 64, paddingTop: 24, borderTop: "1px solid var(--rule)" }}>
-          <div className="ascii-rule" style={{ fontSize: 10 }}>= = = = = = = = = = = = = = = = = end = = = = = = = = = = = = = = = = =</div>
-          <div className="micro" style={{ marginTop: 14 }}>scroll = move through time. hover any tile to see the file. tap on mobile to open.</div>
+          <div className="ascii-rule" style={{ fontSize: 10 }}>
+            = = = = = = = = = = = = = = = = = end = = = = = = = = = = = = = = = = =
+          </div>
+          <div className="micro" style={{ marginTop: 14 }}>
+            scroll = move through time. hover any tile to see the file. tap on mobile to open.
+          </div>
         </footer>
       </div>
     </div>
@@ -130,22 +173,43 @@ function HoverCard({ artist }: { artist: AtlasArtist }) {
   const h = paletteFor(artist.moods).hue;
   return (
     <div className="tl-hover-card">
-      <div className="tl-hover-art" style={{ background: `linear-gradient(135deg, hsl(${h}, 55%, 35%), hsl(${(h + 35) % 360}, 60%, 22%))` }}>
+      <div
+        className="tl-hover-art"
+        style={{
+          background: `linear-gradient(135deg, hsl(${h}, 55%, 35%), hsl(${(h + 35) % 360}, 60%, 22%))`,
+        }}
+      >
         {album.art?.url ? (
           <img src={album.art.url} alt="" />
         ) : (
-          <span className="serif italic" style={{ color: "#fff8e8", fontSize: 22 }}>{album.title}</span>
+          <span className="serif italic" style={{ color: "#fff8e8", fontSize: 22 }}>
+            {album.title}
+          </span>
         )}
       </div>
       <div className="tl-hover-body">
-        <div className="micro" style={{ display: "flex", justifyContent: "space-between", marginBottom: 6 }}>
-          <span>[ {album.year} · {artist.country} ]</span>
+        <div
+          className="micro"
+          style={{ display: "flex", justifyContent: "space-between", marginBottom: 6 }}
+        >
+          <span>
+            [ {album.year} · {artist.country} ]
+          </span>
           <span>intensity {artist.intensity}/10</span>
         </div>
         <div style={{ fontSize: 18, fontWeight: 500 }}>{artist.name}</div>
-        <div className="serif italic" style={{ fontSize: 18, marginTop: 2, color: "var(--ink-soft)" }}>{album.title}</div>
-        <p className="small" style={{ marginTop: 10, lineHeight: 1.5, color: "var(--ink-soft)" }}>&ldquo;{artist.desc}&rdquo;</p>
-        <div className="micro" style={{ marginTop: 10, color: "var(--ink-faint)" }}>click → open band file →</div>
+        <div
+          className="serif italic"
+          style={{ fontSize: 18, marginTop: 2, color: "var(--ink-soft)" }}
+        >
+          {album.title}
+        </div>
+        <p className="small" style={{ marginTop: 10, lineHeight: 1.5, color: "var(--ink-soft)" }}>
+          &ldquo;{artist.desc}&rdquo;
+        </p>
+        <div className="micro" style={{ marginTop: 10, color: "var(--ink-faint)" }}>
+          click → open band file →
+        </div>
       </div>
     </div>
   );

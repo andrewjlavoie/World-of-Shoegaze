@@ -20,7 +20,7 @@ function countryOptions(artists: AtlasArtist[]): string[] {
   const counts = new Map<string, number>();
   for (const a of artists) counts.set(a.country, (counts.get(a.country) ?? 0) + 1);
   return [...counts.entries()]
-    .sort((a, b) => (b[1] - a[1]) || a[0].localeCompare(b[0]))
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
     .map(([country]) => country);
 }
 
@@ -39,12 +39,20 @@ function toggleValue(values: string[], v: string): string[] {
 export function FeedPanel({ open, artists, state, onChange, onClose }: FeedPanelProps) {
   const countries = useMemo(() => countryOptions(artists), [artists]);
 
-  const counts = useMemo(() => ({
-    era:     dimensionCounts(artists, state, "era",     ERAS.map((e) => e.key)),
-    mood:    dimensionCounts(artists, state, "mood",    [...FAMILY_KEYS]),
-    country: dimensionCounts(artists, state, "country", countries),
-    decade:  dimensionCounts(artists, state, "decade",  DECADES),
-  }), [artists, state, countries]);
+  const counts = useMemo(
+    () => ({
+      era: dimensionCounts(
+        artists,
+        state,
+        "era",
+        ERAS.map((e) => e.key),
+      ),
+      mood: dimensionCounts(artists, state, "mood", [...FAMILY_KEYS]),
+      country: dimensionCounts(artists, state, "country", countries),
+      decade: dimensionCounts(artists, state, "decade", DECADES),
+    }),
+    [artists, state, countries],
+  );
 
   const toggleDim = (dim: DimensionKey, v: string) => {
     onChange({ ...state, [dim]: toggleValue(state[dim], v) });
@@ -59,18 +67,34 @@ export function FeedPanel({ open, artists, state, onChange, onClose }: FeedPanel
   return (
     <>
       {open && <div className="feed-panel-backdrop" onClick={onClose} aria-hidden="true" />}
-      <div className={`feed-panel ${open ? "is-open" : ""}`} role="dialog" aria-label="Filters" aria-modal={open}>
+      <div
+        className={`feed-panel ${open ? "is-open" : ""}`}
+        role="dialog"
+        aria-label="Filters"
+        aria-modal={open}
+      >
         <div className="feed-panel-mobile-handle" />
         <div className="feed-panel-mobile-head">
           <span className="feed-panel-mobile-title">Filters</span>
-          <button type="button" className="feed-panel-mobile-close" onClick={onClose} aria-label="close">×</button>
+          <button
+            type="button"
+            className="feed-panel-mobile-close"
+            onClick={onClose}
+            aria-label="close"
+          >
+            ×
+          </button>
         </div>
 
         <div className="feed-panel-grid">
           <Block
             label="era"
             selectedCount={state.era.length}
-            options={ERAS.map((e) => ({ value: e.key, label: e.label, count: counts.era.get(e.key) ?? 0 }))}
+            options={ERAS.map((e) => ({
+              value: e.key,
+              label: e.label,
+              count: counts.era.get(e.key) ?? 0,
+            }))}
             selected={state.era}
             onToggle={(v) => toggleDim("era", v)}
           />
@@ -90,7 +114,11 @@ export function FeedPanel({ open, artists, state, onChange, onClose }: FeedPanel
           <Block
             label="country"
             selectedCount={state.country.length}
-            options={countries.map((c) => ({ value: c, label: c, count: counts.country.get(c) ?? 0 }))}
+            options={countries.map((c) => ({
+              value: c,
+              label: c,
+              count: counts.country.get(c) ?? 0,
+            }))}
             selected={state.country}
             onToggle={(v) => toggleDim("country", v)}
             wide
@@ -107,10 +135,16 @@ export function FeedPanel({ open, artists, state, onChange, onClose }: FeedPanel
         </div>
 
         <div className="feed-panel-foot">
-          <span className="feed-panel-url" title={previewHref}>URL: <code>{previewHref}</code></span>
+          <span className="feed-panel-url" title={previewHref}>
+            URL: <code>{previewHref}</code>
+          </span>
           <div className="feed-panel-foot-buttons">
-            <button type="button" className="btn" onClick={clearAll}>clear all</button>
-            <button type="button" className="btn is-active" onClick={onClose}>done</button>
+            <button type="button" className="btn" onClick={clearAll}>
+              clear all
+            </button>
+            <button type="button" className="btn is-active" onClick={onClose}>
+              done
+            </button>
           </div>
         </div>
       </div>
@@ -118,7 +152,11 @@ export function FeedPanel({ open, artists, state, onChange, onClose }: FeedPanel
   );
 }
 
-interface BlockOption { value: string; label: string; count: number; }
+interface BlockOption {
+  value: string;
+  label: string;
+  count: number;
+}
 
 interface BlockProps {
   label: string;
@@ -134,7 +172,9 @@ function Block({ label, selectedCount, options, selected, onToggle, wide }: Bloc
     <div className={`feed-panel-block ${wide ? "is-wide" : ""}`}>
       <div className="feed-panel-block-head">
         <span className="kicker">[ {label} ]</span>
-        {selectedCount > 0 && <span className="feed-panel-block-count">{selectedCount} selected</span>}
+        {selectedCount > 0 && (
+          <span className="feed-panel-block-count">{selectedCount} selected</span>
+        )}
       </div>
       <div className="feed-panel-block-chips">
         {options.map((o) => {

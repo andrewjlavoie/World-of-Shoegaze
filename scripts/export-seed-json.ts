@@ -10,7 +10,7 @@ import { BANDS, BAND_MOODS } from "../lib/data";
 import { slugify } from "../lib/helpers";
 import type { AtlasArtist, AtlasAlbum } from "../lib/atlas-types";
 
-function buildArtistDoc(band: typeof BANDS[number]): AtlasArtist {
+function buildArtistDoc(band: (typeof BANDS)[number]): AtlasArtist {
   const refAlbum: AtlasAlbum = {
     slug: slugify(band.album),
     title: band.album,
