@@ -5,6 +5,7 @@
 
 import type { AtlasArtist } from "./atlas-types";
 import { familyFor } from "./mood-families";
+import { refAlbum } from "./atlas-helpers";
 
 export type SortKey = "name" | "year" | "intensity";
 
@@ -93,16 +94,12 @@ export function activeCount(state: FilterState): number {
   return n;
 }
 
-function refAlbum(a: AtlasArtist) {
-  return a.discography.find((d) => d.isReference) ?? a.discography[0];
-}
-
 function searchMatches(a: AtlasArtist, q: string): boolean {
   if (!q) return true;
   const needle = q.toLowerCase();
   const haystack = [
     a.name,
-    refAlbum(a).title,
+    refAlbum(a)!.title,
     a.country,
     a.subgenre,
     ...a.moods,
@@ -122,12 +119,12 @@ function dimensionMatches(a: AtlasArtist, dim: DimensionKey, values: string[]): 
     case "country":
       return values.includes(a.country);
     case "decade":
-      return values.includes(decadeOf(refAlbum(a).year));
+      return values.includes(decadeOf(refAlbum(a)!.year));
   }
 }
 
 function compareArtists(a: AtlasArtist, b: AtlasArtist, sort: SortKey): number {
-  if (sort === "year") return refAlbum(b).year - refAlbum(a).year;
+  if (sort === "year") return refAlbum(b)!.year - refAlbum(a)!.year;
   if (sort === "intensity") return b.intensity - a.intensity;
   return a.name.replace(/^The /i, "").localeCompare(b.name.replace(/^The /i, ""));
 }
