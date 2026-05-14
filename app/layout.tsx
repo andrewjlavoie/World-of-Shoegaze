@@ -35,7 +35,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             style={{ width: "100vw", minHeight: "100vh", display: "flex", flexDirection: "column" }}
           >
             <SiteNav />
-            <div style={{ flex: 1, position: "relative" }}>{children}</div>
+            <main style={{ flex: 1, position: "relative" }}>{children}</main>
           </div>
           <Shelf />
         </SettingsProvider>
