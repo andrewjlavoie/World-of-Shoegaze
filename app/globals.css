@@ -756,3 +756,51 @@ button, a, [role="button"] { -webkit-tap-highlight-color: transparent; touch-act
   font-size: 12px;
   color: rgba(255, 248, 232, 0.85);
 }
+
+/* Map controls — bottom-right zoom cluster + top-right reset. */
+.gx-controls {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.gx-ctl {
+  width: 36px;
+  height: 36px;
+  background: rgba(8, 6, 12, 0.78);
+  color: #f4ede4;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 16px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 150ms;
+}
+.gx-ctl:hover { background: rgba(8, 6, 12, 0.92); }
+.gx-ctl:active { transform: scale(0.94); }
+
+.gx-reset {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 4;
+  background: rgba(8, 6, 12, 0.78);
+  color: #f4ede4;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 6px 10px;
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 150ms;
+}
+.gx-reset:hover { background: rgba(8, 6, 12, 0.92); }
