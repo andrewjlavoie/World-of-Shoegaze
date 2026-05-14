@@ -970,3 +970,35 @@ button, a, [role="button"] { -webkit-tap-highlight-color: transparent; touch-act
   .gx-page.has-panel .gx-reset { right: 334px; }
   .gx-page.has-panel .gx-controls { right: 334px; }
 }
+
+/* Mobile: panel becomes a bottom sheet that slides up when a tile is
+   focused, dismissed by tapping the background or pressing Esc. */
+@media (max-width: 720px) {
+  .gx-panel {
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    max-height: 70vh;
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    transform: translateY(100%);
+    transition: transform 320ms var(--motion-ease);
+    padding: 16px 16px 24px;
+  }
+  .gx-page.has-focus .gx-panel { transform: translateY(0); }
+
+  /* Don't reserve right-side space on mobile — viewport fills the screen. */
+  .gx-page.has-panel .gx-viewport,
+  .gx-page.has-panel .gx-stars { right: 0; }
+  .gx-page.has-panel .gx-reset,
+  .gx-page.has-panel .gx-controls { right: 14px; }
+
+  /* Smaller intro state — only shown when no tile focused, but it shouldn't
+     occupy the screen since the panel is collapsed off-screen anyway. */
+  .gx-panel-intro { margin-top: 0; }
+
+  /* Slightly bigger touch targets on mobile. */
+  .gx-ctl { width: 44px; height: 44px; font-size: 18px; }
+}
