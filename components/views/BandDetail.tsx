@@ -6,19 +6,7 @@ import { useSettings } from "@/components/SettingsProvider";
 import { ERAS, MOOD_COLORS } from "@/lib/data";
 import { eraLabel } from "@/lib/helpers";
 import type { AtlasAlbum, AtlasArtist } from "@/lib/atlas-types";
-
-function paletteFor(moods: string[]) {
-  const h = moods.length && MOOD_COLORS[moods[0]] ? MOOD_COLORS[moods[0]].hue : 260;
-  return {
-    bg: `linear-gradient(135deg, hsl(${h}, 55%, 35%), hsl(${(h + 35) % 360}, 60%, 22%))`,
-    fg: "#fff8e8",
-    hue: h,
-  };
-}
-
-function refAlbum(artist: AtlasArtist): AtlasAlbum {
-  return artist.discography.find((d) => d.isReference) || artist.discography[0];
-}
+import { refAlbum, paletteFor } from "@/lib/atlas-helpers";
 
 function AlbumCover({ album, palette, style }: {
   album: AtlasAlbum; palette: ReturnType<typeof paletteFor>; style?: CSSProperties;
@@ -58,7 +46,7 @@ export function BandDetail({ artist, similar }: { artist: AtlasArtist; similar: 
   useSettings(); // re-render on settings change
 
   const palette = paletteFor(artist.moods);
-  const ref = refAlbum(artist);
+  const ref = refAlbum(artist)!;
   const tint = `hsl(${palette.hue}, 22%, 92%)`;
   const accentSoft = `hsl(${palette.hue}, 55%, 38%)`;
   const eraInfo = ERAS.find((e) => e.key === artist.era);
@@ -199,7 +187,7 @@ export function BandDetail({ artist, similar }: { artist: AtlasArtist; similar: 
           <div className="wos-band-similar">
             {similar.map((a, i) => {
               const p = paletteFor(a.moods);
-              const aRef = refAlbum(a);
+              const aRef = refAlbum(a)!;
               return (
                 <div key={a.slug} onClick={() => router.push(`/band/${a.slug}`)} style={{ cursor: "pointer", borderTop: "1px solid var(--rule)", paddingTop: 12 }}>
                   <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 8 }}>

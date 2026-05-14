@@ -4,16 +4,8 @@ import Link from "next/link";
 import type { CSSProperties } from "react";
 import { MOOD_COLORS } from "@/lib/data";
 import { eraLabel } from "@/lib/helpers";
-import type { AtlasAlbum, AtlasArtist } from "@/lib/atlas-types";
-
-function refAlbum(a: AtlasArtist): AtlasAlbum {
-  return a.discography.find((d) => d.isReference) ?? a.discography[0];
-}
-
-function tileBg(moods: string[]): string {
-  const hue = moods.length && MOOD_COLORS[moods[0]] ? MOOD_COLORS[moods[0]].hue : 260;
-  return `linear-gradient(135deg, hsl(${hue}, 55%, 35%), hsl(${(hue + 35) % 360}, 60%, 22%))`;
-}
+import type { AtlasArtist } from "@/lib/atlas-types";
+import { refAlbum, paletteFor } from "@/lib/atlas-helpers";
 
 const LISTEN_KEYS: Array<{ key: keyof AtlasArtist["listen"]; label: string }> = [
   { key: "bandcamp", label: "BC" },
@@ -25,9 +17,9 @@ const LISTEN_KEYS: Array<{ key: keyof AtlasArtist["listen"]; label: string }> = 
 export function GraphPanel({ artist }: { artist: AtlasArtist | null }) {
   if (!artist) return <PanelIntro />;
 
-  const album = refAlbum(artist);
+  const album = refAlbum(artist)!;
   const artStyle: CSSProperties = {
-    ["--art-bg" as string]: tileBg(artist.moods),
+    ["--art-bg" as string]: paletteFor(artist.moods).bg,
   } as CSSProperties;
 
   return (

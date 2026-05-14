@@ -2,29 +2,10 @@
 
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
-import { ERAS, MOOD_COLORS } from "@/lib/data";
-import type { AtlasArtist, AtlasAlbum } from "@/lib/atlas-types";
+import { ERAS } from "@/lib/data";
+import type { AtlasArtist } from "@/lib/atlas-types";
 import type { EraKey } from "@/lib/types";
-
-function refAlbum(artist: AtlasArtist): AtlasAlbum {
-  return artist.discography.find((d) => d.isReference) || artist.discography[0];
-}
-
-function refAlbumYear(artist: AtlasArtist): number {
-  return refAlbum(artist).year;
-}
-
-function artistHue(artist: AtlasArtist): number {
-  if (!artist.moods.length) return 260;
-  const mc = MOOD_COLORS[artist.moods[0]];
-  return mc ? mc.hue : 260;
-}
-
-function initials(name: string): string {
-  const w = name.replace(/^The\s+/i, "").split(/\s+/).filter(Boolean);
-  if (w.length === 1) return w[0].slice(0, 2).toUpperCase();
-  return (w[0][0] + w[1][0]).toUpperCase();
-}
+import { refAlbum, paletteFor, initials } from "@/lib/atlas-helpers";
 
 export function Timeline({ artists }: { artists: AtlasArtist[] }) {
   const router = useRouter();
@@ -41,7 +22,7 @@ export function Timeline({ artists }: { artists: AtlasArtist[] }) {
     const map: Record<number, AtlasArtist[]> = {};
     artists.forEach((a) => {
       if (activeEra && a.era !== activeEra) return;
-      const y = refAlbumYear(a);
+      const y = refAlbum(a)!.year;
       (map[y] ||= []).push(a);
     });
     // Stable order inside each row: by intensity descending, then by name
@@ -104,8 +85,8 @@ export function Timeline({ artists }: { artists: AtlasArtist[] }) {
                 </div>
                 <div className="tl-row">
                   {list.map((a) => {
-                    const album = refAlbum(a);
-                    const h = artistHue(a);
+                    const album = refAlbum(a)!;
+                    const h = paletteFor(a.moods).hue;
                     return (
                       <button
                         key={a.slug}
@@ -146,8 +127,8 @@ export function Timeline({ artists }: { artists: AtlasArtist[] }) {
 }
 
 function HoverCard({ artist }: { artist: AtlasArtist }) {
-  const album = refAlbum(artist);
-  const h = artistHue(artist);
+  const album = refAlbum(artist)!;
+  const h = paletteFor(artist.moods).hue;
   return (
     <div className="tl-hover-card">
       <div className="tl-hover-art" style={{ background: `linear-gradient(135deg, hsl(${h}, 55%, 35%), hsl(${(h + 35) % 360}, 60%, 22%))` }}>

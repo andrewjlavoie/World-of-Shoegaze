@@ -12,30 +12,15 @@ import {
 import { useRouter } from "next/navigation";
 import { layoutPositions } from "@/lib/graph-layout";
 import { WORLD_BOUNDS } from "@/lib/mood-families";
-import { MOOD_COLORS } from "@/lib/data";
-import type { AtlasArtist, AtlasAlbum } from "@/lib/atlas-types";
+import type { AtlasArtist } from "@/lib/atlas-types";
 import { similarArtists } from "@/lib/atlas-similarity";
+import { refAlbum, paletteFor, initials } from "@/lib/atlas-helpers";
 import { GraphPanel } from "./GraphPanel";
 
 const ZOOM_MIN = 0.5;
 const ZOOM_MAX = 4;
 const ZOOM_STEP = 1.3; // multiplier for +/- buttons
 const FIT_MARGIN = 40; // px padding around content for fit-all
-
-function refAlbum(a: AtlasArtist): AtlasAlbum {
-  return a.discography.find((d) => d.isReference) ?? a.discography[0];
-}
-
-function tileBg(moods: string[]): string {
-  const hue = moods.length && MOOD_COLORS[moods[0]] ? MOOD_COLORS[moods[0]].hue : 260;
-  return `linear-gradient(135deg, hsl(${hue}, 55%, 35%), hsl(${(hue + 35) % 360}, 60%, 22%))`;
-}
-
-function initials(name: string): string {
-  const w = name.replace(/^The\s+/i, "").split(/\s+/).filter(Boolean);
-  if (w.length === 1) return w[0].slice(0, 2).toUpperCase();
-  return (w[0][0] + w[1][0]).toUpperCase();
-}
 
 interface Transform { z: number; x: number; y: number; }
 
@@ -303,11 +288,11 @@ export function Graph({ artists }: { artists: AtlasArtist[] }) {
           {artists.map((a) => {
             const pos = positions.get(a.slug);
             if (!pos) return null;
-            const album = refAlbum(a);
+            const album = refAlbum(a)!;
             const tileStyle: CSSProperties = {
               left: pos.x,
               top: pos.y,
-              ["--art-bg" as string]: tileBg(a.moods),
+              ["--art-bg" as string]: paletteFor(a.moods).bg,
             } as CSSProperties;
             return (
               <button
