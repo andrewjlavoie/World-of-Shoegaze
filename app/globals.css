@@ -762,6 +762,35 @@ button, a, [role="button"] { -webkit-tap-highlight-color: transparent; touch-act
   color: rgba(255, 248, 232, 0.85);
 }
 
+/* Persistent interaction legend, bottom-left. Always visible so users know
+   what hover/drag/click do without trial and error. */
+.gx-legend {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  z-index: 4;
+  background: rgba(8, 6, 12, 0.78);
+  padding: 9px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 10px;
+  color: rgba(255, 248, 232, 0.62);
+  letter-spacing: 0.04em;
+  line-height: 1.7;
+  pointer-events: none;
+}
+.gx-legend-key {
+  color: rgba(255, 248, 232, 0.92);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-right: 8px;
+}
+.gx-legend-sep { color: rgba(255, 248, 232, 0.32); margin: 0 6px; }
+
+@media (max-width: 720px) {
+  .gx-legend { display: none; } /* mobile is taught by tap, drawer covers this corner */
+}
+
 /* Map controls — bottom-right zoom cluster + top-right reset. */
 .gx-controls {
   position: absolute;

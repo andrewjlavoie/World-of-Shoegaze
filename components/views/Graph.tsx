@@ -278,6 +278,12 @@ export function Graph({ artists }: { artists: AtlasArtist[] }) {
       <div className="gx-stars" />
       <div className="gx-compass">an atlas</div>
 
+      <div className="gx-legend" aria-hidden="true">
+        <div><span className="gx-legend-key">hover</span> related bands light up</div>
+        <div><span className="gx-legend-key">drag</span> pan <span className="gx-legend-sep">·</span> <span className="gx-legend-key">scroll</span> zoom</div>
+        <div><span className="gx-legend-key">click</span> open band file</div>
+      </div>
+
       <button className="gx-reset" onClick={fitAll} title="Fit all" aria-label="Fit all to viewport">↺ fit all</button>
 
       <div className="gx-controls">
