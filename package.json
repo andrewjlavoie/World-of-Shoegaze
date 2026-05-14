@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "test": "tsx --test lib/mood-families.test.ts lib/graph-layout.test.ts lib/feed-filters.test.ts lib/atlas-helpers.test.ts",
+    "test": "tsx --test lib/mood-families.test.ts lib/graph-layout.test.ts lib/feed-filters.test.ts lib/atlas-helpers.test.ts lib/atlas-schema.test.ts",
     "seed": "tsx --env-file=.env.local scripts/seed.ts",
     "seed:export": "tsx scripts/export-seed-json.ts",
     "format": "prettier --write .",
@@ -25,7 +25,8 @@
     "next": "^16.2.6",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
-    "server-only": "^0.0.1"
+    "server-only": "^0.0.1",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^16.2.6",
