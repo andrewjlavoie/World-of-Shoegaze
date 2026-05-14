@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "test": "tsx --test lib/mood-families.test.ts lib/graph-layout.test.ts lib/feed-filters.test.ts lib/atlas-helpers.test.ts lib/atlas-schema.test.ts",
+    "test": "tsx --test lib/mood-families.test.ts lib/graph-layout.test.ts lib/feed-filters.test.ts lib/atlas-helpers.test.ts lib/atlas-schema.test.ts lib/atlas-similarity.test.ts lib/helpers.test.ts",
     "seed": "tsx --env-file=.env.local scripts/seed.ts",
     "seed:export": "tsx scripts/export-seed-json.ts",
     "format": "prettier --write .",
