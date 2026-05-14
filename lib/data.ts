@@ -1,4 +1,4 @@
-import type { Band, Era, EraKey, MoodColor, Scene } from "./types";
+import type { Band, Era, EraKey, MoodColor } from "./types";
 
 export const MOOD_COLORS: Record<string, MoodColor> = {
   euphoric_bliss:      { hue: 340, label: "euphoric bliss",      desc: "Classic dreamy wall-of-sound" },
@@ -234,13 +234,3 @@ export const ERAS: Era[] = [
 ];
 
 export const ERA_ORDER: EraKey[] = ["proto", "first_wave", "transitional", "second_wave", "current"];
-
-export const SCENES: Scene[] = [
-  { city: "Tokyo",            country: "Japan",       lat: 35.68, lng: 139.69, era: "second_wave", note: "A parallel evolution — sweeter melodies, sharper noise. The world's most loyal scene." },
-  { city: "Seoul",            country: "South Korea", lat: 37.57, lng: 126.98, era: "current",     note: "Post-2020 bedroom explosion. Anonymous teens making the most-listened-to gaze on the internet." },
-  { city: "Thames Valley",    country: "UK",          lat: 51.46, lng: -1.07,  era: "first_wave",  note: "Reading, Oxford, Slough — the constellation of late-80s ghosts. Where it was invented." },
-  { city: "Philadelphia",     country: "USA",         lat: 39.95, lng: -75.16, era: "current",     note: "Hardcore kids who decided to be pretty. Nothing, Knifeplay, TAGABOW, Webbed Wing." },
-  { city: "Mexico City",      country: "Mexico",      lat: 19.43, lng: -99.13, era: "current",     note: "The bilingual psych-gaze wave moving north from Tijuana through Guadalajara." },
-  { city: "San Francisco Bay",country: "USA",         lat: 37.77, lng: -122.41,era: "second_wave", note: "Where blackgaze got invented; where Deafheaven made it canonical." },
-  { city: "London",           country: "UK",          lat: 51.5,  lng: -0.12,  era: "first_wave",  note: "Creation Records, 4AD, the press, the hostility, the legend." },
-];

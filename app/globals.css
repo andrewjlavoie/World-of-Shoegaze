@@ -390,47 +390,6 @@ button, a, [role="button"] { -webkit-tap-highlight-color: transparent; touch-act
 }
 .wos-picks-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 
-/* globe — floating action buttons (zoom + pause), vertical stack bottom-right */
-.globe-fab-stack {
-  position: absolute;
-  right: 20px;
-  bottom: calc(28px + env(safe-area-inset-bottom, 0px));
-  z-index: 6;
-  display: flex; flex-direction: column; gap: 8px;
-}
-.globe-fab {
-  width: 40px; height: 40px;
-  display: flex; align-items: center; justify-content: center;
-  background: rgba(8,6,12,0.75);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255,255,255,0.18);
-  color: #f4ede4;
-  font-family: var(--font-jetbrains-mono), monospace;
-  font-size: 18px; line-height: 1;
-  cursor: pointer;
-  transition: background var(--motion-fast), transform var(--motion-fast);
-}
-.globe-fab:active { transform: scale(0.92); background: rgba(255,255,255,0.18); }
-@media (hover: hover) { .globe-fab:hover { background: rgba(255,255,255,0.12); } }
-.globe-fab-pause {
-  background: rgba(255,255,255,0.12);
-  border-color: rgba(255,255,255,0.25);
-  margin-top: 4px;
-}
-
-/* globe view */
-.wos-globe-layout { display: flex; height: 100%; padding-top: 60px; }
-.wos-globe-stage { flex: 1; display: flex; align-items: center; justify-content: center; position: relative; padding-left: 300px; }
-.wos-globe-intro { position: absolute; left: 28px; top: 80px; max-width: 240px; z-index: 3; }
-.wos-globe-sidebar {
-  width: 340px; flex-shrink: 0; padding: 32px 28px;
-  border-left: 1px solid rgba(255,255,255,0.08);
-  background: rgba(8,6,12,0.4); overflow: auto;
-}
-.wos-globe-sidebar-btn { display: none; }   /* button only appears on mobile */
-.wos-globe-sidebar-close { display: none; }
-
 /* timeline — used to override grid template columns */
 .wos-timeline-grid { display: grid; grid-template-columns: 80px 1.6fr 1fr; gap: 28px; }
 
@@ -588,69 +547,6 @@ button, a, [role="button"] { -webkit-tap-highlight-color: transparent; touch-act
   .wos-band-h1 { font-size: clamp(44px, 12vw, 72px) !important; }
   .wos-band-quote { font-size: 19px !important; }
 
-  /* globe — total restructure */
-  .wos-globe-layout { display: block; padding-top: 52px; height: 100%; position: relative; }
-  .wos-globe-stage { padding-left: 0; height: 100%; }
-  .wos-globe-intro { display: none; }
-  .wos-globe-sidebar {
-    position: fixed;
-    left: 0; right: 0; bottom: 0;
-    width: 100%;
-    max-height: 78vh;
-    border-left: none;
-    border-top: 1px solid rgba(255,255,255,0.18);
-    background: rgba(6,4,10,0.96);
-    backdrop-filter: blur(12px);
-    transform: translateY(100%);
-    transition: transform 360ms var(--motion-ease);
-    z-index: 20;
-    padding: 20px 16px 28px;
-  }
-  .wos-globe-sidebar.is-open { transform: translateY(0); }
-  .wos-globe-sidebar-btn {
-    display: flex; align-items: center; justify-content: center;
-    position: absolute;
-    top: 14px; right: 14px;
-    z-index: 6;
-    background: rgba(8,6,12,0.7);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255,255,255,0.18);
-    color: #f4ede4;
-    font-family: var(--font-jetbrains-mono), monospace;
-    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
-    padding: 7px 10px; cursor: pointer;
-  }
-  .wos-globe-sidebar-close {
-    display: block;
-    position: absolute; top: 10px; right: 10px;
-    background: transparent; border: 1px solid rgba(255,255,255,0.2);
-    color: #f4ede4; width: 28px; height: 28px;
-    cursor: pointer; font-size: 14px;
-  }
-  .wos-globe-header { padding: 12px 14px !important; }
-  .wos-globe-header-meta { display: none; }
-  .wos-globe-controls {
-    bottom: calc(96px + env(safe-area-inset-bottom, 0px)) !important;
-    max-width: calc(100% - 24px) !important;
-    padding: 4px !important;
-  }
-  .wos-globe-controls button {
-    padding: 9px 10px !important;
-    font-size: 10px !important;
-  }
-
-  /* Bigger FAB stack on mobile, pushed above iOS Safari's bottom bar */
-  .globe-fab-stack {
-    right: 14px;
-    bottom: calc(20px + env(safe-area-inset-bottom, 0px));
-    gap: 10px;
-  }
-  .globe-fab {
-    width: 52px; height: 52px;
-    font-size: 22px;
-    border-width: 1.5px;
-  }
-  .globe-fab-pause { width: 56px; height: 56px; font-size: 18px; }
 }
 
 /* very small screens (≤ 380) */
@@ -675,7 +571,7 @@ button, a, [role="button"] { -webkit-tap-highlight-color: transparent; touch-act
   font-family: var(--font-jetbrains-mono), monospace;
 }
 
-/* Faint star-field, mirrors the Globe view background. */
+/* Faint star-field on the dark canvas. */
 .gx-stars {
   position: absolute;
   inset: 0;

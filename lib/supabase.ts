@@ -4,7 +4,7 @@
 // `fetchBands()` below and turn that view's page into an async Server Component.
 
 import { createBrowserClient, createServerClient } from "@supabase/ssr";
-import type { Band, Scene } from "./types";
+import type { Band } from "./types";
 
 const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const anon = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -42,11 +42,4 @@ export async function fetchBands(): Promise<Band[]> {
   const { data, error } = await sb.from("bands").select("*").order("name");
   if (error) throw error;
   return (data || []) as Band[];
-}
-
-export async function fetchScenes(): Promise<Scene[]> {
-  const sb = browserClient();
-  const { data, error } = await sb.from("scenes").select("*");
-  if (error) throw error;
-  return (data || []) as Scene[];
 }

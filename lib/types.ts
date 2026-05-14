@@ -25,15 +25,6 @@ export interface Era {
   range: string;
 }
 
-export interface Scene {
-  city: string;
-  country: string;
-  lat: number;
-  lng: number;
-  era: EraKey;
-  note: string;
-}
-
 export interface Discography {
   title: string;
   year: number;

@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 const ROUTES = [
   { key: "/",         label: "feed" },
   { key: "/graph",    label: "graph" },
-  { key: "/globe",    label: "globe" },
   { key: "/timeline", label: "timeline" },
   { key: "/tonight",  label: "tonight" },
 ];
