@@ -27,9 +27,6 @@
   --density: 1;
   --row-pad-y: calc(10px * var(--density));
   --row-pad-x: calc(16px * var(--density));
-  --gap-lg: calc(28px * var(--density));
-  --gap-md: calc(16px * var(--density));
-  --gap-sm: calc(8px * var(--density));
 }
 
 [data-tone="terminal"] {
