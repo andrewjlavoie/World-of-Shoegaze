@@ -804,3 +804,18 @@ button, a, [role="button"] { -webkit-tap-highlight-color: transparent; touch-act
   transition: background 150ms;
 }
 .gx-reset:hover { background: rgba(8, 6, 12, 0.92); }
+
+/* Focus + similarity highlighting */
+.gx-tile.is-focused {
+  border-color: rgba(220, 195, 145, 0.9);
+  box-shadow: 0 0 12px rgba(220, 195, 145, 0.55);
+  z-index: 3;
+  transform: scale(1.15);
+}
+.gx-tile.is-related {
+  border-color: rgba(220, 195, 145, 0.55);
+  z-index: 2;
+}
+.gx-page.has-focus .gx-tile:not(.is-focused):not(.is-related) {
+  opacity: 0.45;
+}

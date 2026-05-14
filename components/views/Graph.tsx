@@ -9,10 +9,12 @@ import {
   useState,
   type CSSProperties,
 } from "react";
+import { useRouter } from "next/navigation";
 import { layoutPositions } from "@/lib/graph-layout";
 import { WORLD_BOUNDS } from "@/lib/mood-families";
 import { MOOD_COLORS } from "@/lib/data";
 import type { AtlasArtist, AtlasAlbum } from "@/lib/atlas-types";
+import { similarArtists } from "@/lib/atlas-similarity";
 
 const ZOOM_MIN = 0.5;
 const ZOOM_MAX = 4;
@@ -38,6 +40,46 @@ interface Transform { z: number; x: number; y: number; }
 
 export function Graph({ artists }: { artists: AtlasArtist[] }) {
   const positions = useMemo(() => layoutPositions(artists), [artists]);
+
+  const router = useRouter();
+  const [focusedSlug, setFocusedSlug] = useState<string | null>(null);
+
+  // `(hover: hover)` is true on devices with a real mouse pointer. On
+  // touch-only devices we use a tap-to-focus then tap-again-to-navigate
+  // pattern — set on mount only.
+  const supportsHoverRef = useRef<boolean>(true);
+  useEffect(() => {
+    supportsHoverRef.current = window.matchMedia("(hover: hover)").matches;
+  }, []);
+
+  const focused = useMemo(
+    () => (focusedSlug ? artists.find((a) => a.slug === focusedSlug) : undefined),
+    [focusedSlug, artists],
+  );
+
+  // Top-6 similar bands for the focused artist, by slug.
+  const relatedSlugs = useMemo(() => {
+    if (!focused) return new Set<string>();
+    return new Set(similarArtists(focused, artists, 6).map((a) => a.slug));
+  }, [focused, artists]);
+
+  const onTileEnter = (a: AtlasArtist) => {
+    if (supportsHoverRef.current) setFocusedSlug(a.slug);
+  };
+  const onTileLeave = () => {
+    // Don't clear on leave — the panel stays until the user defocuses
+    // (background click) or moves to another tile. This avoids flicker
+    // when the cursor crosses gaps between tiles.
+  };
+  const onTileClick = (a: AtlasArtist) => {
+    // On hover-capable devices: click navigates immediately.
+    // On touch: first tap focuses, second tap on the same tile navigates.
+    if (supportsHoverRef.current || focusedSlug === a.slug) {
+      router.push(`/band/${a.slug}`);
+    } else {
+      setFocusedSlug(a.slug);
+    }
+  };
 
   const viewportRef = useRef<HTMLDivElement>(null);
   const worldRef = useRef<HTMLDivElement>(null);
@@ -109,8 +151,8 @@ export function Graph({ artists }: { artists: AtlasArtist[] }) {
 
   // Pointer handlers attached to the viewport.
   const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
-    // Don't start a drag if the click is on a tile (handled there).
     const target = e.target as HTMLElement;
+    if (!target.closest(".gx-tile")) setFocusedSlug(null);
     if (target.closest(".gx-tile")) return;
 
     (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
@@ -207,7 +249,7 @@ export function Graph({ artists }: { artists: AtlasArtist[] }) {
   const isDragging = dragRef.current !== null;
 
   return (
-    <div className="gx-page">
+    <div className={`gx-page ${focused ? "has-focus" : ""}`}>
       <div className="gx-stars" />
       <div className="gx-compass">an atlas</div>
 
@@ -240,9 +282,12 @@ export function Graph({ artists }: { artists: AtlasArtist[] }) {
               <button
                 key={a.slug}
                 type="button"
-                className="gx-tile"
+                className={`gx-tile ${focusedSlug === a.slug ? "is-focused" : ""} ${relatedSlugs.has(a.slug) ? "is-related" : ""}`}
                 style={tileStyle}
                 aria-label={`${a.name} — ${album.title}`}
+                onMouseEnter={() => onTileEnter(a)}
+                onMouseLeave={onTileLeave}
+                onClick={() => onTileClick(a)}
               >
                 {album.art?.url ? (
                   // eslint-disable-next-line @next/next/no-img-element
