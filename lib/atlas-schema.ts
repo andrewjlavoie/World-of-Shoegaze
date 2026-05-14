@@ -46,7 +46,7 @@ export const artistSchema = z.object({
   intensity: z.number().int().min(0).max(10),
   subgenre: z.string().min(1),
   desc: z.string(),
-  moods: z.array(z.string()).min(1),
+  moods: z.array(z.string()),
   photo: imageSchema.optional(),
   discography: z.array(albumSchema).min(1),
   listen: listenSchema,

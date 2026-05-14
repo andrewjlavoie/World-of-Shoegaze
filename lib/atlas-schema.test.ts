@@ -31,8 +31,16 @@ test("artistSchema rejects empty discography", () => {
   assert.equal(result.success, false);
 });
 
-test("artistSchema rejects empty moods", () => {
-  const bad = { ...validDoc, moods: [] };
+// Real production data has artists with moods: [] (mint-field, resplandor),
+// so the schema accepts empty moods arrays. We still reject non-string items.
+test("artistSchema accepts empty moods (real production data has empty arrays)", () => {
+  const doc = { ...validDoc, moods: [] };
+  const result = artistSchema.safeParse(doc);
+  assert.equal(result.success, true);
+});
+
+test("artistSchema rejects moods with non-string items", () => {
+  const bad = { ...validDoc, moods: [42] };
   const result = artistSchema.safeParse(bad);
   assert.equal(result.success, false);
 });
