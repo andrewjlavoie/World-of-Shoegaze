@@ -101,7 +101,6 @@ export function Timeline({ artists }: { artists: AtlasArtist[] }) {
                         }}
                       >
                         {album.art?.url ? (
-                          // eslint-disable-next-line @next/next/no-img-element
                           <img src={album.art.url} alt="" />
                         ) : (
                           <span className="tl-tile-fallback">{initials(a.name)}</span>
@@ -133,7 +132,6 @@ function HoverCard({ artist }: { artist: AtlasArtist }) {
     <div className="tl-hover-card">
       <div className="tl-hover-art" style={{ background: `linear-gradient(135deg, hsl(${h}, 55%, 35%), hsl(${(h + 35) % 360}, 60%, 22%))` }}>
         {album.art?.url ? (
-          // eslint-disable-next-line @next/next/no-img-element
           <img src={album.art.url} alt="" />
         ) : (
           <span className="serif italic" style={{ color: "#fff8e8", fontSize: 22 }}>{album.title}</span>

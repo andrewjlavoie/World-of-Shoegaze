@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import type { CSSProperties } from "react";
 import { useSettings } from "@/components/SettingsProvider";
@@ -13,8 +14,7 @@ function AlbumCover({ album, palette, style }: {
 }) {
   if (album.art?.url) {
     return (
-      // eslint-disable-next-line @next/next/no-img-element
-      <img
+        <img
         src={album.art.url}
         alt={`${album.title} cover`}
         style={{ width: "100%", aspectRatio: "1 / 1", objectFit: "cover", display: "block", ...style }}
@@ -57,7 +57,7 @@ export function BandDetail({ artist, similar }: { artist: AtlasArtist; similar: 
         <div className="micro" style={{ display: "flex", gap: 12, marginBottom: 18 }}>
           <span>worldofshoegaze.com</span>
           <span className="ascii-rule">/</span>
-          <span><a href="/">bands</a></span>
+          <span><Link href="/">bands</Link></span>
           <span className="ascii-rule">/</span>
           <span style={{ color: "var(--ink)", fontWeight: 500 }}>{artist.slug}</span>
           <span style={{ marginLeft: "auto" }}>view 04 / band detail</span>
@@ -75,7 +75,6 @@ export function BandDetail({ artist, similar }: { artist: AtlasArtist; similar: 
 
             {artist.photo?.url && (
               <div style={{ marginTop: 18 }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={artist.photo.url}
                   alt={artist.photo.alt || `${artist.name} photo`}

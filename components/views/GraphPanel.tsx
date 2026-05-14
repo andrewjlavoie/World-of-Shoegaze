@@ -26,7 +26,6 @@ export function GraphPanel({ artist }: { artist: AtlasArtist | null }) {
     <aside className="gx-panel">
       <div className="gx-panel-art" style={artStyle}>
         {album.art?.url ? (
-          // eslint-disable-next-line @next/next/no-img-element
           <img src={album.art.url} alt={`${album.title} cover`} />
         ) : (
           <div className="gx-panel-art-title">{album.title}</div>

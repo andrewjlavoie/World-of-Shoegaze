@@ -306,7 +306,6 @@ export function Graph({ artists }: { artists: AtlasArtist[] }) {
                 onClick={() => onTileClick(a)}
               >
                 {album.art?.url ? (
-                  // eslint-disable-next-line @next/next/no-img-element
                   <img src={album.art.url} alt="" loading="lazy" decoding="async" />
                 ) : (
                   <span className="gx-tile-fallback">{initials(a.name)}</span>

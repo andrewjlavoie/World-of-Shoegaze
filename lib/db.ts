@@ -10,7 +10,6 @@ if (!uri) {
 // In dev, Next.js HMR re-imports modules. Cache the client on globalThis to
 // avoid leaking a new connection pool per HMR cycle.
 declare global {
-  // eslint-disable-next-line no-var
   var _wosMongo: { client: MongoClient; connect: Promise<MongoClient> } | undefined;
 }
 

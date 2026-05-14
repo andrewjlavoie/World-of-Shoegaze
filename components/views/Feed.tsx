@@ -64,7 +64,6 @@ function FeedCard({ artist, idx }: { artist: AtlasArtist; idx: number }) {
 
       <Link href={`/band/${slug}`} className="feed-art" aria-label={`${album.title} cover`}>
         {album.art?.url ? (
-          // eslint-disable-next-line @next/next/no-img-element
           <img src={album.art.url} alt={`${album.title} cover`} className="feed-art-img" />
         ) : (
           <div className="album-art" style={albumArtStyle}>
