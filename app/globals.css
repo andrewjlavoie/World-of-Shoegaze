@@ -380,16 +380,6 @@ button, a, [role="button"] { -webkit-tap-highlight-color: transparent; touch-act
   align-items: baseline;
 }
 
-/* tonight mood grid */
-.wos-mood-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--rule);
-  border: 1px solid var(--rule);
-}
-.wos-picks-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-
 /* timeline — used to override grid template columns */
 .wos-timeline-grid { display: grid; grid-template-columns: 80px 1.6fr 1fr; gap: 28px; }
 
@@ -529,16 +519,6 @@ button, a, [role="button"] { -webkit-tap-highlight-color: transparent; touch-act
   }
   .wos-band-disco-row > .wos-disco-kind { display: none; }
 
-  /* tonight: 2-col mood grid, smaller cells */
-  .wos-mood-grid { grid-template-columns: repeat(2, 1fr); }
-  .wos-mood-cell { padding: 18px 16px !important; min-height: 100px !important; gap: 10px !important; }
-  .wos-mood-label { font-size: 28px !important; }
-  .wos-picks-grid { grid-template-columns: 1fr; gap: 14px; }
-  .wos-tonight-h1 { font-size: 56px !important; }
-  .wos-tonight-actions { flex-direction: column; align-items: stretch; gap: 10px; }
-  .wos-tonight-actions > div { display: flex; gap: 10px; }
-  .wos-tonight-actions .btn { flex: 1; }
-
   /* timeline: shrink left col + gaps */
   .wos-timeline-grid { grid-template-columns: 44px 1.4fr 1fr; gap: 10px; }
   .wos-timeline-h1 { font-size: 44px !important; }
@@ -553,7 +533,6 @@ button, a, [role="button"] { -webkit-tap-highlight-color: transparent; touch-act
 @media (max-width: 380px) {
   .wos-paper-pad { padding: 16px 12px 40px; }
   .feed-card { margin: 0 -12px; }
-  .wos-tonight-h1 { font-size: 48px !important; }
   .wos-band-h1 { font-size: clamp(40px, 12vw, 60px) !important; }
 }
 

@@ -7,7 +7,7 @@ const ROUTES = [
   { key: "/",         label: "feed" },
   { key: "/graph",    label: "graph" },
   { key: "/timeline", label: "timeline" },
-  { key: "/tonight",  label: "tonight" },
+  { key: "/random",   label: "random" },
 ];
 
 export function SiteNav() {
