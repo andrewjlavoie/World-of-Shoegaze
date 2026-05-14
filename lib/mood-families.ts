@@ -141,14 +141,3 @@ export function familyFor(primaryMood: string | undefined): FamilyKey {
   return MOOD_FAMILIES[primaryMood] ?? FALLBACK_FAMILY;
 }
 
-/**
- * Resolves the absolute world coordinate where a given primary mood's
- * sub-cluster sits. Used as the "strong attractor" in the force layout
- * AND for seeding initial node positions before simulation.
- */
-export function subMoodCentroid(primaryMood: string | undefined): { x: number; y: number } {
-  const family = familyFor(primaryMood);
-  const fc = FAMILY_CENTROIDS[family];
-  const off = primaryMood ? SUB_MOOD_OFFSETS[primaryMood] ?? { dx: 0, dy: 0 } : { dx: 0, dy: 0 };
-  return { x: fc.x + off.dx, y: fc.y + off.dy };
-}

@@ -14,7 +14,6 @@ import {
 } from "d3-force";
 import type { AtlasArtist } from "./atlas-types";
 import {
-  FALLBACK_FAMILY,
   FAMILY_CENTROIDS,
   type FamilyKey,
   familyFor,
@@ -96,7 +95,3 @@ export function layoutPositions(
   }
   return out;
 }
-
-// Re-export FALLBACK_FAMILY at module level for any UI consumer that
-// wants to know "this artist landed in the catch-all".
-export { FALLBACK_FAMILY };

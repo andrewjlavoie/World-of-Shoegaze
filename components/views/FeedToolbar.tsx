@@ -1,6 +1,6 @@
 "use client";
 
-import type { SortKey, FilterState } from "@/lib/feed-filters";
+import type { SortKey } from "@/lib/feed-filters";
 
 const SORT_OPTIONS: SortKey[] = ["name", "year", "intensity"];
 
@@ -53,6 +53,3 @@ export function FeedToolbar({
     </div>
   );
 }
-
-// Re-export FilterState so consumers can import from here too if convenient.
-export type { FilterState };
