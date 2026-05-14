@@ -819,3 +819,154 @@ button, a, [role="button"] { -webkit-tap-highlight-color: transparent; touch-act
 .gx-page.has-focus .gx-tile:not(.is-focused):not(.is-related) {
   opacity: 0.45;
 }
+
+/* Side panel — desktop right-side. Mobile drawer rules land in Task 9. */
+.gx-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 320px;
+  background: rgba(8, 6, 12, 0.92);
+  border-left: 1px solid rgba(255, 255, 255, 0.10);
+  color: #f4ede4;
+  padding: 18px 20px 22px;
+  overflow-y: auto;
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 11px;
+  z-index: 5;
+}
+.gx-panel-art {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: var(--art-bg, #2d3f5f);
+  display: flex;
+  align-items: flex-end;
+  padding: 14px;
+  margin-bottom: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+.gx-panel-art img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.gx-panel-art-title {
+  font-family: var(--font-instrument-serif), serif;
+  font-style: italic;
+  font-size: 24px;
+  line-height: 1;
+  color: #fff8e8;
+}
+.gx-panel-meta {
+  display: flex;
+  justify-content: space-between;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  margin-bottom: 10px;
+}
+.gx-panel-name {
+  font-family: var(--font-instrument-serif), serif;
+  font-style: italic;
+  font-size: 32px;
+  line-height: 1;
+  margin: 6px 0 4px;
+  color: #fff8e8;
+}
+.gx-panel-album {
+  font-family: var(--font-instrument-serif), serif;
+  font-style: italic;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 14px;
+}
+.gx-panel-quote {
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.55;
+  font-size: 12px;
+  margin: 0 0 16px;
+}
+.gx-panel-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.gx-panel-key {
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 9px;
+}
+.gx-panel-val { color: rgba(255, 255, 255, 0.85); }
+.gx-panel-moods {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 12px 0 18px;
+}
+.gx-panel-mood-chip {
+  font-size: 9px;
+  padding: 3px 7px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 248, 232, 0.9);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.gx-panel-cta {
+  display: block;
+  text-align: center;
+  padding: 10px 14px;
+  margin-top: 8px;
+  background: hsl(260, 55%, 38%);
+  color: #fff8e8;
+  border: 1px solid hsl(260, 55%, 45%);
+  text-decoration: none;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 10px;
+  cursor: pointer;
+}
+.gx-panel-listen {
+  display: flex;
+  gap: 6px;
+  margin-top: 10px;
+}
+.gx-panel-listen a {
+  flex: 1;
+  text-align: center;
+  padding: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.gx-panel-listen a:hover { background: rgba(255, 255, 255, 0.10); color: #f4ede4; }
+.gx-panel-listen a[aria-disabled="true"] { opacity: 0.35; pointer-events: none; }
+
+/* Default empty state */
+.gx-panel-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 40px;
+}
+.gx-panel-intro h2 {
+  font-family: var(--font-instrument-serif), serif;
+  font-style: italic;
+  font-size: 28px;
+  margin: 0;
+  color: #fff8e8;
+}
+.gx-panel-intro p { margin: 0; line-height: 1.55; color: rgba(255, 248, 232, 0.78); font-size: 12px; }
+.gx-panel-intro ul { margin: 0; padding-left: 16px; color: rgba(255, 255, 255, 0.55); font-size: 11px; line-height: 1.8; }
+
+/* When the panel is showing, give the viewport room on desktop. */
+@media (min-width: 720px) {
+  .gx-page.has-panel .gx-viewport,
+  .gx-page.has-panel .gx-stars { right: 320px; }
+  .gx-page.has-panel .gx-compass { left: 14px; }
+  .gx-page.has-panel .gx-reset { right: 334px; }
+  .gx-page.has-panel .gx-controls { right: 334px; }
+}

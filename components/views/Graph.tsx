@@ -15,6 +15,7 @@ import { WORLD_BOUNDS } from "@/lib/mood-families";
 import { MOOD_COLORS } from "@/lib/data";
 import type { AtlasArtist, AtlasAlbum } from "@/lib/atlas-types";
 import { similarArtists } from "@/lib/atlas-similarity";
+import { GraphPanel } from "./GraphPanel";
 
 const ZOOM_MIN = 0.5;
 const ZOOM_MAX = 4;
@@ -249,7 +250,7 @@ export function Graph({ artists }: { artists: AtlasArtist[] }) {
   const isDragging = dragRef.current !== null;
 
   return (
-    <div className={`gx-page ${focused ? "has-focus" : ""}`}>
+    <div className={`gx-page has-panel ${focused ? "has-focus" : ""}`}>
       <div className="gx-stars" />
       <div className="gx-compass">an atlas</div>
 
@@ -300,6 +301,8 @@ export function Graph({ artists }: { artists: AtlasArtist[] }) {
           })}
         </div>
       </div>
+
+      <GraphPanel artist={focused ?? null} />
     </div>
   );
 }
