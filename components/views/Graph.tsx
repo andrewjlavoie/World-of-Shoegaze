@@ -211,11 +211,11 @@ export function Graph({ artists }: { artists: AtlasArtist[] }) {
       <div className="gx-stars" />
       <div className="gx-compass">an atlas</div>
 
-      <button className="gx-reset" onClick={fitAll} title="Fit all">↺ fit all</button>
+      <button className="gx-reset" onClick={fitAll} title="Fit all" aria-label="Fit all to viewport">↺ fit all</button>
 
       <div className="gx-controls">
-        <button className="gx-ctl" onClick={() => zoomBy(ZOOM_STEP)} title="Zoom in">＋</button>
-        <button className="gx-ctl" onClick={() => zoomBy(1 / ZOOM_STEP)} title="Zoom out">－</button>
+        <button className="gx-ctl" onClick={() => zoomBy(ZOOM_STEP)} title="Zoom in" aria-label="Zoom in">＋</button>
+        <button className="gx-ctl" onClick={() => zoomBy(1 / ZOOM_STEP)} title="Zoom out" aria-label="Zoom out">－</button>
       </div>
 
       <div
