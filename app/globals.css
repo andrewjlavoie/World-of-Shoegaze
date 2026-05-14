@@ -406,6 +406,81 @@ a,
   outline-offset: 2px;
 }
 
+/* --- Site nav (sticky top bar) ----------------------------------------- */
+.wos-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 12px 20px;
+  background: var(--paper);
+  border-bottom: 1px solid var(--rule);
+  box-shadow:
+    0 1px 0 var(--rule-soft),
+    0 6px 8px -8px rgba(0, 0, 0, 0.08);
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 11px;
+}
+
+.wos-nav-logo {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.wos-nav-logo-mark {
+  font-family: var(--font-instrument-serif), serif;
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.wos-nav-logo-name {
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 10px;
+  color: var(--ink-soft);
+}
+
+.wos-nav-routes {
+  display: flex;
+  gap: 14px;
+}
+
+.wos-nav-link {
+  text-decoration: none;
+  color: var(--ink-soft);
+  font-weight: 400;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  letter-spacing: 0.04em;
+}
+
+.wos-nav-link.is-active {
+  color: var(--ink);
+  font-weight: 500;
+  border-bottom-color: var(--accent);
+}
+
+.wos-nav-version {
+  margin-left: auto;
+  color: var(--ink-faint);
+}
+
+@media (max-width: 720px) {
+  .wos-nav {
+    padding: 9px 14px;
+    gap: 12px;
+  }
+  .wos-nav-routes {
+    gap: 11px;
+  }
+}
+
 /* ------------------------------------------------------------------ */
 /* Responsive layout helpers — used by views via className.            */
 /* Default = desktop. Mobile breakpoints override below.               */
@@ -836,19 +911,11 @@ a,
     padding: 18px 14px 48px;
   }
 
-  /* nav: tighter */
-  .wos-nav {
-    padding: 9px 14px !important;
-    gap: 12px !important;
-  }
   .wos-nav-version {
     display: none;
   }
   .wos-nav-divider {
     display: none;
-  }
-  .wos-nav-routes {
-    gap: 11px !important;
   }
 
   /* feed: full width, tighter gaps */
