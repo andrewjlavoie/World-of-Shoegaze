@@ -1,10 +1,15 @@
 import { MongoClient, type Db, type Document } from "mongodb";
 
-const uri = process.env.MONGODB_URI;
 const dbName = process.env.MONGODB_DB || "wos";
 
-if (!uri) {
-  throw new Error("MONGODB_URI is not set. Copy .env.local.example to .env.local.");
+function requireUri(): string {
+  const uri = process.env.MONGODB_URI;
+  if (!uri) {
+    throw new Error(
+      "MONGODB_URI is not set. Add it to .env.local for local dev or to your Vercel project env vars.",
+    );
+  }
+  return uri;
 }
 
 // In dev, Next.js HMR re-imports modules. Cache the client on globalThis to
@@ -13,14 +18,15 @@ declare global {
   var _wosMongo: { client: MongoClient; connect: Promise<MongoClient> } | undefined;
 }
 
-const cached =
-  globalThis._wosMongo ??
-  (globalThis._wosMongo = (() => {
-    const client = new MongoClient(uri, { maxPoolSize: 5 });
-    return { client, connect: client.connect() };
-  })());
+function getOrCreateCached() {
+  if (globalThis._wosMongo) return globalThis._wosMongo;
+  const client = new MongoClient(requireUri(), { maxPoolSize: 5 });
+  globalThis._wosMongo = { client, connect: client.connect() };
+  return globalThis._wosMongo;
+}
 
 export async function getDb(): Promise<Db> {
+  const cached = getOrCreateCached();
   await cached.connect;
   return cached.client.db(dbName);
 }
