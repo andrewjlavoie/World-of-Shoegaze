@@ -911,3 +911,47 @@ button, a, [role="button"] { -webkit-tap-highlight-color: transparent; touch-act
   /* Slightly bigger touch targets on mobile. */
   .gx-ctl { width: 44px; height: 44px; font-size: 18px; }
 }
+
+/* Feed toolbar v2 — search + filters button + sort buttons in one row. */
+.feed-toolbar2 {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.feed-toolbar2-search {
+  flex: 1 1 220px;
+  min-width: 0;
+}
+.feed-toolbar2-filters {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.feed-toolbar2-badge {
+  background: var(--accent);
+  color: #fff8e8;
+  padding: 1px 6px;
+  font-size: 9px;
+  border-radius: 999px;
+  letter-spacing: 0;
+  text-transform: none;
+  font-weight: 600;
+}
+[data-tone="terminal"] .feed-toolbar2-badge { color: #0a0c08; }
+.feed-toolbar2-sort {
+  display: flex;
+  border: 1px solid var(--rule);
+}
+.feed-toolbar2-sort .btn {
+  border: none;
+  border-right: 1px solid var(--rule);
+}
+.feed-toolbar2-sort .btn:last-child { border-right: none; }
+
+@media (max-width: 720px) {
+  .feed-toolbar2 { gap: 6px; }
+  .feed-toolbar2-sort { width: 100%; order: 99; }
+  .feed-toolbar2-sort .btn { flex: 1; }
+}
