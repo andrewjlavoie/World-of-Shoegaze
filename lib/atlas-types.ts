@@ -17,7 +17,7 @@ export interface AtlasAlbum {
   title: string;
   year: number;
   kind: AlbumKind;
-  isReference: boolean;    // exactly one per artist should be true
+  isReference?: boolean;   // exactly one per artist should be true; absent = false
   note?: string;
   art?: Image;
 }
