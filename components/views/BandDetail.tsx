@@ -65,7 +65,6 @@ const LISTEN_ORDER: Array<{
 export function BandDetail({ artist, similar }: { artist: AtlasArtist; similar: AtlasArtist[] }) {
   const palette = paletteFor(artist.moods);
   const ref = refAlbum(artist)!;
-  const tint = `hsl(${palette.hue}, 22%, 92%)`;
   const accentSoft = `hsl(${palette.hue}, 55%, 38%)`;
   const eraInfo = ERAS.find((e) => e.key === artist.era);
 
@@ -76,8 +75,6 @@ export function BandDetail({ artist, similar }: { artist: AtlasArtist; similar: 
         {
           width: "100%",
           minHeight: "100%",
-          background: tint,
-          ["--accent" as string]: accentSoft,
         } as CSSProperties
       }
     >

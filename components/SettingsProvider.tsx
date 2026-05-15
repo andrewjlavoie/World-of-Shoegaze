@@ -4,7 +4,7 @@ import { createContext, useCallback, useContext, useEffect, useState } from "rea
 import type { Density, Motion, Settings, Tone } from "@/lib/types";
 
 const DEFAULTS: Settings = { tone: "ink", density: "normal", motion: "slow" };
-const KEY = "wos.settings.v1";
+const KEY = "wos.settings.v2";
 
 interface Ctx {
   settings: Settings;
