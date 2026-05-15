@@ -78,6 +78,21 @@
   --highlight: #ff5eb8;
 }
 
+[data-tone="ink"] {
+  --paper: #15110d;
+  --paper-2: #1f1a13;
+  --ink: #f4ede4;
+  --ink-soft: #c8bfae;
+  --ink-faint: #8d8478;
+  --rule: rgba(244, 237, 228, 0.16);
+  --rule-soft: rgba(244, 237, 228, 0.07);
+  --accent: #d65a52;
+  --accent-2: #6fb6c8;
+  --highlight: #e8d77a;
+  --paper-warm: #f4ede4;
+  --gx-overlay: rgba(0, 0, 0, 0.85);
+}
+
 /* === 2. RESET + BASE ======================================================== */
 
 *,
@@ -196,7 +211,8 @@ a,
   z-index: 1;
 }
 [data-tone="terminal"] .wos.paper::before,
-[data-tone="magenta"] .wos.paper::before {
+[data-tone="magenta"] .wos.paper::before,
+[data-tone="ink"] .wos.paper::before {
   opacity: 0.08;
   mix-blend-mode: screen;
 }
@@ -326,6 +342,9 @@ a,
 }
 [data-tone="terminal"] .wos .chip.is-active {
   color: #0a0c08;
+}
+[data-tone="ink"] .wos .chip.is-active {
+  color: var(--paper);
 }
 
 .wos input[type="text"],
@@ -1548,6 +1567,9 @@ a,
 }
 [data-tone="terminal"] .feed-toolbar2-badge {
   color: #0a0c08;
+}
+[data-tone="ink"] .feed-toolbar2-badge {
+  color: var(--paper);
 }
 .feed-toolbar2-sort {
   display: flex;

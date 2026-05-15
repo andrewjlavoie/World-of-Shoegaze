@@ -12,7 +12,7 @@ export interface Era {
   range: string;
 }
 
-export type Tone = "paper" | "terminal" | "magenta";
+export type Tone = "paper" | "terminal" | "magenta" | "ink";
 export type Density = "tight" | "normal" | "loose";
 export type Motion = "snap" | "fast" | "slow";
 

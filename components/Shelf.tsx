@@ -5,6 +5,7 @@ import { DENSITY_OPTIONS, MOTION_OPTIONS, TONE_OPTIONS, useSettings } from "./Se
 import type { Density, Motion, Tone } from "@/lib/types";
 
 const SWATCH: Record<Tone, string> = {
+  ink: "linear-gradient(135deg, #15110d 0%, #15110d 50%, #d65a52 50%, #d65a52)",
   paper: "linear-gradient(135deg, #ebe5d6 0%, #ebe5d6 50%, #8c2a23 50%, #8c2a23)",
   terminal: "linear-gradient(135deg, #0a0c08 0%, #0a0c08 50%, #aef4a0 50%, #aef4a0)",
   magenta: "linear-gradient(135deg, #0e0814 0%, #0e0814 50%, #ff5eb8 50%, #ff5eb8)",

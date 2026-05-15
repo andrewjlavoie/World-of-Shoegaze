@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${jetbrains.variable} ${instrument.variable}`}>
-      <body data-tone="paper">
+      <body data-tone="ink">
         <SettingsProvider>
           <div
             style={{ width: "100vw", minHeight: "100vh", display: "flex", flexDirection: "column" }}

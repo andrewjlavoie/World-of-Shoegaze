@@ -3,7 +3,7 @@
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
 import type { Density, Motion, Settings, Tone } from "@/lib/types";
 
-const DEFAULTS: Settings = { tone: "paper", density: "normal", motion: "slow" };
+const DEFAULTS: Settings = { tone: "ink", density: "normal", motion: "slow" };
 const KEY = "wos.settings.v1";
 
 interface Ctx {
@@ -56,6 +56,6 @@ export function useSettings(): Ctx {
   return v;
 }
 
-export const TONE_OPTIONS: Tone[] = ["paper", "terminal", "magenta"];
+export const TONE_OPTIONS: Tone[] = ["ink", "paper", "terminal", "magenta"];
 export const DENSITY_OPTIONS: Density[] = ["tight", "normal", "loose"];
 export const MOTION_OPTIONS: Motion[] = ["snap", "fast", "slow"];
