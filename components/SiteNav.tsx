@@ -30,7 +30,7 @@ export function SiteNav() {
           );
         })}
       </div>
-      <span className="wos-nav-version">v0.1</span>
+      <span className="wos-nav-version">v1.0</span>
     </nav>
   );
 }
